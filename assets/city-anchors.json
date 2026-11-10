@@ -1,0 +1,43 @@
+{
+  "coordinate_system": "percentage from image left/top",
+  "image_width": 1920,
+  "image_height": 1216,
+  "anchors_from_original_brief": [
+    {
+      "id": "sardis",
+      "name_fa": "سارد",
+      "x_percent": 12,
+      "y_percent": 21
+    },
+    {
+      "id": "tyre",
+      "name_fa": "صور",
+      "x_percent": 18,
+      "y_percent": 57
+    },
+    {
+      "id": "babylon",
+      "name_fa": "بابل",
+      "x_percent": 44,
+      "y_percent": 43
+    },
+    {
+      "id": "susa",
+      "name_fa": "شوش",
+      "x_percent": 66,
+      "y_percent": 33
+    },
+    {
+      "id": "persepolis",
+      "name_fa": "پارسه",
+      "x_percent": 76,
+      "y_percent": 67
+    },
+    {
+      "id": "bactra",
+      "name_fa": "باختر",
+      "x_percent": 87,
+      "y_percent": 20
+    }
+  ]
+}
