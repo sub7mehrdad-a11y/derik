@@ -1,0 +1,97 @@
+{
+  "units": "percent of image, origin top-left",
+  "image": "assets/city-susa.webp",
+  "width": 1920,
+  "height": 1216,
+  "status": "Visually estimated rectangles for prototype; calibrate in game. Lots are irregular shapes; rectangles approximate interiors.",
+  "regions": [
+    {
+      "id": "temple",
+      "name_fa": "معبد",
+      "left": 7,
+      "top": 6,
+      "width": 22,
+      "height": 29
+    },
+    {
+      "id": "apadana",
+      "name_fa": "کاخ آپادانا",
+      "left": 62,
+      "top": 2,
+      "width": 33,
+      "height": 29
+    },
+    {
+      "id": "market",
+      "name_fa": "بازار",
+      "left": 28,
+      "top": 36,
+      "width": 28,
+      "height": 20
+    },
+    {
+      "id": "mill",
+      "name_fa": "آسیاب و انبار غله",
+      "left": 5,
+      "top": 59,
+      "width": 21,
+      "height": 21
+    },
+    {
+      "id": "merchant",
+      "name_fa": "خانه و دفتر بازرگان",
+      "left": 62,
+      "top": 37,
+      "width": 18,
+      "height": 14
+    },
+    {
+      "id": "caravanserai",
+      "name_fa": "کاروانسرا",
+      "left": 62,
+      "top": 63,
+      "width": 21,
+      "height": 22
+    },
+    {
+      "id": "lot-1",
+      "name_fa": "زمین ۱",
+      "left": 43,
+      "top": 11,
+      "width": 15,
+      "height": 14
+    },
+    {
+      "id": "lot-2",
+      "name_fa": "زمین ۲",
+      "left": 79,
+      "top": 27,
+      "width": 12,
+      "height": 11
+    },
+    {
+      "id": "lot-3",
+      "name_fa": "زمین ۳",
+      "left": 3,
+      "top": 44,
+      "width": 16,
+      "height": 12
+    },
+    {
+      "id": "lot-4",
+      "name_fa": "زمین ۴",
+      "left": 61,
+      "top": 51,
+      "width": 16,
+      "height": 10
+    },
+    {
+      "id": "lot-5",
+      "name_fa": "زمین ۵",
+      "left": 25,
+      "top": 77,
+      "width": 17,
+      "height": 12
+    }
+  ]
+}
