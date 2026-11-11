@@ -387,21 +387,27 @@ const tree=(x,y,c)=>`<rect x="${x-2}" y="${y-18}" width="4" height="18" fill="#6
 const cypress=(x,y)=>POL(`${x-5},${y} ${x+5},${y} ${x},${y-40}`,'#3f6b3a');
 const LAY={temple:[40,40,120,110],boss:[440,40,120,110],market:[190,135,220,110],yard:[440,232,120,110],biz:[40,232,120,110],house:[440,168,120,50]};
 const PLOTS=[[180,40,110,80],[310,40,110,80],[180,262,110,80],[310,262,110,80],[40,168,120,50]];
-let ARTOK={susa:true};
+let ARTOK={susa:true,parsa:true,sardis:true,babel:true,sur:true,bakhtar:true};
 const ART={susa:{img:'assets/city-susa.webp',
  lay:{temple:[7,6,22,29],boss:[62,2,33,29],market:[28,36,28,20],biz:[5,59,21,21],house:[62,37,18,14],yard:[62,63,21,22]},
- plots:[[43,11,15,14],[79,27,12,11],[3,44,16,12],[61,51,16,10],[25,77,17,12]]}};
-const pc=([l,t,w,h])=>[l*6,t*3.8,w*6,h*3.8];
-function artSVG(c){const A=ART[c],h=c==S.home,P=propsOf(c),z=C[c].z,p=PAL[c];
- let m=`<image href="${A.img}" x="0" y="0" width="600" height="380" preserveAspectRatio="xMidYMid slice" onerror="ARTOK['${c}']=false;render()"/>`;
+ plots:[[43,11,15,14],[79,27,12,11],[3,44,16,12],[61,51,16,10],[25,77,17,12]]},
+ parsa:{img:'assets/city-parsa.webp',h:400,lay:{temple:[18,18,17,15],boss:[50,6,38,24],market:[31,35,23,15],biz:[13,49,24,13],house:[57,35,15,13],yard:[55,53,25,15]},plots:[[36,19,12,8],[70,29,11,8],[16,36,13,10],[57,47,12,7],[31,60,13,9]]},
+ sardis:{img:'assets/city-sardis.webp',h:400,lay:{temple:[18,24,14,15],boss:[50,20,26,17],market:[31,40,21,14],biz:[9,55,26,17],house:[58,42,21,12],yard:[53,60,28,14]},plots:[[36,26,11,9],[66,35,12,7],[11,41,12,9],[54,54,12,7],[32,67,12,8]]},
+ babel:{img:'assets/city-babel.webp',h:400,lay:{temple:[17,12,25,22],boss:[54,17,26,15],market:[37,33,21,15],biz:[18,51,19,13],house:[62,35,19,13],yard:[57,54,23,15]},plots:[[43,20,10,7],[74,30,10,7],[18,38,10,8],[67,47,11,7],[30,62,12,8]]},
+ sur:{img:'assets/city-sur.webp',h:400,lay:{temple:[15,15,17,15],boss:[49,15,17,14],market:[25,34,19,15],biz:[11,50,17,15],house:[50,38,16,12],yard:[43,55,27,21]},plots:[[32,21,11,8],[52,29,11,8],[12,39,11,9],[48,49,11,7],[25,62,12,9]]},
+ bakhtar:{img:'assets/city-bakhtar.webp',h:400,lay:{temple:[17,22,13,12],boss:[47,13,27,21],market:[27,34,24,15],biz:[10,50,24,15],house:[52,38,18,12],yard:[47,54,23,15]},plots:[[33,22,12,8],[66,32,10,7],[11,40,12,8],[56,50,12,6],[26,62,11,9]]}};
+let CH=380;
+const pc=([l,t,w,h])=>[l*6,t*CH/100,w*6,h*CH/100];
+function artSVG(c){const A=ART[c],h=c==S.home,P=propsOf(c),z=C[c].z,p=PAL[c];CH=A.h||380;
+ let m=`<image href="${A.img}" x="0" y="0" width="600" height="${CH}" preserveAspectRatio="xMidYMid slice" onerror="ARTOK['${c}']=false;render()"/>`;
  const chip=(x,y,t,sz)=>`<text x="${x}" y="${y}" class="cl art" ${sz?`font-size="${sz}"`:''}>${t}</text>`;
  const hit=(k,r,ic,label,sub,on,dash,ly)=>{const[x,y,w,hh]=pc(r);return`<g class="bld hit" onclick="${k}"><rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="8" fill="${on||'transparent'}" stroke="${dash?'#fff':'transparent'}" stroke-width="1.5" ${dash?'stroke-dasharray="5 4"':''} class="hr"/>${ic?`<text x="${x+w/2}" y="${y+hh/2}" text-anchor="middle" font-size="${hh>60?14:11}">${ic}</text>`:''}${chip(x+w/2,ly!=null?y+hh*ly:y+hh-6,label)}${sub?chip(x+w/2,y+14,sub,9.5).replace('art"','art sb"'):''}</g>`};
- m+=hit("bld('temple')",A.lay.temple,'','معبد اینشوشیناک','وام، سپرده، صرافی');
- m+=hit("bld('boss')",A.lay.boss,'','کاخ آپادانا','خراج، پروانه، فرمان شاه',null,false,.62);
- m+=hit("bld('market')",A.lay.market,'','بازار شوش','خرید و فروش');
+ m+=hit("bld('temple')",A.lay.temple,'',c=='sur'?'معبد ملقارت':c=='babel'?'اساگیلا':c=='parsa'||c=='bakhtar'?'آتشکده':c=='sardis'?'معبد آرتمیس':'معبد اینشوشیناک','وام، سپرده، صرافی');
+ m+=hit("bld('boss')",A.lay.boss,'',z=='gov'?(c=='susa'?'کاخ آپادانا':c=='parsa'?'تخت‌جمشید':'دیوان ساتراپ'):BOSS[z][0],z=='gov'?'خراج، پروانه، فرمان شاه':z=='temple'?'سهم معبد، فرمان شاه':'بدون عوارض سنگین',null,false,.62);
+ m+=hit("bld('market')",A.lay.market,'','بازار '+C[c].n,'خرید و فروش');
  m+=hit("bld('biz')",A.lay.biz,'',BIZ[c][0],'سرمایه‌گذاری');
  m+=hit("bld('house')",A.lay.house,P?'🏠':'🔑',P?(h?'خانه و دفتر شما':'خانه شما'):'خانه برای فروش',P?'انبار '+f(load(P.wh))+'/'+f(whCap(c)):'۲۰۰۰ دریک',P?'#f7d77a55':'#ffffff22',!P,.8);
- m+=hit("bld('yard')",A.lay.yard,'','کاروانسرا','کاروان‌ها، نگهبان');
+ m+=hit("bld('yard')",A.lay.yard,'',c=='sur'?'بندر و اسکله':'کاروانسرا','کاروان‌ها، نگهبان');
  A.plots.forEach((r,i)=>{const pl=P&&P.plots[i];
   m+=hit(`plotClick(${i})`,r,pl?PT[pl.t].ic:'',pl?PT[pl.t].n:(P?'زمین خالی':'زمین'),pl?(pl.t=='farm'?(pl.mode=='share'?'سهم‌بری':'اجاره'):''):(P?'برای ساخت بزنید':''),pl?'#9fd06a66':'#ffffff1a',!pl)});
  const[yx,yy]=pc(A.lay.yard);
@@ -598,7 +604,7 @@ function evHTML(e){const c=e.c,left=f(e.end-S.day),hd=`<b>${EVI[e.type]} ${e.nam
 const DIM={world:[600,600],city:[600,380]};
 const VW={};
 const vk=()=>S.home&&S.view=='city'?'city:'+S.selCity:'world';
-const vdim=()=>S.home&&S.view=='city'?DIM.city:DIM.world;
+const vdim=()=>S.home&&S.view=='city'?[600,(ART[S.selCity]&&ARTOK[S.selCity]&&ART[S.selCity].h)||380]:DIM.world;
 function vpS(){const e=document.getElementById('vp');return[e.clientWidth||1,e.clientHeight||1]}
 function getV(){const k=vk(),[W,H]=vdim(),[pw,ph]=vpS(),asp=pw/ph,maxW=Math.min(W,H*asp);let v=VW[k];
  if(!v){const w=Math.min(maxW,k=='world'?250:360),ct=k=='world'?[C[S.home||'susa'].x,C[S.home||'susa'].y]:[300,190];v=VW[k]={w,x:ct[0]-w/2,y:ct[1]-w/asp/2}}
