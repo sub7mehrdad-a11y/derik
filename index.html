@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#a8501f"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.json"><link rel="preload" as="image" href="assets/ui/hud/bar.webp"><link rel="preload" as="image" href="assets/world-v4/base.webp"><link rel="preload" as="image" href="assets/ui/sheet/panel.webp">
+<html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#a8501f"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.json"><link rel="preload" as="image" href="assets/ui/hud/bar.webp"><link rel="preload" as="image" href="assets/world-v5/base.webp"><link rel="preload" as="image" href="assets/ui/sheet/panel.webp">
 <title>دریک: راه‌های شاهی</title>
 <style>
 :root{--bg:#f3ecdd;--card:#fffdf7;--ink:#2b2118;--mute:#7a6a58;--line:#e2d6c0;--acc:#a8501f;--good:#2f7d4f;--bad:#b3362c;--sea:#bcd6de;--land:#ead9b4;--mtn:#c9b48a;--gov:#3b6ea5;--free:#d9822b;--tem:#8a4fa0}
@@ -42,7 +42,7 @@ th,td{padding:4px 3px;text-align:right;border-bottom:1px solid var(--line);font-
 @media (prefers-color-scheme:dark){.car.ev{background:#2f2418}}
 h2{font-size:15px;margin:0 0 6px}p{margin:4px 0 8px}
 .gd{border-bottom:1px solid var(--line);padding:6px 0}.gh{display:flex;align-items:center;gap:6px}.gh .pr{margin-inline-start:auto;font-weight:700;font-size:15px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}.grid div{border:1px solid var(--line);border-radius:10px;padding:6px 8px}.grid b{display:block;font-size:15px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}.grid div{border:1px solid var(--line);border-radius:10px;padding:4px 8px;font-size:12px}.grid b{display:block;font-size:15px}
 .tags{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;margin:4px 0 8px}
 .bar2{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin:4px 0}.bar2 i{display:block;height:100%;background:var(--acc)}
 #log div{padding:3px 0;border-bottom:1px dashed var(--line);font-size:13px}
@@ -99,9 +99,9 @@ h2{font-size:15px;margin:0 0 6px}p{margin:4px 0 8px}
 .gd .m{color:#6a5a48}
 .pr{border:0;border-style:solid;border-width:0 18px;padding:3px 4px;margin-inline-start:auto;font-size:14px;min-width:80px;text-align:center;color:#2b2118}
 .pr.plo{border-image:url(assets/ui/chip/price-low.webp) 0 48 fill/0 18px stretch;color:#1e4a2c;font-weight:700}
-.pr.pmi{border-image:url(assets/ui/chip/price-mid.webp) 0 48 fill/0 18px stretch}
-.pr.phi{border-image:url(assets/ui/chip/price-high.webp) 0 48 fill/0 18px stretch;color:#fff}
-.tg{font-size:10px;padding:0 10px;border-style:solid;border-width:0 8px;color:#fff;margin-inline:2px}
+.pr.pmi{border-image:url(assets/ui/chip/price-mid.webp) 0 48 fill/0 18px stretch;color:#3a2410;font-weight:700}
+.pr.phi{border-image:url(assets/ui/chip/price-high.webp) 0 48 fill/0 18px stretch;color:#5a1710;font-weight:700}
+.tg{font-size:11px;font-weight:700;padding:0 10px;border-style:solid;border-width:0 8px;color:#3a2410;margin-inline:2px}
 .tg.tp{border-image:url(assets/ui/chip/tag-produced.webp) 0 24 fill/0 8px stretch}
 .tg.td{border-image:url(assets/ui/chip/tag-demand.webp) 0 24 fill/0 8px stretch}
 #sbody h2{border:0;border-style:solid;border-width:12px 28px;border-image:url(assets/ui/title/ribbon.webp) 24 72 fill/12px 28px stretch;text-align:center;color:#fff6e0;font-size:14px;margin:10px 0 6px;padding:0}
@@ -110,6 +110,44 @@ input[type=number]{border:0;border-style:solid;border-width:8px;border-image:url
 .bar2 i{background:url(assets/ui/bar/fill-gold.webp) 0 0/100% 100% no-repeat;border-radius:0}
 #shead button{width:40px;height:40px;min-height:0;padding:0;margin:0;border:0;border-image:none;border-radius:0;background:url(assets/ui/sheet/close.webp) center/contain no-repeat;color:transparent;font-size:0}
 #shead h2{border:0!important;border-image:none!important;color:#2b2118!important;margin:0!important}
+/* ===== v9: منوهای نسخه‌ی ۳ (قاب نقاشی‌شده دیوان شاهی) ===== */
+#sheet{--ink:#2b2118;border-width:30px 28px 0;border-image:url(assets/ui/menu/panel-frame.webp) 120 fill/30px 28px 0 stretch;filter:drop-shadow(0 -6px 16px #000a)}
+#shead{background:none;border:0;border-style:solid;border-width:0 26px;border-image:url(assets/ui/menu/header-band.webp) 0 80 fill/0 26px stretch;min-height:52px;padding:0 4px;margin:-6px -6px 6px}
+#shead h2{color:#fff6e0!important;font-size:15px;text-align:center;padding-inline-end:0}
+#shead button{background:url(assets/ui/menu/close.webp) center/contain no-repeat;width:38px;height:38px;order:-1}
+#schips{gap:4px;margin:0 0 6px}
+#schips button{border-image:url(assets/ui/menu/tab-off.webp) 24 32 fill/11px 14px stretch;color:#fff6e0;font-weight:700}
+#schips button.on2{border-image-source:url(assets/ui/menu/tab-on.webp);color:#2b2118}
+#sbody button:not(.o):not(:disabled),.ov button:not(.o):not(:disabled){border-style:solid;border-width:10px 17px;padding:0 2px;min-height:40px;min-width:48px;line-height:1.3;border-image:url(assets/ui/menu/btn-primary.webp) 24 40 fill/10px 17px stretch;color:#fff6e0;text-shadow:0 1px 1px #0008}
+#sbody button.o,.ov button.o{border-style:solid;border-width:10px 17px;padding:0 2px;min-height:40px;min-width:48px;line-height:1.3;border-image:url(assets/ui/menu/btn-secondary.webp) 24 40 fill/10px 17px stretch;color:#2b2118;font-weight:700}
+#sbody button:disabled,.ov button:disabled{border-style:solid;border-width:10px 17px;padding:0 2px;min-height:40px;min-width:48px;line-height:1.3;border-image:url(assets/ui/menu/btn-disabled.webp) 24 40 fill/10px 17px stretch;color:#cdbd9f;opacity:1}
+.fab button.fw{border-image:url(assets/ui/menu/btn-primary.webp) 24 40 fill/10px 17px stretch;color:#fff6e0}
+.car{border-image:url(assets/ui/menu/card.webp) 48 fill/18px stretch;padding:20px 14px 14px}
+.car.sel{outline:0;border-image-source:url(assets/ui/menu/card.webp);filter:drop-shadow(0 0 5px #d99a2b)}
+.gd{border-image:url(assets/ui/menu/row-a.webp) 0 32 fill/0 14px stretch}
+.gd.rb{border-image-source:url(assets/ui/menu/row-b.webp)}
+.gd.hot{border-image-source:url(assets/ui/menu/row-hot.webp)}
+.gd .m{color:#5a4a38}
+.pr,.pr.plo,.pr.pmi,.pr.phi{color:#2b2118;font-weight:700}
+.pr.plo{border-image:url(assets/ui/menu/chip-green.webp) 0 48 fill/0 18px stretch}
+.pr.pmi{border-image:url(assets/ui/menu/chip-beige.webp) 0 48 fill/0 18px stretch}
+.pr.phi{border-image:url(assets/ui/menu/chip-red.webp) 0 48 fill/0 18px stretch}
+.tg{color:#2b2118}
+.tg.tp{border-image:url(assets/ui/menu/tag-a.webp) 0 24 fill/0 8px stretch}
+.tg.td{border-image:url(assets/ui/menu/tag-b.webp) 0 24 fill/0 8px stretch}
+#sbody h2{border-image:url(assets/ui/menu/ribbon.webp) 24 72 fill/12px 28px stretch;color:#fff6e0;text-shadow:0 1px 2px #000a}
+input[type=number]{border-image:url(assets/ui/menu/field.webp) 24 fill/10px stretch;color:#fff6e0}
+.bar2{border-image:url(assets/ui/bar/track.webp) 0 16 fill/0 8px stretch}
+.ov{background:#000b url(assets/ui/menu/dim-pattern.webp) repeat;background-blend-mode:multiply}
+.ov .box{--ink:#fff6e0;--mute:#dccaa6;--acc:#ffd47a;--line:#6b5238;--card:#3a2a1e;color:#fff6e0;border-image:url(assets/ui/menu/panel-frame-dark.webp) 120 fill/34px stretch;padding:26px}
+.ov .box h3{color:#ffe29a}
+#sbody button,.ov button{border-style:solid;border-width:10px 17px;padding:0 2px;min-height:40px;min-width:48px;line-height:1.3}
+#schips button{border-style:solid;border-width:9px 14px;padding:0;min-height:40px;min-width:0;font-size:10px;gap:2px}#schips button img{display:none}
+.fab button.fw{border-style:solid;border-width:10px 17px;padding:0 2px}
+.car{border-style:solid;border-width:18px;padding:14px 4px 4px}
+#sbody::-webkit-scrollbar{width:10px}
+#sbody::-webkit-scrollbar-track{background:url(assets/ui/menu/scroll-track.webp) center/100% 100% no-repeat}
+#sbody::-webkit-scrollbar-thumb{background:url(assets/ui/menu/scroll-thumb.webp) center/100% 100% no-repeat;min-height:48px}
 </style></head><body>
 <div id="hud"></div>
 <div id="vp"><svg id="map" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid meet"></svg></div>
@@ -124,22 +162,31 @@ const G={grain:['غلات',8],date:['خرما',12],wool:['پشم',18],wine:['ش�
 const GN=Object.keys(G);
 const Z={gov:{n:'دولتی',tax:.06,rob:.35,col:'var(--gov)'},free:{n:'آزاد/مرزی',tax:.02,rob:1.2,col:'var(--free)'},temple:{n:'معبدی',tax:.04,rob:.7,col:'var(--tem)'},far:{n:'برون‌مرزی',tax:0,rob:.9,col:'var(--free)'},stop:{n:'کاروانسرا',tax:0,rob:.25,col:'var(--free)'}};
 const C={
- susa:{n:'شوش',x:533,y:300,z:'gov',p:['grain','cloth'],d:['argh','lapis','wine'],note:'پایتخت اداری داریوش با کاخ آپادانا و آجرهای لعابدار؛ مرکز فرمان‌ها و عوارض.'},
- parsa:{n:'پارسه',x:590,y:342,z:'gov',p:['wine','wool'],d:['cedar','metal','lapis','grain'],note:'تخت‌جمشید در حال ساخت: ایوان بزرگ آپادانا و دروازه همه‌ملت‌ها.'},
- sardis:{n:'سارد',x:284,y:180,z:'gov',p:['metal','cloth'],d:['grain','date','argh'],note:'پایتخت ساتراپی لیدیه، با دیوارهای کوه‌پایه، معبد ایونی و زرگران رود پکتولوس.'},
- babel:{n:'بابل',x:486,y:293,z:'temple',p:['grain','date'],d:['metal','cedar','wine'],note:'دروازه ایشتار آبی لعابدار و زیگورات اتمنانکی؛ خزانه معبد و خاندان‌های بانکی.'},
- sur:{n:'صور',x:372,y:279,z:'free',p:['argh','cedar'],d:['grain','wool','date'],note:'بندر فنیقی روی جزیره، با ستون‌های ملقارت و کارگاه‌های ارغوان.'},
- khorasan:{n:'کاروانسرای خراسان',l:'🏕 خراسان',k:1,x:653,y:239,z:'stop',p:['wool'],d:['grain','wine'],note:'توقفگاه خیالی راه شرق میان شوش و باختر؛ تاجران کاروان‌ها این‌جا گرد می‌آیند و بورس کوچکی دارند.'},
- cappadocia:{n:'کاروانسرای کاپادوکیه',l:'🏕 کاپادوکیه',k:1,x:366,y:176,z:'stop',p:['wool','grain'],d:['cloth','metal'],note:'توقفگاه راه شاهی میان سارد و بابل؛ جای استراحت کاروان و معامله‌ی کوچک با تاجران.'},
- issus:{n:'بندر کاروانسرای ایسوس',l:'⚓ ایسوس',k:1,x:384,y:212,z:'stop',p:['cedar','wine'],d:['grain','date'],note:'بندرگاه کوچک میان سارد و صور؛ کشتی و کاروان این‌جا بار عوض می‌کنند.'},
- athens:{n:'آتن',f:1,x:231,y:190,z:'far',p:['wine','metal'],d:['argh','lapis','wool'],note:'شهر دریایی یونان، بیرون از شاهنشاهی: روغن، شراب و نقره می‌دهد و ارغوان و لاجورد می‌خواهد. بدون عوارض.'},
- carthage:{n:'کارتاژ',f:1,x:66,y:211,z:'far',p:['metal','cedar'],d:['argh','cloth','date'],note:'مستعمره‌ی فنیقی در دورترین غرب؛ قلع و فلز می‌دهد و پارچه و ارغوان می‌خواهد. بدون عوارض.'},
- panticapaeum:{n:'پانتیکاپایون',f:1,x:388,y:50,z:'far',p:['grain','wool'],d:['wine','cloth','metal'],note:'بندر شمال دریای سیاه و انبار غله‌ی سکاها؛ غله و پشم ارزان دارد. بدون عوارض.'},
- gerrha:{n:'گرها',f:1,x:557,y:417,z:'far',p:['argh','date'],d:['grain','cloth','wine'],note:'شهر بازرگانان عرب در خلیج فارس؛ بخور و مروارید و خرما. بدون عوارض.'},
- pataliputra:{n:'پاتالی‌پوترا',f:1,x:988,y:424,z:'far',p:['lapis','cloth'],d:['wool','metal','wine'],note:'پایتخت هند در دورترین شرق؛ ادویه و پنبه و گوهر. بدون عوارض.'},
- bakhtar:{n:'باختر',x:763,y:213,z:'free',p:['lapis','wool'],d:['cloth','wine','date'],note:'شهر باروبلند مرز شرقی در دامنه کوه‌های برفی، آغاز راه لاجورد.'}};
+ susa:{n:'شوش',x:522,y:318,z:'gov',p:['grain','cloth'],d:['argh','lapis','wine'],note:'پایتخت اداری داریوش با کاخ آپادانا و آجرهای لعابدار؛ مرکز فرمان‌ها و عوارض.'},
+ parsa:{n:'پارسه',x:585,y:420,z:'gov',p:['wine','wool'],d:['cedar','metal','lapis','grain'],note:'تخت‌جمشید در حال ساخت: ایوان بزرگ آپادانا و دروازه همه‌ملت‌ها.'},
+ sardis:{n:'سارد',x:260,y:134,z:'gov',p:['metal','cloth'],d:['grain','date','argh'],note:'پایتخت ساتراپی لیدیه، با دیوارهای کوه‌پایه، معبد ایونی و زرگران رود پکتولوس.'},
+ babel:{n:'بابل',x:423,y:275,z:'temple',p:['grain','date'],d:['metal','cedar','wine'],note:'دروازه ایشتار آبی لعابدار و زیگورات اتمنانکی؛ خزانه معبد و خاندان‌های بانکی.'},
+ sur:{n:'صور',x:260,y:311,z:'free',p:['argh','cedar'],d:['grain','wool','date'],note:'بندر فنیقی روی جزیره، با ستون‌های ملقارت و کارگاه‌های ارغوان.'},
+ khorasan:{n:'کاروانسرای خراسان',l:'کاروانسرای خراسان',k:1,x:615,y:241,z:'stop',p:[],d:['grain','wine'],note:'توقفگاه خیالی راه شرق میان شوش و باختر؛ تاجران کاروان‌ها این‌جا گرد می‌آیند و بورس کوچکی دارند.'},
+ cappadocia:{n:'کاروانسرای کاپادوکیه',l:'کاروانسرای کاپادوکیه',k:1,x:315,y:190,z:'stop',p:[],d:['cloth','metal'],note:'توقفگاه راه شاهی میان سارد و بابل؛ جای استراحت کاروان و معامله‌ی کوچک با تاجران.'},
+ issus:{n:'بندر کاروانسرای ایسوس',l:'بندرگاه ایسوس',k:1,x:223,y:269,z:'stop',p:[],d:['grain','date'],note:'بندرگاه کوچک میان سارد و صور؛ کشتی و کاروان این‌جا بار عوض می‌کنند.'},
+ athens:{n:'آتن',f:1,x:88,y:200,z:'far',p:['wine','metal'],d:['argh','lapis','wool'],note:'شهر دریایی یونان، بیرون از شاهنشاهی: روغن، شراب و نقره می‌دهد و ارغوان و لاجورد می‌خواهد. بدون عوارض.'},
+ carthage:{n:'کارتاژ',f:1,x:83,y:393,z:'far',p:['metal','cedar'],d:['argh','cloth','date'],note:'مستعمره‌ی فنیقی در دورترین غرب؛ قلع و فلز می‌دهد و پارچه و ارغوان می‌خواهد. بدون عوارض.'},
+ panticapaeum:{n:'پانتیکاپایون',f:1,x:211,y:53,z:'far',p:['grain','wool'],d:['wine','cloth','metal'],note:'بندر شمال دریای سیاه و انبار غله‌ی سکاها؛ غله و پشم ارزان دارد. بدون عوارض.'},
+ gerrha:{n:'گرها',f:1,x:390,y:550,z:'far',p:['argh','date'],d:['grain','cloth','wine'],note:'شهر بازرگانان عرب در خلیج فارس؛ بخور و مروارید و خرما. بدون عوارض.'},
+ pataliputra:{n:'پاتالی‌پوترا',f:1,x:834,y:301,z:'far',p:['lapis','cloth'],d:['wool','metal','wine'],note:'پایتخت هند در دورترین شرق؛ ادویه و پنبه و گوهر. بدون عوارض.'},
+ bakhtar:{n:'باختر',x:710,y:143,z:'free',p:['lapis','wool'],d:['cloth','wine','date'],note:'شهر باروبلند مرز شرقی در دامنه کوه‌های برفی، آغاز راه لاجورد.'}};
+const WV3=false,MW=900,MH=600,DV=24;
 const ids=Object.keys(C),homeIds=ids.filter(c=>!C[c].f&&!C[c].k),locked=c=>!!C[c].f&&(S.won||0)<3,special=c=>!!(C[c].f||C[c].k);
-const dist=(a,b)=>Math.max(2,Math.round(Math.hypot(C[a].x-C[b].x,C[a].y-C[b].y)/20));
+const dist0=(a,b)=>Math.max(1,Math.round(Math.hypot(C[a].x-C[b].x,C[a].y-C[b].y)/DV));
+/* کاروانسراها مقصد نیستند؛ روی راه‌اند و کاروان باید در آن‌ها توقف کند */
+const WEST=['sardis','athens','panticapaeum','carthage'],HEART=['babel','susa','parsa','gerrha'],EAST=['bakhtar','pataliputra'];
+const WAYS={cappadocia:(a,b)=>(WEST.includes(a)&&[...HEART,...EAST].includes(b))||(WEST.includes(b)&&[...HEART,...EAST].includes(a)),
+ issus:(a,b)=>(a=='sur'&&WEST.includes(b))||(b=='sur'&&WEST.includes(a)),
+ khorasan:(a,b)=>(EAST.includes(a)&&!EAST.includes(b))||(EAST.includes(b)&&!EAST.includes(a))};
+function stopsOn(a,b){return Object.keys(WAYS).filter(k=>C[k]&&WAYS[k](a,b)).sort((x,y)=>dist0(a,x)-dist0(a,y))}
+function pathOf(a,b){return[a,...stopsOn(a,b),b]}
+const dist=(a,b)=>{const P=pathOf(a,b);let t=0;for(let i=1;i<P.length;i++)t+=dist0(P[i-1],P[i]);return Math.max(2,t)};
 const RANKS=[['دکان‌دار',0],['تاجر محلی',3000],['تاجر بین‌شهری',8000],['تاجر بین‌المللی',25000],['بازرگان ساتراپی',80000]];
 const WHCAP=300,CAP=40,KEY='derik-v5';
 const PT={
@@ -237,7 +284,7 @@ function bzSell(c,i,n){const car=csCar(c),t=i<0?null:bourseOf(c).l[i],g=i<0?S._h
 function bzBuy(c,i,n){const car=csCar(c),b=bourseOf(c).l[i];if(!car||!b)return;n=Math.min(n,b.hq,carCap(car)-load(car.cargo));if(n<=0)return;
  const p=Math.max(1,Math.round(price(c,b.h)*b.hm));n=Math.min(n,Math.floor(S.gold/p));if(n<=0)return;S.gold-=p*n;S.led.buy+=p*n;add(car.cargo,b.h,n,p);b.hq-=n;trade('buy',c,b.h,n,p*n,0,0);render()}
 function bourseHTML(){const c=S.selCity,car=csCar(c),b=bourseOf(c),nx=10-(S.day-b.d);
- let h=`<img src="assets/b/caravan-exchange-interior.webp" style="width:100%;border-radius:10px;display:block" loading="lazy"><h2>بورس تاجران</h2><div class="m">تاجران تازه تا ${f(nx)} روز دیگر عوض می‌شوند. بدون عوارض.${car?' · کاروان حاضر: '+car.name+' ('+f(load(car.cargo))+'/'+f(carCap(car))+')':' · کاروانی این‌جا نیست؛ برای معامله باید کاروانتان برسد.'}</div>`;
+ let h=(car&&car.hold&&car.rest&&car.rest.length?`<button onclick="resume(S.cars.find(x=>x.id==${car.id}))" style="width:100%">ادامه‌ی مسیر به ${C[car.fin].n}</button>`:'')+`<img src="assets/b/caravan-exchange-interior.webp" style="width:100%;border-radius:10px;display:block" loading="lazy"><h2>بورس تاجران</h2><div class="m">تاجران تازه تا ${f(nx)} روز دیگر عوض می‌شوند. بدون عوارض.${car?' · کاروان حاضر: '+car.name+' ('+f(load(car.cargo))+'/'+f(carCap(car))+')':' · کاروانی این‌جا نیست؛ برای معامله باید کاروانتان برسد.'}</div>`;
  h+=`<div class="car"><b>🏛️ صاحب کاروانسرا</b><div class="m">همیشه می‌خرد (کمی زیر قیمت بازار، ${f(HOSTM*100)}٪): </div>`+HOSTG.map(g=>{const q=car&&car.cargo[g]?car.cargo[g].q:0;return`<div>${G[g][0]} · ${f(Math.round(price(c,g)*HOSTM))} دریک ${q?`<button onclick="S._hg='${g}';bzSell('${c}',-1,${q})">فروش همه (${f(q)})</button>`:'<span class="m">(ندارید)</span>'}</div>`}).join('')+'</div>';
  b.l.forEach((t,i)=>{const have=car&&car.cargo[t.g]?car.cargo[t.g].q:0,ps=Math.round(price(c,t.g)*t.m),pb=Math.round(price(c,t.h)*t.hm);
   h+=`<div class="car"><b>${t.n}</b>
@@ -251,12 +298,15 @@ function unloadCar(g,n){const car=selC();if(!car||!car.at||!car.cargo[g])return;
 function dispatch(){const car=selC();if(!car||!car.at||!car.dest||car.dest==car.at||car.auto)return;
  log(car.name+' از '+C[car.at].n+' به '+C[car.dest].n+' حرکت کرد'+(load(car.cargo)?' با '+f(load(car.cargo))+' بار.':'.'));
  depart(car,car.dest);S.view='world';S.sheet=false;render()}
-function depart(car,to){car.from=car.at;car.to=to;car.at=null;car.prog=0;car.tot=dist(car.from,to)}
+function depart(car,to){const P=pathOf(car.at,to).slice(1);car.fin=to;car.rest=P.slice(1);car.hold=false;car.from=car.at;car.to=P[0];car.at=null;car.prog=0;car.tot=dist0(car.from,car.to)}
+function resume(car){if(!car.at||!car.rest||!car.rest.length)return;const nx=car.rest.shift();car.hold=false;car.from=car.at;car.to=nx;car.at=null;car.prog=0;car.tot=dist0(car.from,nx);log(car.name+' از '+C[car.from].n+' به راه افتاد.');S.view='world';S.sheet=false;render()}
 function arrive(car){const to=car.to;car.at=to;delete car.to;
  const risk=Math.min(.3,car.tot*.01*(Z[C[car.from].z].rob+Z[C[to].z].rob)/2*(S.guard?.3:1));
  if(load(car.cargo)>0&&Math.random()<risk){const pct=.15+Math.random()*.2;let lost=0;
   Object.keys(car.cargo).forEach(g=>{const l=Math.floor(car.cargo[g].q*pct);lost+=l;S.led.robbed+=l*car.cargo[g].c;rem(car.cargo,g,l)});log('راهزنان به '+car.name+' زدند؛ '+f(lost)+' بار از دست رفت!')}
  log(car.name+' به '+C[to].n+' رسید.');see(to);
+ if(car.rest&&car.rest.length){car.hold=true;car.holdDay=S.day;log(car.name+' در '+C[to].n+' استراحت می‌کند؛ هر وقت خواستید ادامه‌ی مسیر را بزنید.');if(!car.auto){S.selCity=to;S.selCar=car.id}render();return}
+ delete car.rest;delete car.fin;
  if(car.auto)routeNext(car);else{S.selCity=to;S.selCar=car.id}render()}
 function doOrders(car,st){
  if(st.c==S.home||(st.deliver&&whOf(st.c))){const W=whOf(st.c);Object.keys(car.cargo).forEach(g=>add(W,g,car.cargo[g].q,car.cargo[g].c));car.cargo={}}
@@ -271,7 +321,7 @@ function routeNext(car){const R=car.route;if(R.length<2){car.auto=false;return}
  if(car.at==st.c){doOrders(car,st);car.ri=(car.ri+1)%R.length;st=R[car.ri]}
  if(st.c==car.at){car.auto=false;return}
  depart(car,st.c)}
-function addStop(c){if(locked(c))return;const k=selC();if(k){k.route.push({c,buy:'',sell:true});render()}}
+function addStop(c){if(locked(c)||C[c].k)return;const k=selC();if(k){k.route.push({c,buy:'',sell:true});render()}}
 function delStop(i){const k=selC();k.route.splice(i,1);k.ri=0;render()}
 function setBuy(i,g){selC().route[i].buy=g}
 function toggleSell(i){const r=selC().route[i];r.sell=!r.sell}
@@ -320,7 +370,7 @@ function event(){const r=Math.random(),pick=a=>a[Math.floor(Math.random()*a.leng
     {t:'می‌برم (۱۵۰ دریک)',fn:()=>{S.gold+=150;S.selCar=car.id;car.dest='parsa';dispatch()}},{t:'نه',fn:()=>{}}])}
  ];
  pick(E)()}
-function dayTick(){S.day++;
+function dayTick(){S.day++;S.cars.forEach(c=>{if(c.at&&c.hold&&c.auto&&S.day>(c.holdDay||0))resume(c)});
  ids.forEach(c=>GN.forEach(g=>{S.st[c][g]=Math.max(0,S.st[c][g]+(eq(c,g)-S.st[c][g])*.07+(Math.random()-.5)*.8)}));
  Object.keys(S.mod).forEach(g=>{if(--S.mod[g].t<=0)delete S.mod[g]});
  ids.forEach(c=>{if(canTrade(c))see(c)});
@@ -404,7 +454,7 @@ function watchAd(){if(!adReady())return;ADS.show('reward',ok=>{if(!ok)return;con
 function adCard(){const k=K(),w=Math.max(0,Math.ceil(((k.adNext||0)-Date.now())/60000));return`<div class="car"><b>🎬 دریک رایگان با تماشای تبلیغ</b><div class="m">هر تبلیغ ${f(ADS.cfg.rewardGold)} دریک. امروز ${f(adLeft())} بار دیگر ممکن است${w&&adLeft()?' · '+f(w)+' دقیقه‌ی دیگر':''}.</div><button onclick="watchAd()" ${adReady()?'':'disabled'}>تماشای تبلیغ</button></div>`}
 function leave(){ADS.inter();S.view='world';S.sheet=false;render()}
 function selCar(i){S.selCar=i;const k=selC();if(k&&k.at)S.selCity=k.at;tab('cars')}
-function setDest(c){if(locked(c))return;const car=selC();if(car)car.dest=c;render()}
+function setDest(c){if(locked(c)||C[c].k)return;const car=selC();if(car)car.dest=c;render()}
 function tab(t){S.yc=null;S.tab=t;S.sheet=true;S.col=0;render()}
 function setQty(v){S.qty=Math.max(1,Math.floor(+v||1));render()}
 function yardTap(c){S.selCity=c;S.tab='cars';S.yc=c;S.sheet=true;S.col=0;const k=carAt(c)[0];if(k)S.selCar=k.id;render()}
@@ -419,6 +469,7 @@ function hint(){if(!S.home)return'شهر خانگی را انتخاب کنید.'
  if(Object.keys(S.wh).length&&hc.some(c=>!Object.keys(c.cargo).length))return'کالا در انبار است: «دکان من» ← کاروان‌ها ← کالا را روی کاروان بگذارید و مقصد را بزنید.';
  if(hc.some(c=>Object.keys(c.cargo).length&&!c.auto))return'کاروان بار دارد. «دکان من» ← کاروان‌ها ← مقصد و «حرکت».';
  const r=S.cars.find(c=>c.at&&c.at!=S.home&&!c.auto);
+ if(r&&r.hold)return r.name+' در '+C[r.at].n+' توقف کرده. روی آن بزنید (بازار و بورس) یا از «کاروان‌ها» ادامه‌ی مسیر را بزنید.';
  if(r)return r.name+' در '+C[r.at].n+' است. '+(special(r.at)?'روی آن بزنید و در بازار'+(C[r.at].k?' یا بورس تاجران':'')+' معامله کنید.':'روی شهر بزنید، وارد شوید و در بازار بفروشید یا بخرید.');
  if(mov.length)return'کاروان در راه است (🐪). سرعت را بالا ببرید.';
  return'هدف بعدی: «'+(RANKS[S.won+1]?RANKS[S.won+1][0]:'—')+'». «دکان من» ← آمار می‌گوید پولتان کجا می‌رود.'}
@@ -428,13 +479,13 @@ function updateBar(){const h=document.getElementById('hud');
  h.innerHTML=`<div class="z z1">${[[0,'pause'],[1,'play'],[2,'fast'],[4,'faster']].map(([n,t])=>`<button class="sb" style="background-image:url(assets/ui/hud/btn-speed-${t}${S.speed==n?'-on':''}.webp)" onclick="setSpeed(${n})"></button>`).join('')}</div><div class="z z2"><span>روز <b>${f(S.day)}</b></span><span><img src="assets/ui/hud/coin.webp"><b class="${S.gold<0?'up':''}">${f(S.gold)}</b></span></div><div class="z z3"><button class="shopb" onclick="tab('ov')"><span>دکان من</span></button></div>`}
 
 /* ---------- نقشه جهان ---------- */
-function carPos(c){if(c.at){const k=carAt(c.at).indexOf(c);return[C[c.at].x-15,C[c.at].y-10-k*11]}
+function carPos(c){if(c.at){const k=carAt(c.at).indexOf(c);return[C[c.at].x-32,C[c.at].y+14+k*12]}
  const t=c.prog/c.tot,a=C[c.from],b=C[c.to];return[a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t]}
 const CFACE=[1,1,-1,1];
 function carFlip(c){if(!c.at&&c.from&&c.to)c.dir=C[c.to].x>=C[c.from].x?1:-1;return(c.dir||1)*CFACE[Math.min(3,c.lv||0)]}
 function drawCars(){S.cars.forEach(c=>{const el=document.getElementById('car'+c.id);if(!el)return;const[p,q]=carPos(c);el.setAttribute('transform',`translate(${p},${q})`);const im=document.getElementById('cvi'+c.id);if(im)im.setAttribute('transform','scale('+carFlip(c)+',1)')})}
 let MAPOK=true;
-function worldSVG(){let m=`<defs><linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe3c4"/><stop offset="1" stop-color="#dcc79a"/></linearGradient></defs><rect width="1023" height="682" fill="url(#skyg)"/>`+(MAPOK?`<image href="assets/world-v4/base.webp" x="0" y="0" width="1023" height="682" preserveAspectRatio="none" onerror="MAPOK=false;render()"/><g id="tl"></g>`:`
+function worldSVG(){let m=`<defs><linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe3c4"/><stop offset="1" stop-color="#dcc79a"/></linearGradient></defs><rect width="${MW}" height="${MH}" fill="url(#skyg)"/>`+(MAPOK?`<image href="${WV3?'assets/world-v3.webp':'assets/world-v5/base.webp'}" x="0" y="0" width="${MW}" height="${MH}" preserveAspectRatio="none" onerror="MAPOK=false;render()"/><g id="tl"></g>`:`
 <path d="M0,120 C30,150 50,180 45,230 C40,280 20,320 0,380 Z" fill="var(--sea)"/><path d="M0,120 C30,150 50,180 45,230 C40,280 20,320 0,380" fill="none" stroke="#7fa6b3" stroke-width="1.5"/>
 <path d="M330,380 C350,350 400,335 450,340 C500,345 560,320 600,290 L600,380 Z" fill="var(--sea)"/><path d="M330,380 C350,350 400,335 450,340 C500,345 560,320 600,290" fill="none" stroke="#7fa6b3" stroke-width="1.5"/>
 <path d="M470,0 C480,30 520,40 600,30 L600,0 Z" fill="var(--sea)" opacity=".8"/>
@@ -445,11 +496,11 @@ function worldSVG(){let m=`<defs><linearGradient id="skyg" x1="0" y1="0" x2="0" 
 
 `;
  const sc=selC();
- if(sc&&sc.dest&&sc.at&&sc.dest!=sc.at&&!sc.auto)m+=`<line x1="${C[sc.at].x}" y1="${C[sc.at].y}" x2="${C[sc.dest].x}" y2="${C[sc.dest].y}" stroke="var(--acc)" stroke-width="2.5" stroke-dasharray="6 5"/>`;
+ if(sc&&sc.dest&&sc.at&&sc.dest!=sc.at&&!sc.auto)m+=`<polyline points="${pathOf(sc.at,sc.dest).map(r=>C[r].x+','+C[r].y).join(' ')}" fill="none" stroke="var(--acc)" stroke-width="2.5" stroke-dasharray="6 5"/>`;
  if(sc&&sc.route.length>1)m+=`<polygon points="${sc.route.map(r=>C[r.c].x+','+C[r.c].y).join(' ')}" fill="none" stroke="var(--good)" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>`;
- S.cars.forEach(c=>{if(!c.at)m+=`<line x1="${C[c.from].x}" y1="${C[c.from].y}" x2="${C[c.to].x}" y2="${C[c.to].y}" stroke="var(--mute)" stroke-width="1.5" stroke-dasharray="2 5"/>`});
+ S.cars.forEach(c=>{if(!c.at)m+=`<polyline points="${[c.from,c.to,...(c.rest||[])].map(r=>C[r].x+','+C[r].y).join(' ')}" fill="none" stroke="var(--mute)" stroke-width="1.5" stroke-dasharray="2 5"/>`});
  ids.forEach(c=>{const o=C[c],h=c==S.home,P=S.props[c],ev=S.ev.filter(e=>e.c==c);
-  m+=`<g class="city" onclick="cityTap('${c}')"><circle cx="${o.x}" cy="${o.y}" r="16" fill="transparent"/><text x="${o.x}" y="${o.y+15}" class="cl" style="font-size:9px;fill:${h?'#ffe29a':'#fff6e0'};stroke:#2b1d10;stroke-width:2.6px">${h?'★ ':''}${locked(c)?'🔒 ':''}${o.l||o.n}</text>${ev.map((e,i)=>`<image class="pulse" href="${EVIMG[e.type]?'assets/ui/events/'+EVIMG[e.type]+'.webp':''}" x="${o.x+16}" y="${o.y-14+i*12}" width="11" height="11"/>`).join('')}</g>`});
+  m+=`<g class="city" onclick="cityTap('${c}')"><circle cx="${o.x}" cy="${o.y}" r="16" fill="transparent"/><text x="${o.x}" y="${o.y+(WV3?3:15)}" class="cl" style="font-size:9px;fill:${h?'#ffe29a':'#fff6e0'};stroke:#2b1d10;stroke-width:2.6px">${h?'★ ':''}${locked(c)?'':''}${o.l||o.n}</text>${ev.map((e,i)=>`<image class="pulse" href="${EVIMG[e.type]?'assets/ui/events/'+EVIMG[e.type]+'.webp':''}" x="${o.x+16}" y="${o.y-14+i*12}" width="11" height="11"/>`).join('')}</g>`});
  S.cars.forEach(c=>{m+=`<g id="car${c.id}" class="city" onclick="selCar(${c.id})"><circle r="10" fill="${c.id==S.selCar?'#ffd47a88':'transparent'}"/><image id="cvi${c.id}" transform="scale(${carFlip(c)},1)" href="assets/ui/world/caravan-${(c.lv||0)+1}.webp" x="-9" y="-9" width="18" height="18"/></g>`})
  return m}
 /* ---------- صحنه شهرها ---------- */
@@ -580,22 +631,23 @@ function yardPanel(c){const own=!!propsOf(c);let h=`<div class="car"><b>${c=='su
  return h+'</div>'}
 function carsHTML(){let h=S.yc?yardPanel(S.yc):'<h2>کاروان‌ها</h2>';
  S.cars.forEach(c=>{const sel=c.id==S.selCar;
-  const st=c.at?`در <b>${C[c.at].n}</b>`:`در راه ${C[c.from].n} ← ${C[c.to].n} (${f(c.tot-c.prog)} روز تا رسیدن)`;
+  const st=c.at?`در <b>${C[c.at].n}</b>`:`در راه ${C[c.from].n} ← ${C[c.to].n} (${f(c.tot-c.prog)} روز تا رسیدن)${c.fin&&c.fin!=c.to?' · مقصد نهایی '+C[c.fin].n:''}`;
   h+=`<div class="car ${sel?'sel':''}"><div onclick="selCar(${c.id})" style="cursor:pointer"><b>${c.name}</b> · ${st} · بار ${f(load(c.cargo))}/${f(carCap(c))}</div>`;
+  if(c.at&&c.hold&&c.rest&&c.rest.length)h+=`<div class="m up" style="margin:4px 0">در ${C[c.at].n} توقف کرده‌اید (مقصد: ${C[c.fin].n}).</div><button onclick="resume(S.cars.find(x=>x.id==${c.id}))">ادامه‌ی مسیر به ${C[c.fin].n}</button>`;
   if(sel){const ks=Object.keys(c.cargo);h+=(S.yc&&propsOf(S.yc)&&c.at==S.yc)?upgradeHTML(c):`<div class="m" style="margin:4px 0">${LVN[carLv(c)]} ${'★'.repeat(carLv(c)+1)} · ظرفیت ${f(carCap(c))} بار · سرعت ${f1(carSpd(c))}×</div>`;
    h+=ks.length?'<table><tr><th>کالا</th><th>تعداد</th><th>قیمت تمام‌شده (هر واحد)</th><th>جمع هزینه</th><th>ارزش در شهر فعلی</th></tr>'+ks.map(g=>{const e=c.cargo[g];const v=c.at&&canTrade(c.at)?price(c.at,g)*e.q:null;return`<tr><td>${G[g][0]}</td><td>${f(e.q)}</td><td>${f1(e.c)}</td><td>${f(e.c*e.q)}</td><td>${v==null?'—':f(v)}</td></tr>`}).join('')+`<tr><th>جمع</th><th>${f(load(c.cargo))}</th><th></th><th>${f(ks.reduce((a,g)=>a+c.cargo[g].c*c.cargo[g].q,0))}</th><th></th></tr></table><div class="m">قیمت تمام‌شده = قیمت خرید + سهم هزینه روزانه کاروان در راه.</div>`:'<p class="m">بار ندارد.</p>';
    if(c.at&&whOf(c.at)&&!c.auto){const W=whOf(c.at);h+=`<div style="margin:6px 0">مقدار: <input type="number" min="1" value="${S.qty}" onchange="setQty(this.value)"> انتقال از انبار ${C[c.at].n} به کاروان:</div>`+(Object.keys(W).map(g=>`<div>${G[g][0]} در انبار: ${f(W[g].q)} <button onclick="loadCar('${g}',S.qty)">بارگیری</button><button class="o" onclick="loadCar('${g}',9999)">همه</button></div>`).join('')||'<div class="m">انبار خالی است.</div>')+
      (ks.length?'<div class="m" style="margin-top:4px">برگرداندن به انبار:</div>'+ks.map(g=>`<div>${G[g][0]} <button class="o" onclick="unloadCar('${g}',S.qty)">پیاده</button><button class="o" onclick="unloadCar('${g}',9999)">همه</button></div>`).join(''):'')}
    else if(c.at&&!c.auto)h+=`<div class="m" style="margin-top:6px">برای خرید و فروش وارد ${C[c.at].n} شوید و روی «بازار» بزنید. بار شما خودکار خالی نمی‌شود.</div> <button class="o" onclick="enter('${c.at}')">ورود به ${C[c.at].n}</button>`;
    else if(c.at&&!c.auto)h+='';
-   if(c.at&&!c.auto){h+='<div class="m" style="margin-top:6px">مقصد:</div>'+ids.filter(x=>x!=c.at).map(x=>`<button class="${c.dest==x?'':'o'}" onclick="setDest('${x}')" ${locked(x)?'disabled':''}>${locked(x)?'🔒 ':''}${C[x].n} (${f(dist(c.at,x))} روز)</button>`).join('');
+   if(c.at&&!c.auto){h+='<div class="m" style="margin-top:6px">مقصد:</div>'+ids.filter(x=>x!=c.at&&!C[x].k).map(x=>`<button class="${c.dest==x?'':'o'}" onclick="setDest('${x}')" ${locked(x)?'disabled':''}>${C[x].n} (${f(dist(c.at,x))} روز)</button>`).join('');
     if(c.dest&&c.dest!=c.at)h+=`<div style="margin-top:6px"><button onclick="dispatch()">حرکت به ${C[c.dest].n}</button> <span class="m">هر روز راه ۳ دریک هزینه دارد.</span></div>`}
    h+=routeHTML(c)}
   h+='</div>'});
  return h+`<button class="o" onclick="build('car')" ${S.gold<800?'disabled':''}>خرید کاروان جدید (۸۰۰)</button>`}
 function routeHTML(c){let h='<div class="m" style="margin-top:8px;border-top:1px solid var(--line);padding-top:6px"><b>مسیر ثابت (خودکار)</b>: ایستگاه‌ها را تکرار می‌کند. در هر ایستگاه بار را می‌فروشد و کالای انتخابی را می‌خرد؛ در شهر خانگی (یا با تیک «تحویل به انبار») بار به انبار می‌رود.</div>';
  h+=c.route.map((r,i)=>`<div style="margin:4px 0">${f(i+1)}. <b>${C[r.c].n}</b> ${c.auto&&c.ri==i?'<span class="m">(بعدی)</span>':''} · خرید: <select onchange="setBuy(${i},this.value)" ${c.auto?'disabled':''}><option value="">هیچ</option>${GN.map(g=>`<option value="${g}" ${r.buy==g?'selected':''}>${G[g][0]}</option>`).join('')}</select> <label><input type="checkbox" ${r.sell?'checked':''} onchange="toggleSell(${i})" ${c.auto?'disabled':''}> فروش کل بار</label>${whOf(r.c)&&r.c!=S.home?` <label><input type="checkbox" ${r.deliver?'checked':''} onchange="selC().route[${i}].deliver=this.checked" ${c.auto?'disabled':''}> تحویل به انبار</label>`:''} ${c.auto?'':`<button class="o" onclick="delStop(${i})">✕</button>`}</div>`).join('');
- if(!c.auto)h+='<div class="m">افزودن ایستگاه:</div>'+ids.map(x=>`<button class="o" onclick="addStop('${x}')" ${locked(x)?'disabled':''}>${locked(x)?'🔒 ':''}${C[x].n}</button>`).join('');
+ if(!c.auto)h+='<div class="m">افزودن ایستگاه:</div>'+ids.filter(x=>!C[x].k).map(x=>`<button class="o" onclick="addStop('${x}')" ${locked(x)?'disabled':''}>${C[x].n}</button>`).join('');
  h+='<div style="margin-top:6px">'+(c.auto?'<span class="dn">مسیر فعال است</span> <button class="o" onclick="stopRoute()">توقف مسیر</button>':`<button onclick="startRoute()" ${c.at&&c.route.length>1?'':'disabled'}>شروع مسیر</button> <button class="o" onclick="clearRoute()">پاک‌کردن</button>`)+'</div>';
  return h}
 function statsHTML(){const L=S.led,inv=invCost(),cap=S.gold+S.deposit+S.silver*S.rate+inv-debts(),start=1000;
@@ -747,18 +799,18 @@ function evHTML(e){const c=e.c,left=f(e.end-S.day),sc=['feast','alms','portloan'
  if(e.type=='alms')return`<div class="car ev">${hd}<p class="m">کاهنان اعانه می‌خواهند. هرچه بیشتر بدهید پاداش بهتری دارد: ۳۰۰ اعتبار، ۶۰۰ معافیت عوارض فروش این شهر (۴۵ روز)، ۱۲۰۰ علاوه بر آن ۲۵٪ تخفیف ساخت زمین و کارگاه (۶۰ روز).</p>`+(e.don?`<div class="dn">اعانه دادید: ${f(e.don)} ✓</div>`:[300,600,1200].map(a=>`<button onclick="evDonate(${e.id},${a})" ${S.gold<a||!canTrade(c)?'disabled':''}>${f(a)}</button>`).join('')+(!canTrade(c)?'<div class="m">برای اعانه باید کاروان یا خانه در این شهر داشته باشید.</div>':''))+'</div>';
  return`<div class="car ev">${hd}<p class="m">شورای شهر برای «${e.what}» از بازرگانان وام می‌خواهد. بازپرداخت ۶۰ روز بعد با سود ${f(e.rate*100)}٪؛ با احتمال کمی فقط اصل پول برمی‌گردد.</p>`+(e.lent?`<div class="dn">وام دادید: ${f(e.lent)} ✓</div>`:[1000,2000].map(a=>`<button onclick="evLend(${e.id},${a})" ${S.gold<a||!canTrade(c)?'disabled':''}>وام ${f(a)}</button>`).join('')+(!canTrade(c)?'<div class="m">برای وام‌دادن باید کاروان یا خانه در این شهر داشته باشید.</div>':''))+'</div>'}
 /* --- نما، کشیدن و بزرگ‌نمایی --- */
-const DIM={world:[1023,682],city:[600,380]};
+const DIM={world:[MW,MH],city:[600,380]};
 const VW={};
 const vk=()=>S.home&&S.view=='city'?'city:'+S.selCity:'world';
 const vdim=()=>S.home&&S.view=='city'?[600,(ART[S.selCity]&&ARTOK[S.selCity]&&ART[S.selCity].h)||380]:DIM.world;
 function vpS(){const e=document.getElementById('vp');return[e.clientWidth||1,e.clientHeight||1]}
 function getV(){const k=vk(),[W,H]=vdim(),[pw,ph]=vpS(),asp=pw/ph,cov=Math.min(W,H*asp),maxW=k=='world'?cov:W;let v=VW[k];
- if(!v){const w=Math.min(maxW,k=='world'?300:cov),ct=k=='world'?[C[S.home||'susa'].x,C[S.home||'susa'].y]:[300,185];v=VW[k]={w,x:ct[0]-w/2,y:ct[1]-w/asp/2}}
+ if(!v){const w=Math.min(maxW,k=='world'?470*asp:cov),ct=k=='world'?[C[S.home||'susa'].x,C[S.home||'susa'].y]:[300,185];v=VW[k]={w,x:ct[0]-w/2,y:ct[1]-w/asp/2}}
  v.w=Math.min(maxW,Math.max(90,v.w));const h=v.w/asp;v.x=v.w>=W?(W-v.w)/2:Math.min(W-v.w,Math.max(0,v.x));v.y=h>=H?(H-h)/2:Math.min(H-h,Math.max(0,v.y));return{x:v.x,y:v.y,w:v.w,h}}
-const TX=[0,256,512,768],TY=[0,256,512],TWD=[256,256,256,255],THT=[256,256,170];
-function updateTiles(){const g=document.getElementById('tl');if(!g||vk()!='world')return;const v=getV();if(v.w>640)return;const mx=v.w*.15,my=v.h*.15;
+const TX=[0,256,512,768],TY=[0,256,512],TWD=[256,256,256,132],THT=[256,256,88];
+function updateTiles(){const g=document.getElementById('tl');if(WV3||!g||vk()!='world')return;const v=getV();if(v.w>640)return;const mx=v.w*.15,my=v.h*.15;
  for(let r=0;r<3;r++)for(let c=0;c<4;c++){const x=TX[c],y=TY[r],w=TWD[c],h=THT[r];if(x>v.x+v.w+mx||x+w<v.x-mx||y>v.y+v.h+my||y+h<v.y-my)continue;const id='tl'+c+r;if(g.querySelector('#'+id))continue;
-  const im=document.createElementNS('http://www.w3.org/2000/svg','image');im.id=id;im.setAttribute('href','assets/world-v4/t/'+c+'-'+r+'.webp');im.setAttribute('x',x);im.setAttribute('y',y);im.setAttribute('width',w);im.setAttribute('height',h);im.setAttribute('preserveAspectRatio','none');g.appendChild(im)}}
+  const im=document.createElementNS('http://www.w3.org/2000/svg','image');im.id=id;im.setAttribute('href','assets/world-v5/t/'+c+'-'+r+'.webp');im.setAttribute('x',x);im.setAttribute('y',y);im.setAttribute('width',w);im.setAttribute('height',h);im.setAttribute('preserveAspectRatio','none');g.appendChild(im)}}
 function applyView(){const v=getV();document.getElementById('map').setAttribute('viewBox',`${v.x} ${v.y} ${v.w} ${v.h}`);updateTiles()}
 function panBy(dx,dy){const v=getV(),[pw,ph]=vpS(),o=VW[vk()];o.x=v.x-dx*v.w/pw;o.y=v.y-dy*v.h/ph;applyView()}
 function zoomAt(cx,cy,fac){const v=getV(),[pw,ph]=vpS(),ux=v.x+cx/pw*v.w,uy=v.y+cy/ph*v.h,o=VW[vk()];o.w=v.w/fac;const n=getV();o.x=ux-cx/pw*n.w;o.y=uy-cy/ph*n.h;applyView()}
@@ -795,19 +847,19 @@ function updateSheet(){const sh=document.getElementById('sheet');
  body.innerHTML=sheetBody();if(sh.dataset.t==S.tab+(S.ic||'')+(S.bk||'')+(S.pi||''))body.scrollTop=st;else body.scrollTop=0;sh.dataset.t=S.tab+(S.ic||'')+(S.bk||'')+(S.pi||'');
  sh.classList.toggle('col',!!S.col);sh.classList.add('open')}
 function cityInfoHTML(c){const o=C[c],z=Z[o.z],P=S.props[c],ev=S.ev.filter(e=>e.c==c),rob=z.rob>1.5?'زیاد':z.rob>.8?'متوسط':'کم';
- let h=`<div class="m">${z.n} · عوارض فروش ${f(taxOf(c)*100)}٪ · خطر راه ${rob}</div><p>${o.note}</p><div class="tags"><span class="dn">تولید: ${o.p.map(g=>G[g][0]).join('، ')}</span><span class="up">نیاز: ${o.d.map(g=>G[g][0]).join('، ')}</span></div>`;
+ let h=`<div class="m">${z.n} · عوارض فروش ${f(taxOf(c)*100)}٪ · خطر راه ${rob}</div><p>${o.note}</p><div class="tags">${o.p.length?`<span class="dn">تولید: ${o.p.map(g=>G[g][0]).join('، ')}</span>`:''}<span class="up">نیاز: ${o.d.map(g=>G[g][0]).join('، ')}</span></div>`;
  if(!S.home&&special(c))return h+'<div class="m">این‌جا را نمی‌توانید شهر خانگی کنید؛ بعداً با کاروان به آن سر بزنید.</div>';
  if(!S.home){const b=o.z=='gov'?'شروع با ۱۲۰۰ دریک':o.z=='free'?'شروع با ۹۰۰ دریک + ۱۲ بار '+G[o.p[0]][0]:'شروع با ۱۰۰۰ دریک + ۲ ستاره اعتبار معبد';
   return h+`<div class="m">${b}. خانه و انبار شما این‌جا خواهد بود و بعداً می‌توانید در شهرهای دیگر هم خانه بخرید.</div><button onclick="setHome('${c}');enter('${c}')">🏠 شهروند ${o.n} می‌شوم</button>`}
  const here=carAt(c),sn=S.seen[c];
  h+=`<div class="m">${c==S.home?'شهر خانگی شماست ★':'فاصله از '+C[S.home].n+': '+f(dist(S.home,c))+' روز راه'}${P?' · خانه دارید 🏠':''}${here.length?' · کاروان حاضر: '+here.map(k=>k.name).join('، '):''}</div>`;
  h+=`<div class="m" style="margin-top:4px">قیمت‌ها (${age(c)}): `+GN.map(g=>{const p=sn.p[g],b=G[g][1];return`<span class="${p>b*1.15?'up':p<b*.85?'dn':''}">${G[g][0]} ${f(p)}</span>`}).join(' · ')+'</div>';
- if(special(c)){const lk=locked(c);return h+(lk?'<div class="m up" style="margin:6px 0">🔒 برای ورود به شهرهای بیرون از شاهنشاهی باید به رتبه‌ی «تاجر بین‌المللی» برسید.</div>':`<div style="margin:8px 0"><button onclick="S.selCity='${c}';bld('market')">🏺 بازار</button>${o.k?`<button class="o" onclick="S.selCity='${c}';tab('bourse')">🤝 بورس تاجران</button>`:''}</div>${here.length?'':'<div class="m">برای خرید و فروش، کاروانتان باید این‌جا باشد.</div>'}`)}
+ if(special(c)){const lk=locked(c);return h+(lk?'<div class="m up" style="margin:6px 0">برای ورود به شهرهای بیرون از شاهنشاهی باید به رتبه‌ی «تاجر بین‌المللی» برسید.</div>':`<div style="margin:8px 0"><button onclick="S.selCity='${c}';bld('market')">🏺 بازار</button>${o.k?`<button class="o" onclick="S.selCity='${c}';tab('bourse')">🤝 بورس تاجران</button>`:''}</div>${here.length?'':'<div class="m">برای خرید و فروش، کاروانتان باید این‌جا باشد.</div>'}${here.filter(k=>k.hold&&k.rest&&k.rest.length).map(k=>`<button onclick="resume(S.cars.find(x=>x.id==${k.id}))">ادامه‌ی مسیر ${k.name} به ${C[k.fin].n}</button>`).join('')}`)}
  h+=`<div style="margin:8px 0"><button onclick="enter('${c}')">ورود به شهر ←</button>`+(!P&&here.length?`<button class="o" onclick="buyHouse('${c}')" ${S.gold<houseCost(c)?'disabled':''}>خرید خانه (${f(houseCost(c))})</button>`:'')+'</div>';
  return h+ev.map(evHTML).join('')}
 const ROYAL=['داریوش بزرگ، شاه شاهان: ساتراپی‌ها خراج سالانه می‌پردازند و راه شاهی از سارد تا شوش پیک و کاروان را امن نگه می‌دارد.','دریک زرین به فرمان داریوش ضرب می‌شود و در سراسر شاهنشاهی پذیرفته است.','کتیبهٔ بیستون: داریوش شورشیان را شکست داده و فرمانش را به چند زبان نوشته است.','مغان در آتشکده‌ها آتش را روشن نگه می‌دارند و برای شاه دعا می‌کنند.','کاهنان اساگیلا در بابل بر خزانهٔ معبد و تقویم جشن‌ها نظارت می‌کنند.','معماران و کارگران در شوش و تخت‌جمشید مشغول ساخت کاخ‌اند و مصالح از سراسر شاهنشاهی می‌آید.','چشم‌وگوش شاه، بازرسان ساتراپی، گاهی کاروان‌ها و حساب‌ها را وارسی می‌کنند.','پیک‌های شاهی در ایستگاه‌های راه شاهی اسب عوض می‌کنند و پیام را به سرعت می‌رسانند.'];
-function dashOv(){let whv=0,cgv=0;Object.values(S.props).forEach(P=>Object.keys(P.wh).forEach(g=>whv+=P.wh[g].q*G[g][1]));S.cars.forEach(c=>Object.keys(c.cargo).forEach(g=>cgv+=c.cargo[g].q*G[g][1]));const nw=netWorth(),nx=RANKS[S.won+1],pr=nx?Math.max(0,Math.min(100,Math.round(nw/nx[1]*100))):100;
- let h=`<div style="display:flex;align-items:center;gap:8px"><img src="assets/ui/rank/rank-${Math.min(5,S.won+1)}.webp" style="width:54px;height:54px"><b>${RANKS[S.won][0]}</b></div><div class="grid"><div>صندوق<b>${f(S.gold)}</b></div><div>ثروت خالص<b>${f(nw)}</b></div><div>سپرده و نقره<b>${f(S.deposit+S.silver*S.rate)}</b></div><div>بدهی<b class="${debts()?'up':''}">${f(debts())}</b></div><div>ارزش کالای انبارها<b>${f(whv)}</b></div><div>بار روی کاروان‌ها<b>${f(cgv)}</b></div><div>کاروان‌ها<b>${f(S.cars.length)}</b></div><div>خانه‌ها<b>${f(Object.keys(S.props).length)}</b></div></div><div class="m">رتبه: <b>${RANKS[S.won][0]}</b>${nx?' · بعدی: '+nx[0]+' ('+f(nx[1])+')':''} · اعتبار ${'★'.repeat(S.rep)+'☆'.repeat(6-S.rep)}</div><div class="bar2"><i style="width:${pr}%"></i></div>`;
+function dashOv(){const nw=netWorth(),whV=Math.round(Object.values(S.props).reduce((t,P)=>t+Object.keys(P.wh).reduce((a,g)=>a+P.wh[g].q*G[g][1],0),0)),carV=Math.round(S.cars.reduce((t,c)=>t+Object.keys(c.cargo).reduce((a,g)=>a+c.cargo[g].q*G[g][1],0),0)),nx=RANKS[S.won+1],pr=nx?Math.max(0,Math.min(100,Math.round(nw/nx[1]*100))):100;
+ let h=`<div style="display:flex;align-items:center;gap:8px"><img src="assets/ui/rank/rank-${Math.min(5,S.won+1)}.webp" style="width:54px;height:54px"><b>${RANKS[S.won][0]}</b></div><div class="grid"><div>💰 صندوق<b>${f(S.gold)}</b></div><div>📈 ثروت خالص<b>${f(nw)}</b></div><div>📦 موجودی انبار<b>${f(whV)}</b></div><div>🐪 ${f(S.cars.length)} کاروان · بار<b>${f(carV)}</b></div><div>🏠 خانه‌ها<b>${f(Object.keys(S.props).length)}</b></div><div>🏦 سپرده و نقره<b>${f(S.deposit+S.silver*S.rate)}</b></div><div>بدهی<b class="${debts()?'up':''}">${f(debts())}</b></div><div>🌾 زمین و کارگاه<b>${f(Object.values(S.props).reduce((n,P)=>n+P.plots.filter(x=>x).length,0))}</b></div></div><div class="m">رتبه: <b>${RANKS[S.won][0]}</b>${nx?' · بعدی: '+nx[0]+' ('+f(nx[1])+')':''} · اعتبار ${'★'.repeat(S.rep)+'☆'.repeat(6-S.rep)}</div><div class="bar2"><i style="width:${pr}%"></i></div>`;
  h+=goalsHTML();h+=`<div style="margin:8px 0;aspect-ratio:4/1;background:url(assets/ui/royal/banner.webp) center/100% 100% no-repeat;position:relative"><div style="position:absolute;left:15%;right:15%;top:30%;bottom:20%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;line-height:1.4;color:#3a2a18;overflow:hidden">${ROYAL[Math.floor(S.day/12)%ROYAL.length]}</div></div>`;if(S.order)h+=orderCard();
  if(S.ev.length)h+='<h2 style="margin-top:8px">مراسم و درخواست‌ها</h2>'+S.ev.map(e=>`<div class="car ev">${EVI[e.type]} <b>${e.name}</b> · ${C[e.c].n} <span class="m">${f(e.end-S.day)} روز مانده</span><br><button class="o" onclick="cityTap('${e.c}')">جزئیات</button></div>`).join('');
  h+=`<h2 style="margin-top:8px">آخرین اخبار</h2><div id="log">${S.news.slice(0,6).map(x=>'<div>'+x+'</div>').join('')||'<div class="m">هنوز خبری نیست.</div>'}</div><details><summary>همهٔ اخبار</summary><div id="log">${S.news.map(x=>'<div>'+x+'</div>').join('')}</div></details><details><summary>راهنمای بازی</summary>${helpHTML()}</details>`;
@@ -816,7 +868,7 @@ function helpHTML(){return`<ol style="padding-inline-start:18px;margin:4px 0"><l
 function updateToast(){const t=document.getElementById('toast');const msg=!S.home?'شهر خانگی را انتخاب کنید: روی هر شهر بزنید. نقشه را بکشید و با دو انگشت بزرگ و کوچک کنید.':(S.nohint?'':hint());
  if(!msg||S.sheet||S.choice){t.innerHTML='';return}t.innerHTML=`<span>${msg}</span>${S.home?'<button onclick="S.nohint=1;render()">✕</button>':''}`}
 
-function boot(){try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.v==5){S=s;S.ev=S.ev||[];S.out=S.out||[];S.perk=S.perk||{};S.nextEv=S.nextEv||1;ids.forEach(c=>{if(!S.st[c]){S.st[c]={};GN.forEach(g=>S.st[c][g]=eq(c,g)*(0.7+Math.random()*.6))}if(!S.seen[c])see(c)});S.sheet=false;S.view='world';if(S.home)S.wh=S.props[S.home].wh}}catch(e){}if(!S)init();S.speed=0;S.view=S.view||'world';dailyGift();render();if(S.home)(window.requestIdleCallback||setTimeout)(()=>warmArt(S.home))}
+function boot(){try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.v==5){S=s;S.ev=S.ev||[];S.out=S.out||[];S.perk=S.perk||{};S.nextEv=S.nextEv||1;(S.cars||[]).forEach(c=>{if(c.at&&!C[c.at])c.at=S.home;if(c.to&&!C[c.to]){c.at=S.home;delete c.to;delete c.from}});ids.forEach(c=>{if(!S.st[c]){S.st[c]={};GN.forEach(g=>S.st[c][g]=eq(c,g)*(0.7+Math.random()*.6))}if(!S.seen[c])see(c)});S.sheet=false;S.view='world';if(S.home)S.wh=S.props[S.home].wh}}catch(e){}if(!S)init();S.speed=0;S.view=S.view||'world';dailyGift();render();if(S.home)(window.requestIdleCallback||setTimeout)(()=>warmArt(S.home))}
 let last=performance.now();
 setInterval(()=>{const n=performance.now(),dt=(n-last)/1000;last=n;if(S.speed>0&&!document.hidden&&!S.choice){step(dt*.5*S.speed)}drawCars();if(S.speed>0)updateBar()},100);
 boot();
