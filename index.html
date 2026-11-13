@@ -59,6 +59,7 @@ h2{font-size:15px;margin:0 0 6px}p{margin:4px 0 8px}
 .pulse{animation:pulse 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes pulse{50%{transform:scale(1.25)}}
 @media(max-width:480px){#hud{gap:4px;padding:0 6px;font-size:12px}#hud button{padding:3px 7px;min-height:32px}}
 #sbody>h2:first-child{display:none}
+#adov{position:fixed;inset:0;z-index:90;background:#000c;display:none;align-items:center;justify-content:center;padding:16px}#adov.show{display:flex}.adbox{background:#fffdf7;color:#2b2118;border-radius:14px;padding:14px;max-width:360px;width:100%;text-align:center}.adscr{height:180px;margin:8px 0;border-radius:10px;background:linear-gradient(135deg,#d9c79a,#a8501f);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
 #pop{position:fixed;left:50%;top:calc(66px + env(safe-area-inset-top));transform:translate(-50%,-20px);z-index:60;max-width:90vw;background:linear-gradient(#ffe29a,#e0a93c);color:#3a2408;border:2px solid #7a4a12;border-radius:14px;padding:6px 14px;font-weight:700;font-size:14px;box-shadow:0 4px 14px #0007;opacity:0;pointer-events:none;transition:all .3s}#pop.show{opacity:1;transform:translate(-50%,0)}
 
 /* ===== v7: UI art ===== */
@@ -99,7 +100,7 @@ h2{font-size:15px;margin:0 0 6px}p{margin:4px 0 8px}
 <div class="chips" id="chips"></div>
 <div id="toast"></div>
 <div id="sheet"><div id="shead"></div><div id="schips"></div><div id="sbody"></div></div>
-<div id="ov"></div><div id="pop"></div>
+<div id="ov"></div><div id="pop"></div><div id="adov"></div>
 <script>
 const G={grain:['غلات',8],date:['خرما',12],wool:['پشم',18],wine:['شراب',28],cedar:['چوب سدر',35],cloth:['منسوجات',40],metal:['فلز',50],argh:['ارغوان',110],lapis:['لاجورد',140]};
 const GN=Object.keys(G);
@@ -342,7 +343,18 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 function reset(){try{localStorage.removeItem(KEY)}catch(e){}init();render()}
 function setSpeed(n){S.speed=n;render()}
 function enter(c){S.selCity=c;S.view='city';S.sheet=false;S.tgt=carAt(c).length&&c!=S.home?'car':'wh';render()}
-function leave(){S.view='world';S.sheet=false;render()}
+
+/* ===== تبلیغات (لایه‌ی قابل‌جایگزینی با شبکه‌ی واقعی) ===== */
+/* برای انتشار: ADS.show را با Adivery/Tapsell (بازار) یا AdMob (گوگل پلی) عوض کنید؛ cb(true) یعنی تبلیغ کامل دیده شد. */
+const ADS={cfg:{gap:300,firstGrace:600,rewardGold:200,rewardCool:600,dailyMax:5},t0:Date.now(),lastInter:0,
+ show(kind,cb){const ov=document.getElementById('adov');let n=5;ov.innerHTML=`<div class="adbox"><div class="m">تبلیغ آزمایشی (${kind=='reward'?'پاداش‌دار':'بین‌مرحله‌ای'})</div><div class="adscr">جای نمایش تبلیغ</div><div id="adt" class="m">${n} ثانیه</div><button id="adx" disabled>بستن</button></div>`;ov.classList.add('show');S.speed=0;
+  const iv=setInterval(()=>{n--;const t=document.getElementById('adt');if(t)t.textContent=n>0?n+' ثانیه':'تمام شد';if(n<=0){clearInterval(iv);const b=document.getElementById('adx');if(b){b.disabled=false;b.onclick=()=>{ov.classList.remove('show');ov.innerHTML='';cb&&cb(true);render()}}}},1000)},
+ inter(){const now=Date.now();if(now-this.t0<this.cfg.firstGrace*1000||now-this.lastInter<this.cfg.gap*1000)return false;this.lastInter=now;this.show('inter');return true}};
+function adLeft(){const k=K(),d=new Date().toDateString();if(k.adDay!=d){k.adDay=d;k.adN=0}return Math.max(0,ADS.cfg.dailyMax-(k.adN||0))}
+function adReady(){return (K().adNext||0)<=Date.now()&&adLeft()>0}
+function watchAd(){if(!adReady())return;ADS.show('reward',ok=>{if(!ok)return;const k=K();k.adN=(k.adN||0)+1;k.adNext=Date.now()+ADS.cfg.rewardCool*1000;S.gold+=ADS.cfg.rewardGold;log('پاداش تماشای تبلیغ: '+f(ADS.cfg.rewardGold)+' دریک.');pop('🎬 +'+f(ADS.cfg.rewardGold)+' دریک')})}
+function adCard(){const k=K(),w=Math.max(0,Math.ceil(((k.adNext||0)-Date.now())/60000));return`<div class="car"><b>🎬 دریک رایگان با تماشای تبلیغ</b><div class="m">هر تبلیغ ${f(ADS.cfg.rewardGold)} دریک. امروز ${f(adLeft())} بار دیگر ممکن است${w&&adLeft()?' · '+f(w)+' دقیقه‌ی دیگر':''}.</div><button onclick="watchAd()" ${adReady()?'':'disabled'}>تماشای تبلیغ</button></div>`}
+function leave(){ADS.inter();S.view='world';S.sheet=false;render()}
 function selCar(i){S.selCar=i;const k=selC();if(k&&k.at)S.selCity=k.at;tab('cars')}
 function setDest(c){const car=selC();if(car)car.dest=c;render()}
 function tab(t){S.yc=null;S.tab=t;S.sheet=true;S.col=0;render()}
@@ -370,7 +382,9 @@ function updateBar(){const h=document.getElementById('hud');
 /* ---------- نقشه جهان ---------- */
 function carPos(c){if(c.at){const k=carAt(c.at).indexOf(c);return[C[c.at].x-12,C[c.at].y+11+k*11]}
  const t=c.prog/c.tot,a=C[c.from],b=C[c.to];return[a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t]}
-function drawCars(){S.cars.forEach(c=>{const el=document.getElementById('car'+c.id);if(!el)return;const[p,q]=carPos(c);el.setAttribute('transform',`translate(${p},${q})`)})}
+const CFACE=[1,1,-1,1];
+function carFlip(c){if(!c.at&&c.from&&c.to)c.dir=C[c.to].x>=C[c.from].x?1:-1;return(c.dir||1)*CFACE[Math.min(3,c.lv||0)]}
+function drawCars(){S.cars.forEach(c=>{const el=document.getElementById('car'+c.id);if(!el)return;const[p,q]=carPos(c);el.setAttribute('transform',`translate(${p},${q})`);const im=document.getElementById('cvi'+c.id);if(im)im.setAttribute('transform','scale('+carFlip(c)+',1)')})}
 let MAPOK=true;
 function worldSVG(){let m=`<defs><linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe3c4"/><stop offset="1" stop-color="#dcc79a"/></linearGradient></defs><rect width="600" height="600" fill="url(#skyg)"/>`+(MAPOK?`<image href="assets/world-v3.webp" x="0" y="0" width="600" height="600" preserveAspectRatio="none" onerror="MAPOK=false;render()"/>`:`
 <path d="M0,120 C30,150 50,180 45,230 C40,280 20,320 0,380 Z" fill="var(--sea)"/><path d="M0,120 C30,150 50,180 45,230 C40,280 20,320 0,380" fill="none" stroke="#7fa6b3" stroke-width="1.5"/>
@@ -387,9 +401,8 @@ function worldSVG(){let m=`<defs><linearGradient id="skyg" x1="0" y1="0" x2="0" 
  if(sc&&sc.route.length>1)m+=`<polygon points="${sc.route.map(r=>C[r.c].x+','+C[r.c].y).join(' ')}" fill="none" stroke="var(--good)" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>`;
  S.cars.forEach(c=>{if(!c.at)m+=`<line x1="${C[c.from].x}" y1="${C[c.from].y}" x2="${C[c.to].x}" y2="${C[c.to].y}" stroke="var(--mute)" stroke-width="1.5" stroke-dasharray="2 5"/>`});
  ids.forEach(c=>{const o=C[c],h=c==S.home,P=S.props[c],ev=S.ev.filter(e=>e.c==c);
-  const mk=h?'home':o.z=='gov'?'gov':o.z=='temple'?'temple':'free',sz=h?26:22;
-  m+=`<g class="city" onclick="cityTap('${c}')"><circle cx="${o.x}" cy="${o.y}" r="15" fill="transparent"/><image href="assets/ui/world/city-${mk}.webp" x="${o.x-sz/2}" y="${o.y-sz/2}" width="${sz}" height="${sz}"/>${!h&&P?`<text x="${o.x+9}" y="${o.y+11}" font-size="7">🏠</text>`:''}<text x="${o.x}" y="${o.y-sz/2-1}" class="cl">${o.n}</text>${ev.map((e,i)=>`<image class="pulse" href="${EVIMG[e.type]?'assets/ui/events/'+EVIMG[e.type]+'.webp':''}" x="${o.x+10}" y="${o.y-12+i*12}" width="11" height="11"/>`).join('')}</g>`});
- S.cars.forEach(c=>{m+=`<g id="car${c.id}" class="city" onclick="selCar(${c.id})"><circle r="10" fill="${c.id==S.selCar?'#ffd47a88':'transparent'}"/><image href="assets/ui/world/caravan-${(c.lv||0)+1}.webp" x="-9" y="-9" width="18" height="18"/></g>`})
+  m+=`<g class="city" onclick="cityTap('${c}')"><circle cx="${o.x}" cy="${o.y}" r="16" fill="transparent"/><text x="${o.x}" y="${o.y+3}" class="cl" style="font-size:9px;fill:${h?'#ffe29a':'#fff6e0'};stroke:#2b1d10;stroke-width:2.6px">${h?'★ ':''}${o.n}</text>${ev.map((e,i)=>`<image class="pulse" href="${EVIMG[e.type]?'assets/ui/events/'+EVIMG[e.type]+'.webp':''}" x="${o.x+14}" y="${o.y-8+i*12}" width="11" height="11"/>`).join('')}</g>`});
+ S.cars.forEach(c=>{m+=`<g id="car${c.id}" class="city" onclick="selCar(${c.id})"><circle r="10" fill="${c.id==S.selCar?'#ffd47a88':'transparent'}"/><image id="cvi${c.id}" transform="scale(${carFlip(c)},1)" href="assets/ui/world/caravan-${(c.lv||0)+1}.webp" x="-9" y="-9" width="18" height="18"/></g>`})
  return m}
 /* ---------- صحنه شهرها ---------- */
 const PAL={
@@ -571,7 +584,7 @@ function finHTML0(){const L=S.loans||[];let h=`<h2>مالی در دوران دا
  const nx=90-S.day%90;h+=`<h2 style="margin-top:10px">خراج ساتراپی</h2><div class="m">هر ۹۰ روز ۱٫۵٪ ثروت بالای ۵٬۰۰۰ دریک به خزانه می‌رود؛ ${f(nx)} روز دیگر.</div>`;
  const o=S.order;h+=`<h2 style="margin-top:10px">فرمان شاه</h2>`+(o?`<div class="car">${f(o.q)} بار ${G[o.g][0]} به انبار ${C[S.home].n} تا ${f(o.due-S.day)} روز دیگر. قیمت خرید دربار: <b>${f(o.price)}</b> برای هر بار.<br>در انبار دارید: ${f(S.wh[o.g]?S.wh[o.g].q:0)} <button onclick="deliver()" ${S.wh[o.g]&&S.wh[o.g].q>=o.q?'':'disabled'}>تحویل</button></div>`:'<p class="m">فعلاً فرمانی نیست.</p>');
  return h+'<p class="m">اعداد نمونه‌اند و در بازی‌آزمایی تنظیم می‌شوند.</p>'}
-function shopHTML(){return`<h2>خزانه شاهی: خرید دریک</h2><p class="m">نمونه آزمایشی: پرداخت واقعی هنوز وصل نیست و دکمه‌ها چیزی اضافه نمی‌کنند. در نسخه نهایی دریک خریداری‌شده به کیف‌پول مشترک بزرگمهر می‌رود.</p>`+[['کیسه کوچک',500],['صندوق بازرگان',2500],['خزانه ساتراپ',12000]].map(([n,a])=>`<div class="car"><b>${n}</b> · ${f(a)} دریک <button class="o" onclick="S.note='پرداخت واقعی در نسخه نهایی وصل می‌شود.';render()">خرید</button></div>`).join('')}
+function shopHTML(){return adCard()+`<h2>خزانه شاهی: خرید دریک</h2><p class="m">نمونه آزمایشی: پرداخت واقعی هنوز وصل نیست و دکمه‌ها چیزی اضافه نمی‌کنند. در نسخه نهایی دریک خریداری‌شده به کیف‌پول مشترک بزرگمهر می‌رود.</p>`+[['کیسه کوچک',500],['صندوق بازرگان',2500],['خزانه ساتراپ',12000]].map(([n,a])=>`<div class="car"><b>${n}</b> · ${f(a)} دریک <button class="o" onclick="S.note='پرداخت واقعی در نسخه نهایی وصل می‌شود.';render()">خرید</button></div>`).join('')}
 function cityHTML(){const c=S.selCity,P=propsOf(c),z=Z[C[c].z];
  let h=`<h2>${C[c].n} <span class="m">${z.n}</span></h2><div class="m">${C[c].note}</div><div class="m" style="margin:4px 0">روی هر ساختمان نقشه بزنید تا کارهایش را ببینید. زمین‌های خط‌چین برای ساخت‌اند.</div>`;
  if(!P)h+=`<div class="car">شما این‌جا خانه ندارید. با خانه (۲۰۰۰ دریک) انبار ۲۰۰ باری می‌گیرید، بدون کاروان خرید و فروش می‌کنید و می‌توانید کارگاه و مزرعه بسازید. ${carAt(c).length?`<button onclick="buyHouse('${c}')" ${S.gold<2000?'disabled':''}>خرید خانه (۲۰۰۰)</button>`:'<span class="m">برای خرید باید کاروانتان این‌جا باشد.</span>'}</div>`;
