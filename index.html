@@ -79,95 +79,61 @@ h2{font-size:15px;margin:0 0 6px}p{margin:4px 0 8px}
 .chips{top:calc(112px + env(safe-area-inset-top))}
 .chips button{background:url(assets/ui/events/chip.webp) center/100% 100% no-repeat;border:0;box-shadow:none;min-height:34px;padding:2px 14px;color:#2b2118}
 .chips button img{width:22px;height:22px;vertical-align:middle;margin-inline-end:4px}
-#sheet{border:0;border-radius:0;background:none;border-style:solid;border-width:24px 24px 0;border-image:url(assets/ui/sheet/panel.webp) 48 fill/24px 24px 0 stretch;box-shadow:none;filter:drop-shadow(0 -4px 12px #0005)}
-#shead{padding:0 2px 4px}#shead:before{display:none}
-#sbody{padding:2px 4px 14px}
-#schips button{background:none;border:0;border-image:url(assets/ui/sheet/tab-off.webp) 32 fill/14px stretch;color:#6a4a2c;padding:4px 10px;font-size:12px;font-weight:600;min-height:38px;display:flex;align-items:center;gap:4px}
-#schips button.on2{border-image-source:url(assets/ui/sheet/tab-on.webp);color:#fff}
-#schips button img{width:16px;height:16px}#schips button{flex:1 1 0;justify-content:center;padding:2px 4px;font-size:11px;gap:2px}
-#sbody button:not(.o):not(:disabled),.ov button:not(.o):not(:disabled){background:none;border:0;border-image:url(assets/ui/sheet/btn-primary.webp) 32 fill/12px stretch;color:#fff;padding:6px 14px;min-height:40px;font-weight:600}
-#sbody button.o,.ov button.o{background:none;border:0;border-image:url(assets/ui/sheet/btn-secondary.webp) 32 fill/12px stretch;color:#5a3d22;padding:6px 14px;min-height:40px}
-#sbody button:disabled,.ov button:disabled{background:none;border:0;border-image:url(assets/ui/sheet/btn-disabled.webp) 32 fill/12px stretch;color:#7a7060;opacity:1;padding:6px 14px;min-height:40px}
-.car{border:0;border-image:url(assets/ui/sheet/card.webp) 48 fill/18px stretch;padding:12px 10px;margin:0 0 8px}
-.car.sel{border-image-source:url(assets/ui/sheet/card.webp);outline:2px solid var(--acc);outline-offset:-4px}
-.ov .box{border:0;border-radius:0;background:none;border-image:url(assets/ui/sheet/panel.webp) 48 fill/24px stretch;padding:12px}
 .gi{width:22px;height:22px;vertical-align:middle;margin-inline-end:3px}
 
-/* ===== v8: منوها و جدول‌ها ===== */
-.gd{border:0;border-style:solid;border-width:0 14px;border-image:url(assets/ui/table/row-a.webp) 0 32 fill/0 14px stretch;padding:8px 6px;margin:0}
-.gd.rb{border-image-source:url(assets/ui/table/row-b.webp)}
-.gd .m{color:#6a5a48}
-.pr{border:0;border-style:solid;border-width:0 18px;padding:3px 4px;margin-inline-start:auto;font-size:14px;min-width:80px;text-align:center;color:#2b2118}
-.pr.plo{border-image:url(assets/ui/chip/price-low.webp) 0 48 fill/0 18px stretch;color:#1e4a2c;font-weight:700}
-.pr.pmi{border-image:url(assets/ui/chip/price-mid.webp) 0 48 fill/0 18px stretch;color:#3a2410;font-weight:700}
-.pr.phi{border-image:url(assets/ui/chip/price-high.webp) 0 48 fill/0 18px stretch;color:#5a1710;font-weight:700}
-.tg{font-size:11px;font-weight:700;padding:0 10px;border-style:solid;border-width:0 8px;color:#3a2410;margin-inline:2px}
-.tg.tp{border-image:url(assets/ui/chip/tag-produced.webp) 0 24 fill/0 8px stretch}
-.tg.td{border-image:url(assets/ui/chip/tag-demand.webp) 0 24 fill/0 8px stretch}
-#sbody h2{border:0;border-style:solid;border-width:12px 28px;border-image:url(assets/ui/title/ribbon.webp) 24 72 fill/12px 28px stretch;text-align:center;color:#fff6e0;font-size:14px;margin:10px 0 6px;padding:0}
-input[type=number]{border:0;border-style:solid;border-width:8px;border-image:url(assets/ui/input/field.webp) 24 fill/8px stretch;background:none;color:#f6e7c8;text-align:center;font-weight:700;width:80px}
-.bar2{height:16px;background:none;border-style:solid;border-width:0 8px;border-image:url(assets/ui/bar/track.webp) 0 16 fill/0 8px stretch;border-radius:0;overflow:hidden}
-.bar2 i{background:url(assets/ui/bar/fill-gold.webp) 0 0/100% 100% no-repeat;border-radius:0}
-#shead button{width:40px;height:40px;min-height:0;padding:0;margin:0;border:0;border-image:none;border-radius:0;background:url(assets/ui/sheet/close.webp) center/contain no-repeat;color:transparent;font-size:0}
-#shead h2{border:0!important;border-image:none!important;color:#2b2118!important;margin:0!important}
-/* ===== v9: منوهای نسخه‌ی ۳ (قاب نقاشی‌شده دیوان شاهی) ===== */
-#sheet{--ink:#2b2118;border-width:30px 28px 0;border-image:url(assets/ui/menu/panel-frame.webp) 120 fill/30px 28px 0 stretch;filter:drop-shadow(0 -6px 16px #000a)}
-#shead{background:none;border:0;border-style:solid;border-width:0 26px;border-image:url(assets/ui/menu/header-band.webp) 0 80 fill/0 26px stretch;min-height:52px;padding:0 4px;margin:-6px -6px 6px}
-#shead h2{color:#fff6e0!important;font-size:15px;text-align:center;padding-inline-end:0}
-#shead button{background:url(assets/ui/menu/close.webp) center/contain no-repeat;width:38px;height:38px;order:-1}
-#schips{gap:4px;margin:0 0 6px}
-#schips button{border-image:url(assets/ui/menu/tab-off.webp) 24 32 fill/11px 14px stretch;color:#fff6e0;font-weight:700}
-#schips button.on2{border-image-source:url(assets/ui/menu/tab-on.webp);color:#2b2118}
-#sbody button:not(.o):not(:disabled),.ov button:not(.o):not(:disabled){border-style:solid;border-width:10px 17px;padding:0 2px;min-height:40px;min-width:48px;line-height:1.3;border-image:url(assets/ui/menu/btn-primary.webp) 24 40 fill/10px 17px stretch;color:#fff6e0;text-shadow:0 1px 1px #0008}
-#sbody button.o,.ov button.o{border-style:solid;border-width:10px 17px;padding:0 2px;min-height:40px;min-width:48px;line-height:1.3;border-image:url(assets/ui/menu/btn-secondary.webp) 24 40 fill/10px 17px stretch;color:#2b2118;font-weight:700}
-#sbody button:disabled,.ov button:disabled{border-style:solid;border-width:10px 17px;padding:0 2px;min-height:40px;min-width:48px;line-height:1.3;border-image:url(assets/ui/menu/btn-disabled.webp) 24 40 fill/10px 17px stretch;color:#cdbd9f;opacity:1}
-.fab button.fw{border-image:url(assets/ui/menu/btn-primary.webp) 24 40 fill/10px 17px stretch;color:#fff6e0}
-.car{border-image:url(assets/ui/menu/card.webp) 48 fill/18px stretch;padding:20px 14px 14px}
-.car.sel{outline:0;border-image-source:url(assets/ui/menu/card.webp);filter:drop-shadow(0 0 5px #d99a2b)}
-.gd{border-image:url(assets/ui/menu/row-a.webp) 0 32 fill/0 14px stretch}
-.gd.rb{border-image-source:url(assets/ui/menu/row-b.webp)}
-.gd.hot{border-image-source:url(assets/ui/menu/row-hot.webp)}
-.gd .m{color:#5a4a38}
-.pr,.pr.plo,.pr.pmi,.pr.phi{color:#2b2118;font-weight:700}
-.pr.plo{border-image:url(assets/ui/menu/chip-green.webp) 0 48 fill/0 18px stretch}
-.pr.pmi{border-image:url(assets/ui/menu/chip-beige.webp) 0 48 fill/0 18px stretch}
-.pr.phi{border-image:url(assets/ui/menu/chip-red.webp) 0 48 fill/0 18px stretch}
-.tg{color:#2b2118}
-.tg.tp{border-image:url(assets/ui/menu/tag-a.webp) 0 24 fill/0 8px stretch}
-.tg.td{border-image:url(assets/ui/menu/tag-b.webp) 0 24 fill/0 8px stretch}
-#sbody h2{border-image:url(assets/ui/menu/ribbon.webp) 24 72 fill/12px 28px stretch;color:#fff6e0;text-shadow:0 1px 2px #000a}
-input[type=number]{border-image:url(assets/ui/menu/field.webp) 24 fill/10px stretch;color:#fff6e0}
-.bar2{border-image:url(assets/ui/bar/track.webp) 0 16 fill/0 8px stretch}
-.ov{background:#000b url(assets/ui/menu/dim-pattern.webp) repeat;background-blend-mode:multiply}
-.ov .box{--ink:#fff6e0;--mute:#dccaa6;--acc:#ffd47a;--line:#6b5238;--card:#3a2a1e;color:#fff6e0;border-image:url(assets/ui/menu/panel-frame-dark.webp) 120 fill/34px stretch;padding:26px}
-.ov .box h3{color:#ffe29a}
-#sbody button,.ov button{border-style:solid;border-width:10px 17px;padding:0 2px;min-height:40px;min-width:48px;line-height:1.3}
-#schips button{border-style:solid;border-width:9px 14px;padding:0;min-height:40px;min-width:0;font-size:10px;gap:2px}#schips button img{display:none}
-.fab button.fw{border-style:solid;border-width:10px 17px;padding:0 2px}
-.car{border-style:solid;border-width:18px;padding:14px 4px 4px}
-#sbody::-webkit-scrollbar{width:10px}
-#sbody::-webkit-scrollbar-track{background:url(assets/ui/menu/scroll-track.webp) center/100% 100% no-repeat}
-#sbody::-webkit-scrollbar-thumb{background:url(assets/ui/menu/scroll-thumb.webp) center/100% 100% no-repeat;min-height:48px}
-/* ===== v10: جمع‌وجور برای موبایل ===== */
-#sheet{border-width:20px 17px 0;border-image-width:20px 17px 0;max-height:62dvh}
-#shead{border-width:0 16px;border-image-width:0 16px;min-height:38px;margin:-4px -2px 4px}
-#shead h2{font-size:13.5px}
-#shead button{width:30px;height:30px}
-#schips{gap:3px;margin:0 0 4px}
-#schips button{border-width:6px 10px;border-image-width:6px 10px;min-height:30px;font-size:10px}
-#sbody{font-size:12.5px}
-#sbody button,.ov button,#sbody button.o,#sbody button:disabled,#sbody button:not(.o):not(:disabled){border-width:6px 11px;border-image-width:6px 11px;min-height:30px;min-width:40px;font-size:11.5px}
-.car{border-width:12px;border-image-width:12px;padding:10px 3px 2px;margin:5px 0}
-.gd{border-image-width:0 10px;padding:4px 9px;margin:2px 0}
-.gd .gh{gap:5px}
-.gd .gi{width:26px;height:26px}
-.pr,.pr.plo,.pr.pmi,.pr.phi{border-image-width:0 12px;padding:2px 14px;font-size:12px;min-width:50px}
-.tg{padding:0 6px;font-size:10px}
-#sbody h2{border-width:8px 18px;border-image-width:8px 18px;padding:2px 10px;line-height:1.3;font-size:13px;margin:8px 0 5px}
-input[type=number]{border-image-width:7px;padding:3px 8px;width:64px;font-size:13px}
-.ov .box{border-image-width:26px;padding:18px}
-.ov .box h3{font-size:15px}
-#sbody::-webkit-scrollbar{width:6px}
+/* ===== v11: منوهای نسخه‌ی ۵ (یک قاب دور کل برگه، ردیف‌ها با خط ظریف) ===== */
+:root{--paper:#f3ecdd;--walnut:#3a2a1e;--light:#fff6e0;--bronze:#9d702d;--olive:#4d512d;--terra:#8d4329;--rule:#c7b79c;--sand:#e8d7b9}
+.gi{width:22px;height:22px;vertical-align:middle;margin-inline-end:3px}
+#sheet{--ink:#2b2118;--mute:#6a5a48;--line:#c7b79c;--card:#f3ecdd;background:var(--paper);border:2px solid var(--bronze);border-bottom:0;border-radius:10px 10px 0 0;max-height:76dvh;box-shadow:0 -6px 22px #0007;overflow:hidden;color:var(--ink);padding-bottom:0}
+#sheet::after{content:'';position:absolute;inset:0;pointer-events:none;border:18px solid transparent;border-image:url(assets/ui/v5/sheet-frame.webp) 64 48 24 48/30px 18px 12px 18px stretch;z-index:3}
+#shead{position:relative;flex-shrink:0;height:68px;padding-top:26px!important;box-sizing:border-box;display:flex;align-items:center;justify-content:center;background:var(--walnut) url(assets/ui/v5/header.webp) center/100% 100%;padding:0 58px;margin:0;border:0}
+#shead h2{margin:0!important;color:var(--light)!important;font-size:19px;text-align:center;border:0!important;background:none!important;padding:0!important}
+#shead button{position:absolute;left:10px;top:26px;width:38px;height:38px;min-height:0;min-width:0;margin:0;padding:0;border:0;border-radius:0;border-image:none;background:url(assets/ui/v5/close.webp) center/contain no-repeat;font-size:0;color:transparent}
+#schips{display:flex;margin:0 12px;border-bottom:1px solid var(--rule);flex-shrink:0;gap:0}
+#schips button{flex:1;min-height:44px;margin:0;padding:0 2px;border:0;border-bottom:3px solid transparent;border-radius:0;border-image:none;background:none;color:var(--ink);font-size:13px;font-weight:500}
+#schips button.on2{border-bottom-color:var(--bronze);font-weight:700}
+#schips button img{display:none}
+#sbody{flex:1 1 auto;min-height:0;overflow:auto;padding:4px 14px 12px;font-size:14px;line-height:1.55}
+#sact{flex-shrink:0;padding:8px 16px calc(14px + env(safe-area-inset-bottom));border-top:1px solid var(--rule);background:var(--paper);position:relative;z-index:1}
+#sact:empty{display:none}
+#sbody button,.ov button,#sact button{border:solid transparent;border-width:8px 11px;border-image:url(assets/ui/v5/btn-primary.webp) 24 32 fill/8px 11px stretch;border-radius:0;background:none;color:var(--light);font-weight:700;font-size:13px;min-height:38px;min-width:46px;padding:0 2px;margin:3px 2px;box-shadow:none;text-shadow:0 1px 1px #0006}
+#sbody button.o,.ov button.o,#sact button.o{border-image-source:url(assets/ui/v5/btn-secondary.webp);color:var(--ink);text-shadow:none}
+#sbody button.sell,#sact button.sell{border-image-source:url(assets/ui/v5/btn-danger.webp)}
+#sbody button:disabled,.ov button:disabled,#sact button:disabled{border-image-source:url(assets/ui/v5/btn-disabled.webp);color:#7a7060;opacity:1;text-shadow:none}
+#sact button small{display:block;font-weight:400;font-size:11px;line-height:1.2}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ag button{min-height:52px;margin:0;width:100%}
+.ag2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}.ag2 button{width:100%;margin:0;min-height:40px}
+.selt{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;font-size:14px}.selt small{font-size:12px;color:var(--mute)}
+.car{border:solid transparent;border-width:8px 12px;border-image:url(assets/ui/v5/card.webp) 18 24 fill/8px 12px stretch;background:none;border-radius:0;padding:6px 4px;margin:6px 0;color:var(--ink)}
+.car.sel{outline:2px solid var(--bronze);outline-offset:-3px}
+#sbody h2{margin:14px 0 6px;padding:14px 0 0;background:url(assets/ui/v5/section-title.webp) center top/76% 12px no-repeat;border:0;color:var(--ink);font-size:16px;text-align:center}
+#sbody h2:first-child{margin-top:2px}
+.m{color:var(--mute)}
+.grid div{border:solid transparent;border-width:10px 12px;border-image:url(assets/ui/v5/tile.webp) 24 fill/10px 12px stretch;border-radius:0;padding:0 2px;background:none}
+.bar2{height:12px;background:var(--sand);border:1px solid var(--rule);border-radius:6px;overflow:hidden}.bar2 i{display:block;height:100%;background:var(--bronze);border-radius:5px}
+.qty{display:flex;align-items:center;gap:5px;margin:4px 0;flex-wrap:wrap}.qty button.o{min-height:34px;min-width:34px;margin:0;padding:0}.qty .sp1{flex:1}.sp1{margin-inline-start:auto}
+#sbody .qb{border:0;border-image:none;background:var(--sand);color:var(--ink);width:36px;min-width:0;height:40px;border-radius:8px;font-size:20px;margin:0;text-shadow:none}
+#sbody .qin{width:54px;height:40px;text-align:center;border:1px solid var(--rule);border-radius:8px;background:#fff8eb;color:var(--ink);font-size:16px;font-weight:700}
+.tgt{display:flex;flex-wrap:wrap;gap:2px;margin:4px 0}
+.mkh,.mk{display:grid;grid-template-columns:minmax(0,1.5fr) .75fr 1fr;gap:6px;align-items:center}
+.mkh{font-size:11px;background:#e8ddc9;border-radius:6px;padding:7px 8px;margin-top:6px}
+.mk{width:100%;min-height:58px;padding:4px 8px;border-bottom:1px solid var(--rule);cursor:pointer}
+.mk.sel{background:var(--sand);border-radius:6px;box-shadow:inset -3px 0 var(--bronze)}
+.mk .nm{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;min-width:0}
+.mk .nm img{width:38px;height:38px;object-fit:contain;flex-shrink:0}
+.mk .nm span{display:flex;flex-direction:column;align-items:flex-start;gap:1px}
+.mk .st{font-size:11px;line-height:1.6}.mk .st b{font-size:13px}
+.pr{display:inline-block;border:solid transparent;border-width:8px 12px;border-image:url(assets/ui/v5/chip-mid.webp) 24 32 fill/8px 12px stretch;color:var(--ink);font-weight:700;font-size:14px;text-align:center;min-width:60px;padding:0}
+.pr.plo{border-image-source:url(assets/ui/v5/chip-low.webp)}.pr.phi{border-image-source:url(assets/ui/v5/chip-high.webp)}
+.tg{display:inline-block;border:solid transparent;border-width:5px 9px;border-image:url(assets/ui/v5/tag-a.webp) 24 32 fill/5px 9px stretch;color:var(--ink);font-size:10px;font-weight:700;line-height:1.1}
+.tg.td{border-image-source:url(assets/ui/v5/tag-b.webp)}
+.ov{background:#000a}
+.ov .box{--ink:#fff6e0;--mute:#dccaa6;--acc:#ffd47a;--line:#6b5238;--card:#3a2a1e;color:#fff6e0;border:solid transparent;border-width:20px;border-image:url(assets/ui/v5/popup-frame.webp) 24 32 fill/20px stretch;border-radius:0;background:none;padding:6px}
+.ov .box h3{color:#ffe29a;margin:2px 0 6px}
+#tip{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;width:min(92vw,420px);color:#fff6e0;border:solid transparent;border-width:20px;border-image:url(assets/ui/v5/popup-frame.webp) 24 32 fill/20px stretch;padding:0 4px;font-size:13px;line-height:1.6}
+#tip:empty,#tip.off{display:none}#tip b{display:block;color:#ffe29a;font-size:15px;margin-bottom:2px}
+#sbody::-webkit-scrollbar{width:6px}#sbody::-webkit-scrollbar-thumb{background:var(--bronze);border-radius:3px}
+@media(max-width:350px){#sbody{padding-inline:8px}.mkh,.mk{gap:3px}.mk .nm img{width:30px;height:30px}}
 </style></head><body>
 <div id="hud"></div>
 <div id="vp"><svg id="map" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid meet"></svg></div>
@@ -175,7 +141,7 @@ input[type=number]{border-image-width:7px;padding:3px 8px;width:64px;font-size:1
 <div class="fab fr" id="backfab"></div>
 <div class="chips" id="chips"></div>
 <div id="toast"></div>
-<div id="sheet"><div id="shead"></div><div id="schips"></div><div id="sbody"></div></div>
+<div id="sheet"><div id="shead"></div><div id="schips"></div><div id="sbody"></div><div id="sact"></div></div><div id="tip" class="off" onclick="tipOff()"></div>
 <div id="ov"></div><div id="pop"></div><div id="adov"></div>
 <script>
 const G={grain:['غلات',10],date:['خرما',13],wool:['پشم',17],wine:['شراب',22],cedar:['چوب سدر',26],cloth:['منسوجات',30],metal:['فلز',34],argh:['ارغوان',40],lapis:['لاجورد',44]};
@@ -235,8 +201,10 @@ const f1=n=>(Math.round(n*10)/10).toLocaleString('fa');
 let S,IMG=false;
 function eq(c,g){return Math.round((C[c].p.includes(g)?360:C[c].d.includes(g)?60:180)*SC[g])}
 function price(c,g){const m=S.mod[g]&&(S.mod[g].c==c||S.mod[g].c=='all')?S.mod[g].f:1;
- return Math.max(1,Math.round(G[g][1]*m*Math.min(2.2,Math.max(.5,Math.pow(180*SC[g]/Math.max(10,S.st[c][g]),.45)))))}
+ return Math.max(1,Math.round(G[g][1]*m*(PM[c]||1)*Math.min(2.2,Math.max(.5,Math.pow(180*SC[g]/Math.max(10,S.st[c][g]),.45)))))}
 /* قیمت خرید از بازار ۷٪ بالاتر و فروش به بازار ۷٪ پایین‌تر از قیمت میانی است؛ پس خرید و فروش هم‌زمان در یک شهر سود ندارد */
+/* رژیم شهرها: ضریب قیمت زمین و خانه، نوسان بازار و ضریب قیمت‌ها. شهرهای مرکز دولتی و باثبات‌اند؛ شهرهای دور آزادتر، پرنوسان‌تر و گران‌ترند */
+const HK={babel:.7,parsa:1.15,susa:1,bakhtar:1.2,sardis:1.4,sur:1.6},VOL={babel:.7,parsa:.7,susa:.7,bakhtar:1.3,sardis:1.7,sur:2.2},PM={bakhtar:1.05,sardis:1.08,sur:1.12};
 const bp=(c,g)=>Math.max(1,Math.ceil(price(c,g)*1.07)),sp=(c,g)=>Math.max(1,Math.floor(price(c,g)*.93));
 function newCar(id){return{id,name:'کاروان شتر '+id.toLocaleString('fa'),at:S.home,cargo:{},route:[],ri:0,lv:0,up:S.day}}
 function init(home){
@@ -322,7 +290,7 @@ function unloadCar(g,n){const car=selC();if(!car||!car.at||!car.cargo[g])return;
 function dispatch(){const car=selC();if(!car||!car.at||!car.dest||car.dest==car.at||car.auto)return;
  log(car.name+' از '+C[car.at].n+' به '+C[car.dest].n+' حرکت کرد'+(load(car.cargo)?' با '+f(load(car.cargo))+' بار.':'.'));
  depart(car,car.dest);S.view='world';S.sheet=false;render()}
-function depart(car,to){const P=pathOf(car.at,to).slice(1);car.fin=to;car.rest=P.slice(1);car.hold=false;car.from=car.at;car.to=P[0];car.at=null;car.prog=0;car.tot=dist0(car.from,car.to)}
+function depart(car,to){if(car.rent>S.day){pop('🐪 این کاروان تا روز '+f(car.rent)+' در خدمت دربار است');return}const P=pathOf(car.at,to).slice(1);car.fin=to;car.rest=P.slice(1);car.hold=false;car.from=car.at;car.to=P[0];car.at=null;car.prog=0;car.tot=dist0(car.from,car.to)}
 function resume(car){if(!car.at||!car.rest||!car.rest.length)return;const nx=car.rest.shift();car.hold=false;car.from=car.at;car.to=nx;car.at=null;car.prog=0;car.tot=dist0(car.from,nx);log(car.name+' از '+C[car.from].n+' به راه افتاد.');S.view='world';S.sheet=false;render()}
 function arrive(car){const to=car.to;car.at=to;delete car.to;
  const risk=Math.min(.3,car.tot*.01*(Z[C[car.from].z].rob+Z[C[to].z].rob)/2*(S.guard?.3:1));
@@ -395,7 +363,7 @@ function event(){const r=Math.random(),pick=a=>a[Math.floor(Math.random()*a.leng
  ];
  pick(E)()}
 function dayTick(){S.day++;S.cars.forEach(c=>{if(c.at&&c.hold&&c.auto&&S.day>(c.holdDay||0))resume(c)});
- ids.forEach(c=>GN.forEach(g=>{S.st[c][g]=Math.max(0,S.st[c][g]+(eq(c,g)-S.st[c][g])*.07+(Math.random()-.5)*2.4*SC[g])}));
+ ids.forEach(c=>GN.forEach(g=>{S.st[c][g]=Math.max(0,S.st[c][g]+(eq(c,g)-S.st[c][g])*.07+(Math.random()-.5)*2.4*SC[g]*(VOL[c]||1.4))}));
  Object.keys(S.mod).forEach(g=>{if(--S.mod[g].t<=0)delete S.mod[g]});
  ids.forEach(c=>{if(canTrade(c))see(c)});
  S.cars.forEach(c=>{if(!c.at){S.gold-=2;const L=load(c.cargo);if(L>0){S.led.freight+=2;Object.keys(c.cargo).forEach(g=>c.cargo[g].c+=2/L)}else S.led.idle+=2}});
@@ -404,6 +372,10 @@ function dayTick(){S.day++;S.cars.forEach(c=>{if(c.at&&c.hold&&c.auto&&S.day>(c.
  loanTick();
  S.rate=Math.min(1.3,Math.max(.8,S.rate+(1-S.rate)*.04+(Math.random()-.5)*.04));
  if(S.day%30==0&&S.deposit>0){const fee=Math.round(S.deposit*.003);S.deposit-=fee;S.led.fee+=fee;log('کارمزد نگهداری سپرده معبد: '+f(fee)+' دریک.')}
+ if(S.day%30==0){
+  if(S.props.babel){const W=S.props.babel.wh,fr=Math.max(0,whCap('babel')-load(W)),a=Math.min(14,fr);if(a>0){add(W,'grain',a,0);const b=Math.min(8,Math.max(0,fr-a));if(b>0)add(W,'date',b,0);log('🛕 کاهنان اساگیلا سهم شما را از توزیع رایگان تولیدات بابل دادند: '+f(a)+' بار غلات'+(b>0?' و '+f(b)+' بار خرما':'')+' در انبارتان.')}}
+  if(S.ship&&S.ship.n>0){const r=Math.random();if(r<.06){S.ship.n--;log('⚓ یکی از کشتی‌های شرکت صور غرق شد؛ یک سهم کشتیرانی را از دست دادید.')}else{const d=Math.round(S.ship.n*900*(.07+Math.random()*.1));S.gold+=d;S.led.inc=(S.led.inc||0)+d;log('⚓ سود سهام کشتیرانی صور: '+f(d)+' دریک.')}}
+  if(S.cst>0){const r=-.05+Math.random()*.24,d=Math.round(S.cst*r);S.cst+=d;log('🤝 سهم شما از معاملات بزرگ شورای بازرگانان: '+(d>=0?'سود ':'زیان ')+f(Math.abs(d))+' دریک.')}}
  if(S.day%90==0){const x=Math.round(Math.max(0,grossWorth()-5000)*.015);payOrSeize(x);S.led.tribute+=x;log('خراج ساتراپی: '+f(x)+' دریک پرداخت شد.')}
  if(S.order&&S.day>S.order.due){log('فرمان شاه را به‌موقع تحویل ندادید؛ اعتبارتان کم شد.');S.order=null}
  if(!S.order&&S.day%20==0){const g=GN[Math.floor(Math.random()*GN.length)];S.order={g,q:10+5*Math.floor(Math.random()*3),due:S.day+40,price:Math.round(G[g][1]*1.4)};log('فرمان شاه: '+S.order.q+' بار '+G[g][0]+' به انبار '+C[S.home].n+' تا روز '+S.order.due+'.')}
@@ -454,7 +426,7 @@ function build(k){
  if(k=='car'&&S.gold>=800){S.gold-=800;S.led.invest+=800;const c=newCar(S.nextCar);c.at=S.selCity;S.cars.push(c);S.selCar=S.nextCar++;log('کاروان تازه در '+C[S.selCity].n+' خریدید.')}
  render()}
 function buyHouse(c){if(S.props[c]||S.gold<houseCost(c)||!carAt(c).length)return;const hc=houseCost(c);S.gold-=hc;S.led.invest+=hc;S.props[c]=newProps(c,false);log('خانه و انبار در '+C[c].n+' خریدید. حالا بدون کاروان هم این‌جا خرید و فروش می‌کنید.');render()}
-function plotCost(c,t){return Math.round((PT[t].cost+(C[c].z=='gov'?300:0))*discOf(c))}
+function plotCost(c,t){return Math.round(PT[t].cost*(HK[c]||1)*discOf(c))}
 function canBuild(c,t){const T=PT[t];return !T.hide&&(!T.cities||T.cities.includes(c))}
 function buildPlot(c,i,t){const P=S.props[c];if(!P||P.plots[i]||!canBuild(c,t))return;const cost=plotCost(c,t);if(S.gold<cost)return;S.gold-=cost;S.led.invest+=cost;P.plots[i]={t,mode:'share'};log(PT[t].n+' در '+C[c].n+' ساخته شد'+(C[c].z=='gov'?' (با پروانه دیوان).':'.'));S.sheet=false;render()}
 function sellPlot(c,i){const P=S.props[c],pl=P&&P.plots[i];if(!pl)return;const v=Math.round(PT[pl.t].cost*.5);S.gold+=v;P.plots[i]=null;log(PT[pl.t].n+' فروخته شد: '+f(v)+' دریک.');render()}
@@ -480,7 +452,7 @@ function leave(){ADS.inter();S.view='world';S.sheet=false;render()}
 function selCar(i){S.selCar=i;const k=selC();if(k&&k.at)S.selCity=k.at;tab('cars')}
 function setDest(c){if(locked(c)||C[c].k)return;const car=selC();if(car)car.dest=c;render()}
 function tab(t){S.yc=null;S.tab=t;S.sheet=true;S.col=0;render()}
-function setQty(v){S.qty=Math.max(1,Math.floor(+v||1));render()}
+function setQty(v){S.qty=Math.min(999,Math.max(1,Math.floor(+v||1)));render()}
 function yardTap(c){S.selCity=c;S.tab='cars';S.yc=c;S.sheet=true;S.col=0;const k=carAt(c)[0];if(k)S.selCar=k.id;render()}
 function bld(k){S.bk=k;S.tab=k=='market'?'market':'bld';S.sheet=true;S.col=0;render()}
 function plotClick(i){S.pi=i;S.tab='plot';S.sheet=true;S.col=0;render()}
@@ -524,7 +496,7 @@ function worldSVG(){let m=`<defs><linearGradient id="skyg" x1="0" y1="0" x2="0" 
  if(sc&&sc.route.length>1)m+=`<polygon points="${sc.route.map(r=>C[r.c].x+','+C[r.c].y).join(' ')}" fill="none" stroke="var(--good)" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>`;
  S.cars.forEach(c=>{if(!c.at)m+=`<polyline points="${[c.from,c.to,...(c.rest||[])].map(r=>C[r].x+','+C[r].y).join(' ')}" fill="none" stroke="var(--mute)" stroke-width="1.5" stroke-dasharray="2 5"/>`});
  ids.forEach(c=>{const o=C[c],h=c==S.home,P=S.props[c],ev=S.ev.filter(e=>e.c==c);
-  m+=`<g class="city" onclick="cityTap('${c}')"><circle cx="${o.x}" cy="${o.y}" r="16" fill="transparent"/><text x="${o.x}" y="${o.y+(WV3?3:15)}" class="cl" style="font-size:9px;fill:${h?'#ffe29a':'#fff6e0'};stroke:#2b1d10;stroke-width:2.6px">${h?'★ ':''}${locked(c)?'':''}${o.l||o.n}</text>${ev.map((e,i)=>`<image class="pulse" href="${EVIMG[e.type]?'assets/ui/events/'+EVIMG[e.type]+'.webp':''}" x="${o.x+16}" y="${o.y-14+i*12}" width="11" height="11"/>`).join('')}</g>`});
+  m+=`<g class="city" onclick="cityTap('${c}')"><circle cx="${o.x}" cy="${o.y}" r="16" fill="transparent"/>${h?`<circle cx="${o.x}" cy="${o.y}" r="15" fill="none" stroke="#ffd47a" stroke-width="1.6" stroke-dasharray="3 2" opacity=".9"/>`:''}${ev.map((e,i)=>`<image class="pulse" href="${EVIMG[e.type]?'assets/ui/events/'+EVIMG[e.type]+'.webp':''}" x="${o.x+16}" y="${o.y-14+i*12}" width="11" height="11"/>`).join('')}</g>`});
  S.cars.forEach(c=>{m+=`<g id="car${c.id}" class="city" onclick="selCar(${c.id})"><circle r="10" fill="${c.id==S.selCar?'#ffd47a88':'transparent'}"/><image id="cvi${c.id}" transform="scale(${carFlip(c)},1)" href="assets/ui/world/caravan-${(c.lv||0)+1}.webp" x="-9" y="-9" width="18" height="18"/></g>`})
  return m}
 /* ---------- صحنه شهرها ---------- */
@@ -585,7 +557,7 @@ const BA={datefarm:1,grainfarm:1,herd:1,harbor:1,house:1,farm:1,loom:1,winery:1,
 let ARTOK={susa:true,parsa:true,sardis:true,babel:true,sur:true,bakhtar:true};
 const ART={susa:{img:'assets/city-susa-v2.webp',h:400,lay:{temple:[24,20,17,18],boss:[57,18,21,17],market:[38,38,16,10],biz:[24,50,13,11],house:[57,38,13,9],yard:[58,52,13,13]},plots:[[46,24,10,9],[67,33,8,7],[24,42,9,7],[57,46,9,6],[36,60,10,7]]},
  parsa:{img:'assets/city-parsa.webp',h:400,lay:{temple:[18,18,17,15],boss:[50,6,38,24],market:[31,35,23,15],biz:[13,49,24,13],house:[57,35,15,13],yard:[55,53,25,15]},plots:[[36,19,12,8],[70,29,11,8],[16,36,13,10],[57,47,12,7],[31,60,13,9]]},
- sardis:{img:'assets/city-sardis.webp',h:400,lay:{temple:[18,24,14,15],boss:[50,20,26,17],market:[31,40,21,14],biz:[9,55,26,17],house:[58,42,21,12],yard:[53,60,28,14]},plots:[[36,26,11,9],[66,35,12,7],[11,41,12,9],[54,54,12,7],[32,67,12,8]]},
+ sardis:{img:'assets/city-sardis-v2.webp',h:400,lay:{temple:[2,67,25,15],boss:[55,53,17,20],market:[32,55,20,13],biz:[16,47,19,19],house:[19,18,19,13],yard:[76,34,23,14]},plots:[[72,16,11,6],[50,78,9,6],[77,52,10,6],[84,86,11,6],[43,70,9,6]]},
  babel:{img:'assets/city-babel.webp',h:400,lay:{temple:[17,12,25,22],boss:[54,17,26,15],market:[37,33,21,15],biz:[18,51,19,13],house:[62,35,19,13],yard:[57,54,23,15]},plots:[[43,20,10,7],[74,30,10,7],[18,38,10,8],[67,47,11,7],[30,62,12,8]]},
  sur:{img:'assets/city-sur.webp',h:400,lay:{temple:[15,15,17,15],boss:[49,15,17,14],market:[25,34,19,15],biz:[11,50,17,15],house:[50,38,16,12],yard:[43,55,27,21]},plots:[[32,21,11,8],[52,29,11,8],[12,39,11,9],[48,49,11,7],[25,62,12,9]]},
  bakhtar:{img:'assets/city-bakhtar.webp',h:400,lay:{temple:[17,22,13,12],boss:[47,13,27,21],market:[27,34,24,15],biz:[10,50,24,15],house:[52,38,18,12],yard:[47,54,23,15]},plots:[[33,22,12,8],[66,32,10,7],[11,40,12,8],[56,50,12,6],[26,62,11,9]]}};
@@ -593,8 +565,9 @@ let CH=380;
 const pc=([l,t,w,h])=>[l*6,t*CH/100,w*6,h*CH/100];
 function artSVG(c){const A=ART[c],h=c==S.home,P=propsOf(c),z=C[c].z,p=PAL[c];CH=A.h||380;
  let m=`<image href="${A.img}" x="-1200" y="-900" width="3000" height="${CH+1800}" preserveAspectRatio="xMidYMid slice" opacity=".9" style="filter:blur(14px) brightness(.8)"/><image href="${A.img}" x="0" y="0" width="600" height="${CH}" preserveAspectRatio="xMidYMid slice" onerror="ARTOK['${c}']=false;render()"/>`;
- const chip=(x,y,t,sz)=>`<text x="${x}" y="${y}" class="cl art" ${sz?`font-size="${sz}"`:''}>${t}</text>`;
+ const chip=()=>'';
  const hit=(k,r,ic,label,sub,on,dash,ly,spr)=>{const[x,y,w,hh]=pc(r);return`<g class="bld hit" onclick="${k}">${spr?(()=>{const sw=w*(/b\/house/.test(spr)?.85:1.1),sh=sw*.668;return`<image href="${spr}" x="${x+w/2-sw/2}" y="${y+hh/2-sh/2-hh*.05}" width="${sw}" height="${sh}" onerror="this.remove()"/>`})():''}<rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="8" fill="${on||'transparent'}" stroke="${dash?'#fff':'transparent'}" stroke-width="1.5" ${dash?'stroke-dasharray="5 4"':''} class="hr"/>${chip(x+w/2,ly!=null?y+hh*ly:y+hh-6,label)}</g>`};
+ m+=`<g class="zn" onclick="tip('houses','${c}')"><rect x="0" y="0" width="600" height="${CH}" fill="transparent"/></g><g class="zn" onclick="tip('wall','${c}')"><rect x="0" y="0" width="34" height="${CH}" fill="transparent"/><rect x="566" y="0" width="34" height="${CH}" fill="transparent"/><rect x="0" y="0" width="600" height="${CH*.12}" fill="transparent"/></g><g class="zn" onclick="tip('fields','${c}')"><rect x="0" y="${CH*.86}" width="600" height="${CH*.14}" fill="transparent"/></g>`;
  m+=hit("bld('temple')",A.lay.temple,'',c=='sur'?'معبد ملقارت':c=='babel'?'اساگیلا':c=='parsa'||c=='bakhtar'?'آتشکده':c=='sardis'?'معبد آرتمیس':'معبد اینشوشیناک','وام، سپرده، صرافی');
  m+=hit("bld('boss')",A.lay.boss,'',z=='gov'?(c=='susa'?'کاخ آپادانا':c=='parsa'?'تخت‌جمشید':'دیوان ساتراپ'):BOSS[z][0],z=='gov'?'خراج، پروانه، فرمان شاه':z=='temple'?'سهم معبد، فرمان شاه':'بدون عوارض سنگین',null,false,.62);
  m+=hit("bld('market')",A.lay.market,'','بازار '+C[c].n,'خرید و فروش');
@@ -603,7 +576,6 @@ function artSVG(c){const A=ART[c],h=c==S.home,P=propsOf(c),z=C[c].z,p=PAL[c];CH=
  m+=hit("yardTap('"+c+"')",A.lay.yard,'',c=='sur'?'بندر و اسکله':'کاروانسرا','کاروان‌ها، نگهبان');
  A.plots.forEach((r,i)=>{const pl=P&&P.plots[i];
   m+=hit(`plotClick(${i})`,r,'',pl?PT[pl.t].n:(P?'زمین خالی':'زمین'),null,pl?'#9fd06a22':'#ffffff1a',!pl,null,pl?(()=>{const sn=PT[pl.t].spr||pl.t;return BA[sn+'-'+c]?'assets/b/'+sn+'-'+c+'.webp':BA[sn]?'assets/b/'+sn+'.webp':null})():null)});
- m+=`<text x="300" y="14" text-anchor="middle" font-size="8.5" font-weight="700" fill="#fff6e0" stroke="#2b1d10" stroke-width="3.5" paint-order="stroke">${C[c].n}${h?' ★ شهر خانگی':P?' · شما این‌جا خانه دارید':''}</text>`;
  return m}
 function citySVG(c){const p=PAL[c],h=c==S.home,P=propsOf(c),z=C[c].z;
  if(ART[c]&&ARTOK[c])return artSVG(c);
@@ -627,20 +599,27 @@ function citySVG(c){const p=PAL[c],h=c==S.home,P=propsOf(c),z=C[c].z;
  return m}
 function sceneNote(){return S.note?`<div class="m" style="margin-top:6px">${S.note}</div>`:''}
 /* ---------- پنل‌ها ---------- */
-function marketHTML(){const c=S.selCity,live=canTrade(c),t=tradeTarget(),z=Z[C[c].z],home=c==S.home;
- let h=`<h2>بازار ${C[c].n}</h2><div class="m">منطقه ${z.n} · عوارض فروش ${f(taxOf(c)*100)}٪ · خطر راه ${z.rob>1.5?'زیاد':z.rob>.8?'متوسط':'کم'} · قیمت‌ها: ${live?'<b class="dn">زنده</b>':age(c)} · صندوق: <b>${f(S.gold)}</b></div>`;
- if(!live)return h+'<div class="m up">اینجا کاروان یا خانه ندارید؛ فقط قیمت قدیمی را می‌بینید. کاروان بفرستید یا خانه بخرید.</div>'+marketTable(c,null)
- ;const here=carAt(c);
- h+=`<div style="margin:4px 0">معامله با: <b>${t.label}</b> · بار ${f(load(t.store))}/${f(t.cap)} `+(t.wh?'<span class="m">(خرید به انبار می‌رود؛ فروش از انبار است)</span>':'<span class="m">(خرید روی کاروان می‌رود؛ فروش از بار کاروان است)</span>')+'</div>';
+function marketHTML(){const c=S.selCity,live=canTrade(c),t=tradeTarget(),z=Z[C[c].z];
+ let h=`<div class="m">${z.n} · عوارض ${f(taxOf(c)*100)}٪ · خطر راه ${z.rob>1.5?'زیاد':z.rob>.8?'متوسط':'کم'} · ${live?'<b class="dn">قیمت زنده</b>':age(c)} · صندوق <b>${f(S.gold)}</b></div>`;
+ if(!live)return h+'<div class="m up">این‌جا کاروان یا خانه ندارید؛ فقط قیمت قدیمی را می‌بینید. کاروان بفرستید یا خانه بخرید.</div>'+marketTable(c,null);
+ const here=carAt(c);
+ h+=`<div class="tgt">`;
  if(propsOf(c)&&here.length)h+=`<button class="${S.tgt=='wh'?'':'o'}" onclick="S.tgt='wh';render()">انبار</button>`+here.map(k=>`<button class="${S.tgt=='car'&&k.id==(t.car&&t.car.id)?'':'o'}" onclick="S.tgt='car';S.selCar=${k.id};render()">${k.name}</button>`).join('');
  else if(here.length>1)h+=here.map(k=>`<button class="${k.id==(t.car&&t.car.id)?'':'o'}" onclick="S.selCar=${k.id};render()">${k.name}</button>`).join('');
- h+=`<div style="margin:6px 0">مقدار: <input type="number" min="1" value="${S.qty}" onchange="setQty(this.value)"> <button class="o" onclick="setQty(1)">۱</button><button class="o" onclick="setQty(10)">۱۰</button><button class="o" onclick="setQty(40)">۴۰</button></div>`;
- return h+marketTable(c,t)+'<div class="m">سبز ▼ = ارزان (بخرید)، قرمز ▲ = گران (بفروشید). قیمت با هر واحد خرید یا فروش تغییر می‌کند.</div>'}
-function marketTable(c,t){const live=!!t,tax=taxOf(c);
- return GN.map((g,i)=>{const p=live?bp(c,g):S.seen[c].p[g],q0=live?sp(c,g):0,b=G[g][1],cl=p>b*1.15?'up':p<b*.85?'dn':'',e=live&&t.store[g],pr=e?q0*(1-tax)-e.c:0;
-  return`<div class="gd ${i%2?'rb':'ra'}"><div class="gh"><img class="gi" src="assets/ui/goods/${g}.webp"><b>${G[g][0]}</b>${C[c].p.includes(g)?' <span class="tg tp">تولیدی</span>':C[c].d.includes(g)?' <span class="tg td">پرتقاضا</span>':''}<span class="pr ${cl} ${cl=='dn'?'plo':cl=='up'?'phi':'pmi'}">${f(p)} ${p>b*1.15?'▲':p<b*.85?'▼':''}</span></div>
-  <div class="m">${live?'خرید '+f(p)+' · فروش '+f(q0)+' · موجودی بازار: '+f(S.st[c][g]):'قیمت قدیمی'}${e?` · دارید: <b>${f(e.q)}</b> · تمام‌شده ${f1(e.c)} · <span class="${pr>=0?'dn':'up'}">سود هر واحد ${pr>=0?'+':''}${f1(pr)}</span>`:''}</div>
-  ${live?`<div><button onclick="buy('${g}',S.qty)">خرید</button><button class="o" onclick="buy('${g}',9999)">حداکثر</button><button class="o" onclick="sell('${g}',S.qty)" ${e?'':'disabled'}>فروش</button><button class="o" onclick="sell('${g}',9999)" ${e?'':'disabled'}>همه</button></div>`:''}</div>`}).join('')}
+ else h+=`<b>${t.label}</b>`;
+ h+=`<span class="m sp1">${f(load(t.store))}/${f(t.cap)} پر</span></div>`;
+ h+=`<div class="qty"><button class="qb" onclick="setQty(S.qty-1)">−</button><input class="qin" type="number" min="1" value="${S.qty}" onchange="setQty(this.value)"><button class="qb" onclick="setQty(S.qty+1)">+</button><span class="sp1"></span><button class="o" onclick="setQty(1)">۱</button><button class="o" onclick="setQty(10)">۱۰</button><button class="o" onclick="setQty(100)">۱۰۰</button></div>`;
+ return h+marketTable(c,t)}
+function selG(g){S.sg=g;render()}
+function marketTable(c,t){const live=!!t,tax=taxOf(c);if(!GN.includes(S.sg))S.sg=GN[0];
+ let h='<div class="mkh"><span>کالا</span><span style="text-align:center">قیمت خرید</span><span>موجودی بازار / شما</span></div>';
+ GN.forEach(g=>{const p=live?bp(c,g):S.seen[c].p[g],q0=live?sp(c,g):0,b=G[g][1],cl=p>b*1.15?'phi':p<b*.85?'plo':'pmi',e=live&&t.store[g];
+  h+=`<div class="mk ${live&&S.sg==g?'sel':''}" ${live?`onclick="selG('${g}')"`:''}><div class="nm"><img src="assets/ui/goods/${g}.webp"><span>${G[g][0]}${C[c].p.includes(g)?'<i class="tg tp">تولیدی</i>':C[c].d.includes(g)?'<i class="tg td">پرتقاضا</i>':''}</span></div><div style="text-align:center"><span class="pr ${cl}">${f(p)}${p>b*1.15?' ▲':p<b*.85?' ▼':''}</span>${live?`<div class="m" style="font-size:10px">فروش ${f(q0)}</div>`:''}</div><div class="st">${live?`بازار <b>${f(S.st[c][g])}</b> · شما <b>${f(e?e.q:0)}</b>`:'قیمت قدیمی'}${e?`<br><span class="${q0*(1-tax)-e.c>=0?'dn':'up'}">سود هر واحد ${q0*(1-tax)-e.c>=0?'+':''}${f1(q0*(1-tax)-e.c)}</span>`:''}</div></div>`});
+ return h+'<div class="m" style="margin-top:6px">'+(live?(t.wh?'خرید به انبار می‌رود و فروش از انبار است. ':'خرید روی کاروان می‌رود و فروش از بار کاروان است. '):'')+'سبز ▼ ارزان، قرمز ▲ گران. قیمت با هر معامله تغییر می‌کند و خرید و فروش هم‌زمان در یک شهر سود ندارد.</div>'}
+function buyPlan(c,g,n,t){const o=S.st[c][g],free=t.cap-load(t.store);let k=0,tot=0;while(k<n&&k<free&&S.st[c][g]>=1){const p=bp(c,g);if(tot+p>S.gold)break;tot+=p;S.st[c][g]-=1;k++}S.st[c][g]=o;return{k,tot,why:k>=n?'':free<=0?'ظرفیت پر است':S.st[c][g]<1?'موجودی بازار صفر است':'پول کافی نیست'}}
+function sellPlan(c,g,n,t){const have=t.store[g]?t.store[g].q:0,o=S.st[c][g];let k=0,tot=0;n=Math.min(n,have);while(k<n){tot+=sp(c,g);S.st[c][g]+=1;k++}S.st[c][g]=o;return{k,tot,net:tot-Math.round(tot*taxOf(c)),why:have?'':'چیزی برای فروش ندارید'}}
+function marketActions(){const c=S.selCity,t=tradeTarget();if(!t||!canTrade(c))return'';const g=GN.includes(S.sg)?S.sg:GN[0],B=buyPlan(c,g,S.qty,t),L=sellPlan(c,g,S.qty,t),mx=buyPlan(c,g,9999,t),have=t.store[g]?t.store[g].q:0;
+ return`<div class="selt"><b>${G[g][0]}</b><small>${f(S.qty)} واحد انتخاب شده</small></div><div class="ag"><button onclick="buy('${g}',S.qty)" ${B.k?'':'disabled'}>خرید<small>${B.k?f(B.tot)+' دریک'+(B.k<S.qty?' · '+f(B.k)+' واحد':''):B.why}</small></button><button class="sell" onclick="sell('${g}',S.qty)" ${L.k?'':'disabled'}>فروش<small>${L.k?f(L.net)+' دریک'+(L.k<S.qty?' · '+f(L.k)+' واحد':''):L.why}</small></button></div><div class="ag2"><button class="o" onclick="buy('${g}',9999)" ${mx.k?'':'disabled'}>حداکثر خرید (${f(mx.k)})</button><button class="o" onclick="sell('${g}',9999)" ${have?'':'disabled'}>فروش همه (${f(have)})</button></div>`}
 
 function whHTML(){let h='<h2>انبارهای شما</h2>';
  Object.keys(S.props).forEach(c=>{const W=S.props[c].wh,ks=Object.keys(W);
@@ -711,7 +690,7 @@ function finHTML0(){const L=S.loans||[];let h=`<h2>مالی در دوران دا
 function shopHTML(){return adCard()+`<h2>خزانه شاهی: خرید دریک</h2><p class="m">نمونه آزمایشی: پرداخت واقعی هنوز وصل نیست و دکمه‌ها چیزی اضافه نمی‌کنند. در نسخه نهایی دریک خریداری‌شده به کیف‌پول مشترک بزرگمهر می‌رود.</p>`+[['کیسه کوچک',500],['صندوق بازرگان',2500],['خزانه ساتراپ',12000]].map(([n,a])=>`<div class="car"><b>${n}</b> · ${f(a)} دریک <button class="o" onclick="S.note='پرداخت واقعی در نسخه نهایی وصل می‌شود.';render()">خرید</button></div>`).join('')}
 function cityHTML(){const c=S.selCity,P=propsOf(c),z=Z[C[c].z];
  let h=`<h2>${C[c].n} <span class="m">${z.n}</span></h2><div class="m">${C[c].note}</div><div class="m" style="margin:4px 0">روی هر ساختمان نقشه بزنید تا کارهایش را ببینید. زمین‌های خط‌چین برای ساخت‌اند.</div>`;
- if(!P)h+=`<div class="car">شما این‌جا خانه ندارید. با خانه (۲۰۰۰ دریک) انبار ۲۰۰ باری می‌گیرید، بدون کاروان خرید و فروش می‌کنید و می‌توانید کارگاه و مزرعه بسازید. ${carAt(c).length?`<button onclick="buyHouse('${c}')" ${S.gold<2000?'disabled':''}>خرید خانه (۲۰۰۰)</button>`:'<span class="m">برای خرید باید کاروانتان این‌جا باشد.</span>'}</div>`;
+ if(!P)h+=`<div class="car">شما این‌جا خانه ندارید. با خانه (۲۰۰۰ دریک) انبار ۲۰۰ باری می‌گیرید، بدون کاروان خرید و فروش می‌کنید و می‌توانید کارگاه و مزرعه بسازید. ${carAt(c).length?`<button onclick="buyHouse('${c}')" ${S.gold<houseCost(c)?'disabled':''}>خرید خانه (۲۰۰۰)</button>`:'<span class="m">برای خرید باید کاروانتان این‌جا باشد.</span>'}</div>`;
  else{h+=`<div class="car"><b>دارایی شما در ${C[c].n}</b><div class="m">انبار ${f(load(P.wh))}/${f(whCap(c))} · سهم ${BIZ[c][0]}: ${f(P.shares)}</div>`+(P.plots.map((pl,i)=>pl?`<div>${PT[pl.t].ic} ${PT[pl.t].n} <button class="o" onclick="plotClick(${i})">جزئیات</button></div>`:'').join('')||'<div class="m">هنوز زمینی نساخته‌اید.</div>')+'</div>';}
  h+='<div class="m">قاعده‌های این منطقه: '+(C[c].z=='gov'?'ساخت هر زمین ۳۰۰ دریک پروانه دیوان دارد؛ عوارض فروش ۶٪؛ راه‌ها امن.':C[c].z=='temple'?'یک‌چهارم تولید کارگاه‌ها و مزرعه سهم معبد است؛ در عوض وام و سپرده آسان‌تر.':'بدون پروانه و با عوارض ۲٪، ولی راه‌ها پرخطر و بازار پرنوسان.')+'</div>';
  return h}
@@ -722,24 +701,34 @@ function audience(){if((S.aud||0)>S.day||S.gold<800)return;S.gold-=800;S.led.inv
 function buyPermit(c){if(S.gold<400)return;S.gold-=400;const pk=S.perk[c]||(S.perk[c]={});pk.tax=S.day+30;log('پروانه دیوان ساتراپ '+C[c].n+': ۳۰ روز بدون عوارض فروش.');render()}
 function bossHTML(c){const z=C[c].z,o=S.order,evs=S.ev.filter(e=>e.c==c),other=S.ev.filter(e=>e.c!=c);
  const nx=90-S.day%90,tr=`<div class="m">خراج ساتراپی: هر ۹۰ روز ۱٫۵٪ ثروت بالای ۵٬۰۰۰؛ ${f(nx)} روز دیگر.</div>`;
- if(z!='gov')return`<h2>${z=='temple'?'خزانه معبد':'شورای بازرگانان'}</h2><p>${z=='temple'?'معبد سهم خود را از تولید می‌گیرد و در عوض با ثبات قیمت و بیمه کارگاه‌ها پاسخ می‌دهد.':'بازرگانان و ناخدایان شهر را خودشان اداره می‌کنند: عوارض کم، قانون کم، خطر زیاد.'}</p>${tr}`+(evs.length?evs.map(evHTML).join(''):'')+orderCard();
+ if(z!='gov')return`<h2>${z=='temple'?'خزانه معبد':'شورای بازرگانان'}</h2><p>${z=='temple'?'معبد سهم خود را از تولید می‌گیرد و در عوض با ثبات قیمت و بیمه کارگاه‌ها پاسخ می‌دهد. هر ماه بخشی از تولیدات شهر رایگان بین مردم پخش می‌شود و سهمی هم به بازرگانان صاحب خانه می‌رسد (خراج کاهنان ۶٪).':'بازرگانان و ناخدایان شهر را خودشان اداره می‌کنند: عوارض کم، قانون کم، خطر زیاد.'}</p>${tr}`+(evs.length?evs.map(evHTML).join(''):'')+orderCard()+(c=='sur'?councilHTML(c):'');
  if(c=='parsa'){const w=(S.aud||0)>S.day;
   return`<div style="display:flex;gap:8px;align-items:center"><img src="assets/ui/people/darius.webp" style="width:72px;height:72px"><div><h2 style="margin:0">دربار داریوش، تخت‌جمشید</h2><span class="m">شاه شاهان فرمان می‌دهد و ساتراپ‌ها اجرا می‌کنند.</span></div></div>`
   +`<h2 style="margin-top:10px">فرمان‌ها</h2>`+orderCard(1)
-  +`<h2 style="margin-top:10px">نیازهای شاه</h2>`+(S.ev.filter(e=>['warbuy','warloan','feast'].includes(e.type)).length?S.ev.filter(e=>['warbuy','warloan','feast'].includes(e.type)).map(e=>e.c==c?evHTML(e):`<div class="car ev">${evIcon(e.type)}<b>${e.name}</b> در ${C[e.c].n} · ${f(e.end-S.day)} روز مانده <button class="o" onclick="cityTap('${e.c}')">رفتن</button></div>`).join(''):'<div class="m">فعلاً نیازی اعلام نشده.</div>')
+  +`<h2 style="margin-top:10px">نیازهای شاه</h2>`+(S.ev.filter(e=>['warbuy','warloan','feast','tender','rent'].includes(e.type)).length?S.ev.filter(e=>['warbuy','warloan','feast','tender','rent'].includes(e.type)).map(e=>e.c==c?evHTML(e):`<div class="car ev">${evIcon(e.type)}<b>${e.name}</b> در ${C[e.c].n} · ${f(e.end-S.day)} روز مانده <button class="o" onclick="cityTap('${e.c}')">رفتن</button></div>`).join(''):'<div class="m">فعلاً نیازی اعلام نشده.</div>')
   +`<h2 style="margin-top:10px">بار عام</h2><p class="m">با تقدیم هدیه به شاه نزد دربار اعتبار می‌گیرید (هر ۶۰ روز یک بار).</p><button onclick="audience()" ${w||S.gold<800?'disabled':''}>تقدیم هدیه (۸۰۰) ${w?'· '+f(S.aud-S.day)+' روز دیگر':''}</button>`+tr}
  const pk=S.perk&&S.perk[c]&&S.perk[c].tax>S.day;
  return`<div style="display:flex;gap:8px;align-items:center"><img src="assets/ui/people/${c=='susa'?'scribe':'satrap'}.webp" style="width:64px;height:64px"><div><h2 style="margin:0">دیوان ساتراپ ${C[c].n}</h2><span class="m">نمایندگان شاه: خراج، پروانه و فرمان‌های دربار.</span></div></div>`
   +`<h2 style="margin-top:10px">فرمان‌های دربار</h2>`+orderCard()+(evs.length?'<h2 style="margin-top:10px">درخواست‌های این شهر</h2>'+evs.map(evHTML).join(''):'')
   +`<h2 style="margin-top:10px">پروانه معافیت</h2><p class="m">با پرداخت ۴۰۰ دریک، ۳۰ روز عوارض فروش در ${C[c].n} نمی‌پردازید.</p><button onclick="buyPermit('${c}')" ${S.gold<400||pk?'disabled':''}>${pk?'پروانه فعال ('+f(S.perk[c].tax-S.day)+' روز)':'خرید پروانه (۴۰۰)'}</button>`+tr
-  +`<div class="m" style="margin-top:6px">چشم‌وگوش شاه گاهی کاروان‌ها را بازرسی می‌کند.</div>`}
+  +(c=='sardis'?councilHTML(c):'')+`<div class="m" style="margin-top:6px">چشم‌وگوش شاه گاهی کاروان‌ها را بازرسی می‌کند.</div>`}
+const SHIP=900;
+function shipBuy(){S.ship=S.ship||{n:0};if(S.ship.n>=8||S.gold<SHIP||!canTrade('sur'))return;S.gold-=SHIP;S.led.invest+=SHIP;S.ship.n++;log('یک سهم کشتیرانی بندر صور خریدید.');render()}
+function shipSell(){if(!S.ship||!S.ship.n)return;S.ship.n--;S.gold+=Math.round(SHIP*.9);log('یک سهم کشتیرانی فروختید.');render()}
+function cstPut(a){if(S.gold<a||!canTrade(S.selCity))return;S.gold-=a;S.cst=(S.cst||0)+a;S.led.invest+=a;log(f(a)+' دریک به شورای بازرگانان سپردید تا در معاملات بزرگ سهامدار شوید.');render()}
+function cstOut(){if(!S.cst)return;S.gold+=Math.round(S.cst);log('سهم خود را از شورای بازرگانان پس گرفتید: '+f(S.cst)+' دریک.');S.cst=0;render()}
+function councilHTML(c){const n=S.ship?S.ship.n:0,ok=canTrade(c);
+ let h='<h2 style="margin-top:10px">شورای بازرگانان '+C[c].n+'</h2><p class="m">پول خود را به شورا بسپارید تا در معاملات بزرگ شریک شوید. هر ماه سود یا زیان می‌کند (میانگین حدود ۷٪ سود)؛ هر وقت خواستید برمی‌دارید.</p>'
+  +'<div>سهم شما: <b>'+f(S.cst||0)+'</b> دریک</div><div>'+[500,1500].map(a=>`<button onclick="cstPut(${a})" ${S.gold<a||!ok?'disabled':''}>سپردن ${f(a)}</button>`).join('')+`<button class="o" onclick="cstOut()" ${S.cst?'':'disabled'}>برداشتن همه</button></div>`+(ok?'':'<div class="m">برای سپردن باید کاروان یا خانه در این شهر داشته باشید.</div>');
+ if(c=='sur')h+='<h2 style="margin-top:10px">⚓ سهام کشتیرانی</h2><p class="m">کشتی‌های بازرگانان صور هر ماه سود می‌دهند، ولی گاهی (حدود ۶٪ ماه‌ها) یکی غرق می‌شود. هر سهم '+f(SHIP)+' دریک، حداکثر ۸ سهم، فروش '+f(SHIP*.9)+'.</p><div>سهم شما: <b>'+f(n)+'</b> <button onclick="shipBuy()" '+(n>=8||S.gold<SHIP||!ok?'disabled':'')+'>خرید سهم</button> <button class="o" onclick="shipSell()" '+(n?'':'disabled')+'>فروش سهم</button></div>';
+ return h}
 function bldHTML(){const c=S.selCity,k=S.bk,P=propsOf(c),z=C[c].z;const B=t=>`<button class="o" onclick="tab('${t}')">`;
  if(k=='temple'){const pr={sur:'priest-sur',babel:'priest-babel',sardis:'priest-sardis'}[c]||'priest-fire';return `<div style="display:flex;gap:8px;align-items:center;margin-bottom:6px"><img src="assets/ui/people/${pr}.webp" style="width:56px;height:56px"><span class="m">کاهن معبد: «پیشکش‌ها و وام معبد با ماست.»</span></div>`+finHTML()}
  if(k=='temple_old')return`<h2>${z=='temple'?'اساگیلا، معبد و خزانه':'معبد '+C[c].n}</h2><p>${z=='temple'?'کاهنان بابل دارایی معبد را وام می‌دهند و سپرده نگه می‌دارند؛ خاندان‌های بازرگان این‌جا شراکت سفر (هرّانو) می‌بندند.':'معبد شهر محل سپرده امن، وام با سود و صرافی نقره است. اعتبار شما نزد کاهنان با پرداخت به‌موقع بالا می‌رود.'}</p><div class="m">اعتبار: ${'★'.repeat(S.rep)+'☆'.repeat(6-S.rep)}</div>${B('fin')}رفتن به وام، سپرده و صرافی</button>`;
  if(k=='boss')return bossHTML(c);
  if(k=='yard')return`<h2>${c=='sur'?'لنگرگاه':'کاروانسرا'} ${C[c].n}</h2><p>کاروان‌ها این‌جا می‌مانند، بار می‌زنند و راه می‌افتند. کاروان تازه و نگهبان هم این‌جا استخدام می‌شود.</p><div>کاروان‌های حاضر: ${carAt(c).map(x=>x.name).join('، ')||'هیچ'}</div><button onclick="build('car')" ${S.gold<800?'disabled':''}>خرید کاروان این‌جا (۸۰۰)</button> <button onclick="build('guard')" ${S.guard||S.gold<300?'disabled':''}>نگهبان ${S.guard?'✓':'(۳۰۰)'}</button> ${B('cars')}مدیریت کاروان‌ها</button>`;
  if(k=='biz')return`<h2>${BIZ[c][1]} ${BIZ[c][0]}</h2><p>بنگاه بزرگ این شهر. می‌توانید تا ۵ سهم، هر سهم ۱۰۰۰ دریک بخرید. هر ماه ۲ تا ۶٪ سود می‌دهد و گاهی (۵٪ موارد) ۱۰٪ زیان. فروش سهم ۸۰۰ دریک.</p>${P?`<div>سهم شما: <b>${f(P.shares)}</b> <button onclick="buyShare('${c}')" ${P.shares>=5||S.gold<1000?'disabled':''}>خرید سهم</button> <button class="o" onclick="sellShare('${c}')" ${P.shares?'':'disabled'}>فروش سهم</button></div>`:'<div class="m">برای سرمایه‌گذاری باید در این شهر خانه داشته باشید.</div>'}`;
- if(k=='house'){if(!P)return`<h2>خانه برای فروش</h2><p>با خرید خانه در ${C[c].n}: انبار ۲۰۰ باری، خرید و فروش بدون کاروان، و اجازه ساخت روی زمین‌های شهر.</p>${carAt(c).length?`<button onclick="buyHouse('${c}')" ${S.gold<2000?'disabled':''}>خرید خانه (۲۰۰۰)</button>`:'<div class="m">کاروانتان باید این‌جا باشد.</div>'}`;
+ if(k=='house'){if(!P)return`<h2>خانه برای فروش</h2><p>با خرید خانه در ${C[c].n}: انبار ۲۰۰ باری، خرید و فروش بدون کاروان، و اجازه ساخت روی زمین‌های شهر.</p>${carAt(c).length?`<button onclick="buyHouse('${c}')" ${S.gold<2000?'disabled':''}>خرید خانه (${f(houseCost(c))})</button>`:'<div class="m">کاروانتان باید این‌جا باشد.</div>'}`;
   return whHTML()}
  return cityHTML()}
 function plotHTML(){const c=S.selCity,i=S.pi,P=propsOf(c),pl=P&&P.plots[i];
@@ -762,19 +751,19 @@ const TI={ov:'overview',cars:'caravans',wh:'warehouses',fin:'finance'};
 const DT=['ov','cars','wh','fin'];
 const DTN={ov:'امروز',cars:'کاروان‌ها',wh:'انبار و املاک',fin:'مالی',stats:'آمار',shop:'خزانه',news:'اخبار',help:'راهنما'};
 const EVIMG={feast:'feast',alms:'alms',portloan:'portloan',portwood:'portwood',warbuy:'warbuy',warloan:'warloan'};const evIcon=t=>EVIMG[t]?`<img src="assets/ui/events/${EVIMG[t]}.webp">`:EVI[t]+' ';
-const EVI={feast:'🎉',alms:'🕌',portloan:'⚓',portwood:'🪵',warbuy:'⚔️',warloan:'👑'};
+const EVI={tender:'📜',rent:'🐪',council:'🤝',feast:'🎉',alms:'🕌',portloan:'⚓',portwood:'🪵',warbuy:'⚔️',warloan:'👑'};
 const BT={temple:'معبد',boss:'دیوان / کاخ',yard:'کاروانسرا',biz:'بنگاه بزرگ شهر',house:'خانه و انبار'};
 const CAPS=[50,75,105,140],SPD=[1.3,1.65,2,2.4],UPC=[600,1200,2400],LVN=['کاروان شتر','شتر بارکش بزرگ','کاروان ارابه‌ای','کاروان شاهی'];
 const carLv=c=>c.lv||0,carCap=c=>CAPS[carLv(c)],carSpd=c=>SPD[carLv(c)];
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 /* ===== قدرت‌های سیاسی شهرها: هرکدام سهمی از فروش می‌گیرد؛ با خراج بزرگ می‌شود موقتاً (یا برای معبد بابل همیشه) معاف شد ===== */
 const POW={
- babel:[['کاهنان معبد اساگیلا','🛕',.05,'perm','در بابل مالیات دولتی نیست؛ کاهنان از هر فروش خراج می‌گیرند. با پرداخت خراج بزرگ «معتمد معبد» می‌شوید و برای همیشه معاف.']],
+ babel:[['کاهنان معبد اساگیلا','🛕',.06,'perm','در بابل مالیات دولتی نیست؛ کاهنان از هر فروش خراج می‌گیرند. با پرداخت خراج بزرگ «معتمد معبد» می‌شوید و برای همیشه معاف.']],
  parsa:[['شاه (دیوان سلطنتی)','👑',.04,120,'خزانه‌ی شاه از فروش‌ها سهم می‌برد.'],['موبدان و آتشکده','🔥',.03,120,'موبدان زرتشتی بر آیین و بازار نظارت دارند.']],
  susa:[['شاه (دیوان سلطنتی)','👑',.04,120,'پایتخت اداری؛ فرمان شاه بر بازار حاکم است.'],['موبدان و آتشکده','🔥',.03,120,'موبدان زرتشتی بر آیین و بازار نظارت دارند.']],
  bakhtar:[['شاه (نماینده‌ی دربار)','👑',.02,120,''],['موبدان','🔥',.02,120,''],['شورای ساتراپی','🏛️',.02,120,'شاه، موبدان و شورای ساتراپی هر سه این‌جا سهم دارند.']],
- sardis:[['نماینده‌ی ساتراپ','🏛️',.03,120,'ساتراپ لیدیه از مرز غربی سهم می‌گیرد.'],['شورای بازرگانان','🤝',.02,120,'بازرگانان سارد صنف قدرتمندی دارند.']],
- sur:[['نماینده‌ی ساتراپ','🏛️',.02,120,''],['شورای بازرگانان فنیقی','🤝',.02,120,'شهر بندری آزاد، زیر نظر نماینده‌ی ساتراپ و شورای بازرگانان.']]};
+ sardis:[['نماینده‌ی ساتراپ','🏛️',.025,120,'ساتراپ لیدیه از مرز غربی سهم می‌گیرد.'],['شورای بازرگانان','🤝',.015,120,'بازرگانان سارد صنف قدرتمندی دارند.']],
+ sur:[['نماینده‌ی ساتراپ','🏛️',.015,120,''],['شورای بازرگانان فنیقی','🤝',.015,120,'شهر بندری آزاد، زیر نظر نماینده‌ی ساتراپ و شورای بازرگانان.']]};
 const patCost=b=>b[3]=='perm'?3000:Math.round(b[2]*100*150);
 const patOn=(c,i)=>{const e=S.pat&&S.pat[c]&&S.pat[c][i];return!!e&&e>S.day};
 function taxOf(c){if(S.k&&S.k.free>S.day)return 0;if(S.perk&&S.perk[c]&&S.perk[c].tax>S.day)return 0;const B=POW[c];if(!B)return Z[C[c].z].tax;return B.reduce((t,b,i)=>t+(patOn(c,i)?0:b[2]),0)}
@@ -784,7 +773,7 @@ function powHTML(c){const B=POW[c];if(!B)return'';let h='<h2 style="margin-top:8
   h+=`<div class="car" style="padding:8px 10px"><b>${b[1]} ${b[0]}</b> <span class="m">· سهم از هر فروش ${f(b[2]*100)}٪</span>${b[4]?'<div class="m">'+b[4]+'</div>':''}${on?'<div class="dn">معاف شده‌اید · '+left+'</div>':`<button onclick="payPat('${c}',${i})" ${S.gold<patCost(b)?'disabled':''}>${b[3]=='perm'?'خراج بزرگ و معتمد معبد شدن':'خراج بزرگ'} (${f(patCost(b))})</button>`}</div>`});
  return h}
 const discOf=c=>(S.perk&&S.perk[c]&&S.perk[c].disc>S.day)?.75:1;
-const houseCost=c=>Math.round(2000*discOf(c));
+const houseCost=c=>Math.round(2000*(HK[c]||1)*discOf(c));
 function upWait(c){return Math.max(0,20-(S.day-(c.up||0)))}
 function upgradeCar(id){const c=S.cars.find(x=>x.id==id);if(!c||!c.at||carLv(c)>=3||upWait(c)>0)return;const p=UPC[carLv(c)];if(S.gold<p)return;
  S.gold-=p;S.led.invest+=p;c.lv=carLv(c)+1;c.up=S.day;log(c.name+' ارتقا یافت: ظرفیت '+f(carCap(c))+' بار و سرعت '+f1(carSpd(c))+' برابر.');render()}
@@ -799,11 +788,14 @@ const FEASTS=['نوروز','مهرگان','تیرگان','سده'];
 function newEvent(){const open=homeIds.filter(c=>!S.ev.some(e=>e.c==c));if(!open.length)return;
  const c=pick(open),z=C[c].z,r=Math.random(),dur=45+Math.floor(Math.random()*26);
  const e={id:S.nextEv++,c,start:S.day,end:S.day+dur};
- let kind;if(z=='gov')kind=r<.45?'feast':r<.75?'warbuy':'warloan';else if(z=='temple')kind=r<.65?'alms':'feast';else if(c=='sur')kind=r<.4?'portwood':r<.75?'portloan':'feast';else kind=r<.5?'portloan':'feast';
+ let kind;if(c=='sardis')kind=r<.3?'council':r<.5?'rent':r<.7?'tender':r<.85?'portloan':'feast';else if(z=='gov')kind=r<.28?'tender':r<.46?'rent':r<.64?'feast':r<.82?'warbuy':'warloan';else if(z=='temple')kind=r<.35?'tender':r<.65?'alms':r<.8?'rent':'feast';else if(c=='sur')kind=r<.35?'council':r<.55?'portwood':r<.8?'portloan':'feast';else kind=r<.4?'council':r<.6?'portloan':r<.8?'tender':'feast';
  e.type=kind;
  if(kind=='feast'){e.name='جشن '+pick(FEASTS);const pool=['wine','date','cloth','grain','argh','wool'].filter(g=>!C[c].p.includes(g));const gs=[];while(gs.length<2){const g=pick(pool);if(!gs.includes(g))gs.push(g)}
   e.req=gs.map(g=>({g,q:8+4*Math.floor(Math.random()*3),got:0}));e.mult=+(1.3+Math.random()*.15).toFixed(2);
   log('🎉 '+e.name+' در '+C[c].n+': شاه تا '+f(dur)+' روز کالای جشن را گران‌تر از بازار می‌خرد.')}
+ else if(kind=='tender'){e.name=pick(['مناقصه‌ی ساخت کاخ','مناقصه‌ی آذوقه‌ی سپاه','مناقصه‌ی پیک و ایستگاه‌های راه شاهی','مناقصه‌ی انبار دیوان']);const pool=GN.filter(g=>!C[c].p.includes(g)),gs=[];while(gs.length<2){const g=pick(pool);if(!gs.includes(g))gs.push(g)}e.req=gs.map(g=>({g,q:14+6*Math.floor(Math.random()*4),got:0}));e.mult=+(1.22+Math.random()*.12).toFixed(2);e.bonus=.1;log('📜 '+e.name+' در '+C[c].n+': دیوان کالای پیمانکار را بالاتر از بازار و بدون عوارض می‌خرد.')}
+ else if(kind=='rent'){e.name=pick(['حمل تجهیزات شاهی','حمل مصالح دربار','حمل مالیات و پیام‌ها']);e.days=6+Math.floor(Math.random()*5);e.fee=Math.round((260+Math.random()*180)*(HK[c]||1));log('🐪 '+C[c].n+': دیوان می‌خواهد کاروان شما را برای «'+e.name+'» اجاره کند.')}
+ else if(kind=='council'){e.name=pick(['سفارش بزرگ شورای بازرگانان','قرارداد صادرات بندر','محموله‌ی بزرگ کشتی‌ها']);const g=pick(GN.filter(x=>!C[c].p.includes(x)));e.req=[{g,q:34+8*Math.floor(Math.random()*5),got:0}];e.mult=+(1.28+Math.random()*.15).toFixed(2);e.bonus=.15;log('🤝 '+C[c].n+': شورای بازرگانان محموله‌ی بزرگ '+G[g][0]+' می‌خواهد و سود خوبی می‌دهد.')}
  else if(kind=='warbuy'){const k=Math.floor(Math.random()*3);e.name=pick(['لشکرکشی به سکاها','سرکوب شورش','سپاه راه شاهی','پادگان مرزی مصر']);e.req=[{g:'grain',q:20+10*k,got:0},{g:'metal',q:8+4*k,got:0}];e.mult=+(1.4+Math.random()*.2).toFixed(2);log('⚔️ داریوش برای «'+e.name+'» از '+C[c].n+' غلات و فلز می‌خرد، گران‌تر از بازار و بی‌عوارض.')}
  else if(kind=='warloan'){e.name=pick(['لشکرکشی به سکاها','سرکوب شورش','ساخت پادگان‌های راه شاهی']);e.rate=+(.12+Math.random()*.08).toFixed(2);e.lent=0;e.days=90;log('👑 خزانهٔ شاه برای «'+e.name+'» از بازرگانان در '+C[c].n+' وام می‌خواهد.')}
  else if(kind=='alms'){e.name=pick(['آکیتو، سال‌نو بابلی','عید بزرگ مردوک','آیین سپاس ایشتار']);e.don=0;log('🕌 '+e.name+' در '+C[c].n+': معبد از بازرگانان اعانه می‌خواهد و در عوض امتیاز می‌دهد.')}
@@ -816,12 +808,13 @@ function evTick(){
   log('مراسم «'+e.name+'» در '+C[e.c].n+' به پایان رسید.');return false});
  (S.out||[]).slice().forEach(o=>{if(S.day<o.due)return;const ok=o.sure||Math.random()<.9,back=ok?Math.round(o.amt*(1+o.rate)):o.amt;S.gold+=back;S.led.inc=(S.led.inc||0)+(back-o.amt);
   log(ok?C[o.c].n+' وام را با سود پس داد: '+f(back)+' دریک.':C[o.c].n+' فقط اصل وام را برگرداند: '+f(back)+' دریک.');S.out=S.out.filter(x=>x!==o)});
- if(S.day==6||(S.ev.length<3&&Math.random()<.06))newEvent()}
+ if(S.day==6||(S.ev.length<5&&Math.random()<.08))newEvent()}
 function evDeliver(id,i,src){const e=S.ev.find(x=>x.id==id);if(!e||!e.req)return;const r=e.req[i],need=r.q-r.got;if(need<=0)return;
  let store=null;if(src=='wh')store=whOf(e.c);else{const car=S.cars.find(x=>x.id==+src&&x.at==e.c);store=car&&car.cargo}
  if(!store||!store[r.g])return;const n=Math.min(need,store[r.g].q),p=Math.round(G[r.g][1]*e.mult),basis=store[r.g].c;
  rem(store,r.g,n);r.got+=n;S.gold+=n*p;S.led.sell+=n*p;trade('sell',e.c,r.g,n,n*p,0,(p-basis)*n);log(f(n)+' بار '+G[r.g][0]+' به '+e.name+' '+C[e.c].n+' تحویل شد: '+f(n*p)+' دریک.');
- if(e.req.every(x=>x.got>=x.q)&&!e.repd){e.repd=1;S.rep=Math.min(6,S.rep+1);log('همه نیازهای '+e.name+' را برآورده کردید؛ اعتبارتان بالا رفت.')}render()}
+ if(e.req.every(x=>x.got>=x.q)&&!e.repd){e.repd=1;S.rep=Math.min(6,S.rep+1);let t='';if(e.bonus){const b=Math.round(e.req.reduce((a,r)=>a+r.q*G[r.g][1]*e.mult,0)*e.bonus);S.gold+=b;S.led.inc=(S.led.inc||0)+b;t=' و پاداش '+f(b)+' دریک گرفتید'}log('همه نیازهای '+e.name+' را برآورده کردید؛ اعتبارتان بالا رفت'+t+'.')}render()}
+function evRent(id,cid){const e=S.ev.find(x=>x.id==id),car=S.cars.find(x=>x.id==cid);if(!e||e.done||!car||car.at!=e.c||car.rent>S.day)return;if(load(car.cargo)>0){pop('اول بار کاروان را خالی کنید');return}e.done=1;car.rent=S.day+e.days;S.gold+=e.fee;S.led.inc=(S.led.inc||0)+e.fee;S.rep=Math.min(6,S.rep+1);log(car.name+' را برای «'+e.name+'» به دیوان '+C[e.c].n+' اجاره دادید: '+f(e.fee)+' دریک؛ '+f(e.days)+' روز در خدمت دربار است.');render()}
 function evAttend(id){const e=S.ev.find(x=>x.id==id);if(!e||e.att||!(carAt(e.c).length||e.c==S.home))return;e.att=1;S.rep=Math.min(6,S.rep+1);log('در '+e.name+' '+C[e.c].n+' شرکت کردید؛ اعتبارتان بالا رفت.');render()}
 function evDonate(id,a){const e=S.ev.find(x=>x.id==id);if(!e||e.don||S.gold<a||!canTrade(e.c))return;S.gold-=a;S.led.gift=(S.led.gift||0)+a;e.don=a;S.rep=Math.min(6,S.rep+1);
  const pk=S.perk[e.c]||(S.perk[e.c]={});let t='اعتبار +۱';if(a>=600){pk.tax=S.day+45;t+='، معافیت عوارض فروش ۴۵ روز'}if(a>=1200){pk.disc=S.day+60;t+='، ۲۵٪ تخفیف ساخت‌وساز ۶۰ روز'}
@@ -832,6 +825,8 @@ function reqRows(e){return e.req.map((r,i)=>{const store=whOf(e.c),inWh=store&&s
  return`<div style="margin:5px 0">${G[r.g][0]}: <b>${f(r.got)}/${f(r.q)}</b> · هر بار ${f(p)} دریک (بازار ${f(G[r.g][1])})${btn}</div>`}).join('')}
 function evHTML(e){const c=e.c,left=f(e.end-S.day),sc=['feast','alms','portloan','portwood','warbuy','warloan'].includes(e.type)?`<img src="assets/ui/events/${e.type}-scene.webp" style="width:100%;border-radius:8px;margin-bottom:4px">`:'',hd=sc+`<b>${EVI[e.type]} ${e.name} · ${C[c].n}</b> <span class="m">${left} روز مانده</span>`;
  if(e.type=='feast')return`<div class="car ev">${hd}<p class="m">شاه برای جشن این کالاها را با قیمت بالاتر از بازار و بدون عوارض می‌خرد. اگر کاروان شما در شهر باشد می‌توانید در جشن هم شرکت کنید.</p>${reqRows(e)}`+(e.att?'<div class="dn">در جشن شرکت کردید ✓</div>':(carAt(c).length||c==S.home)?`<button onclick="evAttend(${e.id})">شرکت در جشن (+۱ اعتبار)</button>`:'<div class="m">برای شرکت در جشن باید کاروان یا خانه‌تان در این شهر باشد.</div>')+'</div>';
+ if(e.type=='tender'||e.type=='council')return`<div class="car ev">${hd}<p class="m">${e.type=='tender'?'دیوان برای این مناقصه از پیمانکاران معتمد می‌خرد؛ قیمت بالاتر از بازار، بدون عوارض، و با پاداش ۱۰٪ اگر همه را تحویل دهید.':'شورای بازرگانان شهر محموله‌ی بزرگی می‌خواهد. هر کس همه‌اش را تحویل دهد قیمت بالاتر از بازار و ۱۵٪ سود شراکت می‌گیرد.'}</p>${reqRows(e)}</div>`;
+ if(e.type=='rent'){const cs=carAt(c).filter(k=>!(k.rent>S.day));return`<div class="car ev">${hd}<p class="m">دیوان کاروان شما را ${f(e.days)} روز برای «${e.name}» اجاره می‌کند و ${f(e.fee)} دریک می‌پردازد (بدون خطر راه). کاروان در این مدت نمی‌تواند حرکت کند. +۱ اعتبار.</p>`+(e.done?'<div class="dn">اجاره دادید ✓</div>':cs.length?cs.map(k=>`<button onclick="evRent(${e.id},${k.id})">${k.name} (${f(e.fee)})</button>`).join(''):'<div class="m">کاروان خالی در این شهر ندارید.</div>')+'</div>'}
  if(e.type=='warbuy')return`<div class="car ev">${hd}<p class="m">شاهنشاه داریوش برای «${e.name}» غلات و فلز لازم دارد و از بازرگانان وفادار گران‌تر از بازار و بدون عوارض می‌خرد. پاسخ‌دادن اعتبارتان را بالا می‌برد.</p>${reqRows(e)}</div>`;
  if(e.type=='warloan')return`<div class="car ev">${hd}<p class="m">خزانهٔ شاه برای «${e.name}» وام می‌خواهد. بازپرداخت قطعی است: ${f(e.days)} روز بعد با سود ${f(e.rate*100)}٪. وام‌دادن به شاه یک ستاره اعتبار هم می‌دهد.</p>`+(e.lent?`<div class="dn">وام دادید: ${f(e.lent)} ✓</div>`:[1500,3000].map(a=>`<button onclick="evLend(${e.id},${a})" ${S.gold<a||!canTrade(c)?'disabled':''}>وام ${f(a)}</button>`).join('')+(!canTrade(c)?'<div class="m">برای وام‌دادن باید کاروان یا خانه در این شهر داشته باشید.</div>':''))+'</div>';
  if(e.type=='portwood')return`<div class="car ev">${hd}<p class="m">صور برای «${e.name}» چوب سدر بیشتری لازم دارد و گران می‌خرد.</p>${reqRows(e)}</div>`;
@@ -871,10 +866,18 @@ function fitBtn(){delete VW[vk()];applyView()}
  vp.addEventListener('wheel',e=>{e.preventDefault();const r=vp.getBoundingClientRect();zoomAt(e.clientX-r.left,e.clientY-r.top,e.deltaY<0?1.18:1/1.18)},{passive:false});
  window.addEventListener('resize',()=>{if(S)applyView()})})();
 /* --- برگه پایین و داشبورد --- */
+const TIPS={
+ houses:t=>['خانه‌های مردم','خانه‌های گلی و آجری شهروندان '+C[t].n+'. این‌جا بازرگانان و پیشه‌وران زندگی می‌کنند و از بازار و کاروانسرا نان می‌خورند. خانه‌ی شما جداست؛ برای داشتن خانه و انبار در این شهر خانه‌ی خالی بخرید.'],
+ wall:t=>['باروی شهر','حصار و برج‌های نگهبانی '+C[t].n+'. دیوار شهر را از دزدان و صحرانشینان نگه می‌دارد و شبانه دروازه‌ها بسته می‌شود.'],
+ fields:t=>['مزارع و راه بیرون شهر','کشتزارها، باغ‌ها و راه خاکی کاروان‌ها. غلات و خرمای بازار از همین زمین‌ها می‌آید و کاروان‌ها از همین راه می‌رسند و می‌روند.'],
+ land:t=>['زمین خالی','زمینی که می‌شود روی آن مزرعه یا کارگاه ساخت. برای ساختن باید در این شهر خانه داشته باشید.']};
+let tipT=0;
+function tip(k,c){const e=document.getElementById('tip'),d=(TIPS[k]||TIPS.houses)(c||S.selCity);e.innerHTML='<b>'+d[0]+'</b>'+d[1];e.classList.remove('off');clearTimeout(tipT);tipT=setTimeout(tipOff,7000)}
+function tipOff(){const e=document.getElementById('tip');if(e)e.classList.add('off')}
 function cityTap(c){S.ic=c;S.tab='cityinfo';S.sheet=true;S.col=0;render()}
 function closeSheet(){S.sheet=false;render()}
 function toggleCol(){S.col=!S.col;document.getElementById('sheet').classList.toggle('col',!!S.col)}
-function sheetTitle(){const t=S.tab;if(DT.includes(t))return t=='ov'?'🏪 دکان من':'🏪 '+DTN[t];if(t=='cityinfo')return C[S.ic].n;if(t=='cars'&&S.yc)return(S.yc=='sur'?'لنگرگاه ':'کاروانسرا ')+C[S.yc].n;if(t=='market')return'بازار '+C[S.selCity].n;if(t=='bourse')return'بورس '+C[S.selCity].n;if(t=='plot')return'زمین';if(t=='bld')return S.bk=='biz'?BIZ[S.selCity][1]+' '+BIZ[S.selCity][0]:BT[S.bk]||'';return C[S.selCity].n}
+function sheetTitle(){const t=S.tab;if(DT.includes(t))return t=='ov'?'دکان من':DTN[t];if(t=='cityinfo')return C[S.ic].n;if(t=='cars'&&S.yc)return(S.yc=='sur'?'لنگرگاه ':'کاروانسرا ')+C[S.yc].n;if(t=='market')return'بازار '+C[S.selCity].n;if(t=='bourse')return'بورس '+C[S.selCity].n;if(t=='plot')return'زمین';if(t=='bld')return S.bk=='biz'?BIZ[S.selCity][1]+' '+BIZ[S.selCity][0]:BT[S.bk]||'';return C[S.selCity].n}
 function sheetBody(){const t=S.tab;return t=='bourse'?bourseHTML():t=='market'?marketHTML():t=='bld'?bldHTML():t=='plot'?plotHTML():t=='cityinfo'?cityInfoHTML(S.ic):t=='ov'?dashOv():t=='cars'?carsHTML():t=='wh'?whHTML():t=='stats'?statsHTML():t=='fin'?finHTML():t=='shop'?shopHTML():t=='news'?'<div id="log">'+S.news.map(x=>'<div>'+x+'</div>').join('')+'</div>':t=='help'?helpHTML():cityHTML()}
 function updateSheet(){const sh=document.getElementById('sheet');
  if(!S.sheet){sh.classList.remove('open');return}
@@ -883,7 +886,7 @@ function updateSheet(){const sh=document.getElementById('sheet');
  const st=body.scrollTop;
  document.getElementById('shead').innerHTML=`<h2 onclick="toggleCol()">${sheetTitle()}</h2><button class="o" onclick="event.stopPropagation();closeSheet()">✕</button>`;
  document.getElementById('schips').innerHTML=DT.includes(S.tab)?DT.map(t=>`<button class="${S.tab==t?'on2':'o2'}" onclick="tab('${t}')"><img src="assets/ui/sheet/tab-icons/${TI[t]}.webp">${DTN[t]}</button>`).join(''):'';
- body.innerHTML=sheetBody();if(sh.dataset.t==S.tab+(S.ic||'')+(S.bk||'')+(S.pi||''))body.scrollTop=st;else body.scrollTop=0;sh.dataset.t=S.tab+(S.ic||'')+(S.bk||'')+(S.pi||'');
+ body.innerHTML=sheetBody();document.getElementById('sact').innerHTML=S.tab=='market'?marketActions():'';if(sh.dataset.t==S.tab+(S.ic||'')+(S.bk||'')+(S.pi||''))body.scrollTop=st;else body.scrollTop=0;sh.dataset.t=S.tab+(S.ic||'')+(S.bk||'')+(S.pi||'');
  sh.classList.toggle('col',!!S.col);sh.classList.add('open')}
 function cityInfoHTML(c){const o=C[c],z=Z[o.z],P=S.props[c],ev=S.ev.filter(e=>e.c==c),rob=z.rob>1.5?'زیاد':z.rob>.8?'متوسط':'کم';
  let h=`<div class="m">${z.n} · عوارض فروش ${f(taxOf(c)*100)}٪ · خطر راه ${rob}</div><p>${o.note}</p><div class="tags">${o.p.length?`<span class="dn">تولید: ${o.p.map(g=>G[g][0]).join('، ')}</span>`:''}<span class="up">نیاز: ${o.d.map(g=>G[g][0]).join('، ')}</span></div>`;
