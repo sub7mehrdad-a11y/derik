@@ -208,7 +208,7 @@ const HK={babel:.7,parsa:1.15,susa:1,bakhtar:1.2,sardis:1.4,sur:1.6},VOL={babel:
 const bp=(c,g)=>Math.max(1,Math.ceil(price(c,g)*1.07)),sp=(c,g)=>Math.max(1,Math.floor(price(c,g)*.93));
 function newCar(id){return{id,name:'کاروان شتر '+id.toLocaleString('fa'),at:S.home,cargo:{},route:[],ri:0,lv:0,up:S.day}}
 function init(home){
- S={v:5,eqv:2,ev:[],out:[],perk:{},nextEv:1,sheet:false,day:1,acc:0,speed:0,gold:1000,home:null,st:{},seen:{},mod:{},wh:{},props:{},selCity:'susa',selCar:1,view:'world',tab:'market',qty:10,tgt:'wh',
+ S={v:5,eqv:2,ev:[],out:[],perk:{},nextEv:1,sheet:false,day:1,acc:0,speed:1,gold:1000,home:null,st:{},seen:{},mod:{},wh:{},props:{},selCity:'susa',selCar:1,view:'world',tab:'market',qty:10,tgt:'wh',
   cars:[],nextCar:2,guard:false,news:[],won:0,tut:1,loans:[],nextLoan:1,silver:0,rate:1,deposit:0,rep:0,order:null,
   trades:[],pg:{},led:{buy:0,sell:0,tax:0,freight:0,wage:0,tribute:0,fine:0,fee:0,interest:0,idle:0,robbed:0,invest:0}};
  ids.forEach(c=>{S.st[c]={};GN.forEach(g=>S.st[c][g]=eq(c,g)*(0.7+Math.random()*.6))});
@@ -272,15 +272,16 @@ const HOSTG=['wool','cloth','wine','grain'],HOSTM=.9;
 function csCar(c){return carAt(c).find(x=>x.id==S.selCar)||carAt(c)[0]}
 function bzSell(c,i,n){const car=csCar(c),t=i<0?null:bourseOf(c).l[i],g=i<0?S._hg:t.g;if(!car||!car.cargo[g])return;
  const m=i<0?HOSTM:t.m,mx=i<0?9999:t.q;n=Math.min(n,mx,car.cargo[g].q);if(n<=0)return;
- const p=Math.round(price(c,g)*m),rev=p*n,basis=car.cargo[g].c*n;S.gold+=rev;S.led.sell+=rev;trade('sell',c,g,n,rev,0,rev-basis);rem(car.cargo,g,n);if(t)t.q-=n;render()}
+ const p=Math.round(price(c,g)*m),rev=p*n,basis=car.cargo[g].c*n;S.gold+=rev;S.led.sell+=rev;trade('sell',c,g,n,rev,0,rev-basis);rem(car.cargo,g,n);if(t)t.q-=n;pop((rev-basis>=0?'سود این معامله: +':'زیان این معامله: −')+f(Math.abs(rev-basis))+' دریک');render()}
 function bzBuy(c,i,n){const car=csCar(c),b=bourseOf(c).l[i];if(!car||!b)return;n=Math.min(n,b.hq,carCap(car)-load(car.cargo));if(n<=0)return;
  const p=Math.max(1,Math.round(price(c,b.h)*b.hm));n=Math.min(n,Math.floor(S.gold/p));if(n<=0)return;S.gold-=p*n;S.led.buy+=p*n;add(car.cargo,b.h,n,p);b.hq-=n;trade('buy',c,b.h,n,p*n,0,0);render()}
+const pfx=v=>`<b>${v<0?'−':'+'}${f(Math.abs(v))}</b>`;
 function bourseHTML(){const c=S.selCity,car=csCar(c),b=bourseOf(c),nx=10-(S.day-b.d);
  let h=(car&&car.hold&&car.rest&&car.rest.length?`<button onclick="resume(S.cars.find(x=>x.id==${car.id}))" style="width:100%">ادامه‌ی مسیر به ${C[car.fin].n}</button>`:'')+`<img src="assets/b/caravan-exchange-interior.webp" style="width:100%;border-radius:10px;display:block" loading="lazy"><h2>بورس تاجران</h2><div class="m">تاجران تازه تا ${f(nx)} روز دیگر عوض می‌شوند. بدون عوارض.${car?' · کاروان حاضر: '+car.name+' ('+f(load(car.cargo))+'/'+f(carCap(car))+')':' · کاروانی این‌جا نیست؛ برای معامله باید کاروانتان برسد.'}</div>`;
- h+=`<div class="car"><b>🏛️ صاحب کاروانسرا</b><div class="m">همیشه می‌خرد (کمی زیر قیمت بازار، ${f(HOSTM*100)}٪): </div>`+HOSTG.map(g=>{const q=car&&car.cargo[g]?car.cargo[g].q:0;return`<div>${G[g][0]} · ${f(Math.round(price(c,g)*HOSTM))} دریک ${q?`<button onclick="S._hg='${g}';bzSell('${c}',-1,${q})">فروش همه (${f(q)})</button>`:'<span class="m">(ندارید)</span>'}</div>`}).join('')+'</div>';
+ h+=`<div class="car"><b>🏛️ صاحب کاروانسرا</b><div class="m">همیشه می‌خرد (کمی زیر قیمت بازار، ${f(HOSTM*100)}٪): </div>`+HOSTG.map(g=>{const q=car&&car.cargo[g]?car.cargo[g].q:0;return`<div>${G[g][0]} · ${f(Math.round(price(c,g)*HOSTM))} دریک ${q?`<button onclick="S._hg='${g}';bzSell('${c}',-1,${q})">فروش همه (${f(q)}) · سود ${pfx(Math.round(price(c,g)*HOSTM*q-car.cargo[g].c*q))}</button>`:'<span class="m">(ندارید)</span>'}</div>`}).join('')+'</div>';
  b.l.forEach((t,i)=>{const have=car&&car.cargo[t.g]?car.cargo[t.g].q:0,ps=Math.round(price(c,t.g)*t.m),pb=Math.round(price(c,t.h)*t.hm);
   h+=`<div class="car"><b>${t.n}</b>
-  <div>🛒 می‌خرد: ${G[t.g][0]} ${f(ps)} دریک (تا ${f(t.q)} بار) ${t.q>0&&have?`<button onclick="bzSell('${c}',${i},9999)">فروش ${f(Math.min(have,t.q))}</button>`:''}</div>
+  <div>🛒 می‌خرد: ${G[t.g][0]} ${f(ps)} دریک (تا ${f(t.q)} بار) ${t.q>0&&have?`<button onclick="bzSell('${c}',${i},9999)">فروش ${f(Math.min(have,t.q))} · سود ${pfx(ps*Math.min(have,t.q)-Math.round(car.cargo[t.g].c*Math.min(have,t.q)))}</button>`:''}</div>
   <div>💰 می‌فروشد: ${G[t.h][0]} ${f(pb)} دریک (تا ${f(t.hq)} بار) ${t.hq>0&&car?`<button class="o" onclick="bzBuy('${c}',${i},10)">خرید ۱۰</button><button class="o" onclick="bzBuy('${c}',${i},9999)">همه</button>`:''}</div></div>`});
  return h}
 function loadCar(g,n){const car=selC();if(!car||!car.at)return;const W=whOf(car.at);if(!W||!W[g])return;
@@ -320,7 +321,7 @@ function toggleSell(i){const r=selC().route[i];r.sell=!r.sell}
 function clearRoute(){const k=selC();k.route=[];k.auto=false;render()}
 function startRoute(){const k=selC();if(!k||!k.at||k.route.length<2)return;k.auto=true;k.ri=0;routeNext(k);render()}
 function stopRoute(){selC().auto=false;render()}
-function ask(title,text,opts){S.choice={title,text,opts:opts.map(o=>o.t)};S._fns=opts.map(o=>o.fn);S.speed=0;render()}
+function ask(title,text,opts){S.choice={title,text,opts:opts.map(o=>o.t)};S._fns=opts.map(o=>o.fn);render()}
 function choose(i){const fn=S._fns&&S._fns[i];S.choice=null;S._fns=null;if(fn)fn();render()}
 const anyCar=()=>S.cars.find(c=>c.at&&c.at!=S.home&&load(c.cargo)>0)||S.cars.find(c=>c.at);
 function event(){const r=Math.random(),pick=a=>a[Math.floor(Math.random()*a.length)];
@@ -440,9 +441,9 @@ function enter(c){S.selCity=c;S.view='city';S.sheet=false;S.tgt=carAt(c).length&
 
 /* ===== تبلیغات (لایه‌ی قابل‌جایگزینی با شبکه‌ی واقعی) ===== */
 /* برای انتشار: ADS.show را با Adivery/Tapsell (بازار) یا AdMob (گوگل پلی) عوض کنید؛ cb(true) یعنی تبلیغ کامل دیده شد. */
-const ADS={cfg:{gap:300,firstGrace:600,rewardGold:200,rewardCool:600,dailyMax:5},t0:Date.now(),lastInter:0,
- show(kind,cb){const ov=document.getElementById('adov');let n=5;ov.innerHTML=`<div class="adbox"><div class="m">تبلیغ آزمایشی (${kind=='reward'?'پاداش‌دار':'بین‌مرحله‌ای'})</div><div class="adscr">جای نمایش تبلیغ</div><div id="adt" class="m">${n} ثانیه</div><button id="adx" disabled>بستن</button></div>`;ov.classList.add('show');S.speed=0;
-  const iv=setInterval(()=>{n--;const t=document.getElementById('adt');if(t)t.textContent=n>0?n+' ثانیه':'تمام شد';if(n<=0){clearInterval(iv);const b=document.getElementById('adx');if(b){b.disabled=false;b.onclick=()=>{ov.classList.remove('show');ov.innerHTML='';cb&&cb(true);render()}}}},1000)},
+const ADS={cfg:{gap:600,firstGrace:300,rewardGold:200,rewardCool:600,dailyMax:5},t0:Date.now(),lastInter:0,
+ show(kind,cb){const ov=document.getElementById('adov');let n=5;ov.innerHTML=`<div class="adbox"><div class="m">تبلیغ آزمایشی (${kind=='reward'?'پاداش‌دار':'بین‌مرحله‌ای'})</div><div class="adscr">جای نمایش تبلیغ</div><div id="adt" class="m">${n} ثانیه</div><button id="adx" disabled>بستن</button></div>`;ov.classList.add('show');this._sp=S.speed||1;S.speed=0;
+  const iv=setInterval(()=>{n--;const t=document.getElementById('adt');if(t)t.textContent=n>0?n+' ثانیه':'تمام شد';if(n<=0){clearInterval(iv);const b=document.getElementById('adx');if(b){b.disabled=false;b.onclick=()=>{ov.classList.remove('show');ov.innerHTML='';S.speed=ADS._sp||1;cb&&cb(true);render()}}}},1000)},
  inter(){const now=Date.now();if(now-this.t0<this.cfg.firstGrace*1000||now-this.lastInter<this.cfg.gap*1000)return false;this.lastInter=now;this.show('inter');return true}};
 function adLeft(){const k=K(),d=new Date().toDateString();if(k.adDay!=d){k.adDay=d;k.adN=0}return Math.max(0,ADS.cfg.dailyMax-(k.adN||0))}
 function adReady(){return (K().adNext||0)<=Date.now()&&adLeft()>0}
@@ -465,7 +466,7 @@ function hint(){if(!S.home)return'شهر خانگی را انتخاب کنید.'
  if(Object.keys(S.wh).length&&hc.some(c=>!Object.keys(c.cargo).length))return'کالا در انبار است: «دکان من» ← کاروان‌ها ← کالا را روی کاروان بگذارید و مقصد را بزنید.';
  if(hc.some(c=>Object.keys(c.cargo).length&&!c.auto))return'کاروان بار دارد. «دکان من» ← کاروان‌ها ← مقصد و «حرکت».';
  const r=S.cars.find(c=>c.at&&c.at!=S.home&&!c.auto);
- if(r&&r.hold)return r.name+' در '+C[r.at].n+' توقف کرده. روی آن بزنید (بازار و بورس) یا از «کاروان‌ها» ادامه‌ی مسیر را بزنید.';
+ if(r&&r.hold)return r.name+' در '+C[r.at].n+' توقف کرده. روی آن بزنید (بورس) یا از «کاروان‌ها» ادامه‌ی مسیر را بزنید.';
  if(r)return r.name+' در '+C[r.at].n+' است. '+(special(r.at)?'روی آن بزنید و در بازار'+(C[r.at].k?' یا بورس تاجران':'')+' معامله کنید.':'روی شهر بزنید، وارد شوید و در بازار بفروشید یا بخرید.');
  if(mov.length)return'کاروان در راه است (🐪). سرعت را بالا ببرید.';
  return'هدف بعدی: «'+(RANKS[S.won+1]?RANKS[S.won+1][0]:'—')+'». «دکان من» ← آمار می‌گوید پولتان کجا می‌رود.'}
@@ -557,7 +558,7 @@ const BA={datefarm:1,grainfarm:1,herd:1,harbor:1,house:1,farm:1,loom:1,winery:1,
 let ARTOK={susa:true,parsa:true,sardis:true,babel:true,sur:true,bakhtar:true};
 const ART={susa:{img:'assets/city-susa-v2.webp',h:400,lay:{temple:[24,20,17,18],boss:[57,18,21,17],market:[38,38,16,10],biz:[24,50,13,11],house:[57,38,13,9],yard:[58,52,13,13]},plots:[[46,24,10,9],[67,33,8,7],[24,42,9,7],[57,46,9,6],[36,60,10,7]]},
  parsa:{img:'assets/city-parsa.webp',h:400,lay:{temple:[18,18,17,15],boss:[50,6,38,24],market:[31,35,23,15],biz:[13,49,24,13],house:[57,35,15,13],yard:[55,53,25,15]},plots:[[36,19,12,8],[70,29,11,8],[16,36,13,10],[57,47,12,7],[31,60,13,9]]},
- sardis:{img:'assets/city-sardis-v2.webp',h:400,lay:{temple:[2,67,25,15],boss:[55,53,17,20],market:[32,55,20,13],biz:[16,47,19,19],house:[19,18,19,13],yard:[76,34,23,14]},plots:[[72,16,11,6],[35,80,10,6],[77,52,10,6],[84,86,11,6],[43,70,9,6]]},
+ sardis:{img:'assets/city-sardis-v2.webp',h:400,lay:{temple:[2,67,25,15],boss:[55,53,17,20],market:[32,55,20,13],biz:[16,47,19,19],house:[19,18,19,13],yard:[76,34,23,14]},plots:[[72,16,11,6],[50,78,9,6],[77,52,10,6],[84,86,11,6],[43,70,9,6]]},
  babel:{img:'assets/city-babel.webp',h:400,lay:{temple:[17,12,25,22],boss:[54,17,26,15],market:[37,33,21,15],biz:[18,51,19,13],house:[62,35,19,13],yard:[57,54,23,15]},plots:[[43,20,10,7],[74,30,10,7],[18,38,10,8],[67,47,11,7],[30,62,12,8]]},
  sur:{img:'assets/city-sur.webp',h:400,lay:{temple:[15,15,17,15],boss:[49,15,17,14],market:[25,34,19,15],biz:[11,50,17,15],house:[50,38,16,12],yard:[43,55,27,21]},plots:[[32,21,11,8],[52,29,11,8],[12,39,11,9],[48,49,11,7],[25,62,12,9]]},
  bakhtar:{img:'assets/city-bakhtar.webp',h:400,lay:{temple:[17,22,13,12],boss:[47,13,27,21],market:[27,34,24,15],biz:[10,50,24,15],house:[52,38,18,12],yard:[47,54,23,15]},plots:[[33,22,12,8],[66,32,10,7],[11,40,12,8],[56,50,12,6],[26,62,11,9]]}};
@@ -627,10 +628,10 @@ function whHTML(){let h='<h2>انبارهای شما</h2>';
   if(!ks.length){h+='<div class="m">خالی</div></div>';return}
   h+='<table><tr><th>کالا</th><th>تعداد</th><th>قیمت تمام‌شده</th><th>قیمت امروز این‌جا</th><th>بهترین مقصد</th></tr>'+ks.map(g=>{const e=W[g],p=price(c,g),d=p-e.c;let b=null;ids.forEach(x=>{const v=S.seen[x].p[g]*(1-Z[C[x].z].tax);if(!b||v>b.v)b={c:x,v}});
    return`<tr><td>${G[g][0]}</td><td>${f(e.q)}</td><td>${f1(e.c)}</td><td class="${d>=0?'dn':'up'}">${f(p)} (${d>=0?'+':''}${f1(d)})</td><td>${C[b.c].n}: ${f(b.v)}</td></tr>`}).join('')+'</table></div>'});
- return h+'<div class="m">«بهترین مقصد» بر اساس آخرین قیمت دیده‌شده (پس از عوارض) است و ممکن است قدیمی باشد.</div>'}
+ return h+''}
 function yardPanel(c){const own=!!propsOf(c);let h=`<div class="car"><b>${c=='sur'?'لنگرگاه':'کاروانسرا'} ${C[c].n}</b><div class="m">کاروان‌های حاضر: ${carAt(c).map(x=>x.name).join('، ')||'هیچ'}</div>`;
  if(own)h+=`<button onclick="build('car')" ${S.gold<800?'disabled':''}>خرید کاروان این‌جا (۸۰۰)</button> <button onclick="build('guard')" ${S.guard||S.gold<300?'disabled':''}>نگهبان ${S.guard?'✓':'(۳۰۰)'}</button>`;
- else h+='<div class="m">نگهبان و ارتقای کاروان فقط در کاروانسرای شهرهایی ممکن است که در آن‌ها خانه دارید.</div>';
+ else h+='';
  return h+'</div>'}
 function carsHTML(){let h=S.yc?yardPanel(S.yc):'<h2>کاروان‌ها</h2>';
  S.cars.forEach(c=>{const sel=c.id==S.selCar;
@@ -638,10 +639,10 @@ function carsHTML(){let h=S.yc?yardPanel(S.yc):'<h2>کاروان‌ها</h2>';
   h+=`<div class="car ${sel?'sel':''}"><div onclick="selCar(${c.id})" style="cursor:pointer"><b>${c.name}</b> · ${st} · بار ${f(load(c.cargo))}/${f(carCap(c))}</div>`;
   if(c.at&&c.hold&&c.rest&&c.rest.length)h+=`<div class="m up" style="margin:4px 0">در ${C[c.at].n} توقف کرده‌اید (مقصد: ${C[c.fin].n}).</div><button onclick="resume(S.cars.find(x=>x.id==${c.id}))">ادامه‌ی مسیر به ${C[c.fin].n}</button>`;
   if(sel){const ks=Object.keys(c.cargo);h+=(S.yc&&propsOf(S.yc)&&c.at==S.yc)?upgradeHTML(c):`<div class="m" style="margin:4px 0">${LVN[carLv(c)]} ${'★'.repeat(carLv(c)+1)} · ظرفیت ${f(carCap(c))} بار · سرعت ${f1(carSpd(c))}×</div>`;
-   h+=ks.length?'<table><tr><th>کالا</th><th>تعداد</th><th>قیمت تمام‌شده (هر واحد)</th><th>جمع هزینه</th><th>ارزش در شهر فعلی</th></tr>'+ks.map(g=>{const e=c.cargo[g];const v=c.at&&canTrade(c.at)?price(c.at,g)*e.q:null;return`<tr><td>${G[g][0]}</td><td>${f(e.q)}</td><td>${f1(e.c)}</td><td>${f(e.c*e.q)}</td><td>${v==null?'—':f(v)}</td></tr>`}).join('')+`<tr><th>جمع</th><th>${f(load(c.cargo))}</th><th></th><th>${f(ks.reduce((a,g)=>a+c.cargo[g].c*c.cargo[g].q,0))}</th><th></th></tr></table><div class="m">قیمت تمام‌شده = قیمت خرید + سهم هزینه روزانه کاروان در راه.</div>`:'<p class="m">بار ندارد.</p>';
+   h+=ks.length?'<table><tr><th>کالا</th><th>تعداد</th><th>قیمت تمام‌شده (هر واحد)</th><th>جمع هزینه</th><th>ارزش در شهر فعلی</th></tr>'+ks.map(g=>{const e=c.cargo[g];const v=c.at&&canTrade(c.at)?price(c.at,g)*e.q:null;return`<tr><td>${G[g][0]}</td><td>${f(e.q)}</td><td>${f1(e.c)}</td><td>${f(e.c*e.q)}</td><td>${v==null?'—':f(v)}</td></tr>`}).join('')+`<tr><th>جمع</th><th>${f(load(c.cargo))}</th><th></th><th>${f(ks.reduce((a,g)=>a+c.cargo[g].c*c.cargo[g].q,0))}</th><th></th></tr></table>`:'<p class="m">بار ندارد.</p>';
    if(c.at&&whOf(c.at)&&!c.auto){const W=whOf(c.at);h+=`<div style="margin:6px 0">مقدار: <input type="number" min="1" value="${S.qty}" onchange="setQty(this.value)"> انتقال از انبار ${C[c.at].n} به کاروان:</div>`+(Object.keys(W).map(g=>`<div>${G[g][0]} در انبار: ${f(W[g].q)} <button onclick="loadCar('${g}',S.qty)">بارگیری</button><button class="o" onclick="loadCar('${g}',9999)">همه</button></div>`).join('')||'<div class="m">انبار خالی است.</div>')+
      (ks.length?'<div class="m" style="margin-top:4px">برگرداندن به انبار:</div>'+ks.map(g=>`<div>${G[g][0]} <button class="o" onclick="unloadCar('${g}',S.qty)">پیاده</button><button class="o" onclick="unloadCar('${g}',9999)">همه</button></div>`).join(''):'')}
-   else if(c.at&&!c.auto)h+=`<div class="m" style="margin-top:6px">برای خرید و فروش وارد ${C[c.at].n} شوید و روی «بازار» بزنید. بار شما خودکار خالی نمی‌شود.</div> <button class="o" onclick="enter('${c.at}')">ورود به ${C[c.at].n}</button>`;
+   else if(c.at&&!c.auto)h+=` <button class="o" onclick="enter('${c.at}')">ورود به ${C[c.at].n}</button>`;
    else if(c.at&&!c.auto)h+='';
    if(c.at&&!c.auto){h+='<div class="m" style="margin-top:6px">مقصد:</div>'+ids.filter(x=>x!=c.at&&!C[x].k).map(x=>`<button class="${c.dest==x?'':'o'}" onclick="setDest('${x}')" ${locked(x)?'disabled':''}>${C[x].n} (${f(dist(c.at,x))} روز)</button>`).join('');
     if(c.dest&&c.dest!=c.at)h+=`<div style="margin-top:6px"><button onclick="dispatch()">حرکت به ${C[c.dest].n}</button> <span class="m">هر روز راه ۳ دریک هزینه دارد.</span></div>`}
@@ -657,7 +658,7 @@ function statsHTML(){const L=S.led,inv=invCost(),cap=S.gold+S.deposit+S.silver*S
  const over=L.idle+L.wage+L.tribute+L.fine+L.fee+L.interest+L.robbed;
  const tradeProfit=Object.values(S.pg).reduce((a,b)=>a+b,0);
  let h=`<h2>آمار و حساب‌وکتاب</h2><table><tr><td>سرمایه اولیه</td><td>${f(start)}</td></tr><tr><td>صندوق (نقد)</td><td>${f(S.gold)}</td></tr><tr><td>پول بسته‌شده در کالاها (به قیمت تمام‌شده)</td><td>${f(inv)}</td></tr><tr><td>سپرده و نقره</td><td>${f(S.deposit+S.silver*S.rate)}</td></tr><tr><td>بدهی</td><td>${f(-debts())}</td></tr><tr><th>سرمایه کل کنونی</th><th>${f(cap)}</th></tr><tr><th>سود/زیان واقعی از ابتدا</th><th class="${cap-start>=0?'dn':'up'}">${cap-start>=0?'+':''}${f(cap-start)}</th></tr></table>
- <div class="m">اگر صندوقتان کم شده ولی «پول بسته‌شده در کالاها» زیاد است، پولتان از بین نرفته؛ هنوز نفروخته‌اید.</div>
+ 
  <h2 style="margin-top:10px">چرا پول می‌رود؟ (هزینه‌ها از ابتدا)</h2><table>
  <tr><td>سود فروش‌های انجام‌شده (پس از عوارض و هزینه راه)</td><td class="${tradeProfit>=0?'dn':'up'}">${tradeProfit>=0?'+':''}${f(tradeProfit)}</td></tr>
  <tr><td>عوارض فروش پرداختی</td><td class="up">${f(-L.tax)}</td></tr>
@@ -686,13 +687,13 @@ function finHTML0(){const L=S.loans||[];let h=`<h2>مالی در دوران دا
  h+=`<h2 style="margin-top:10px">صرافی (نقره و دریک)</h2><div class="m">هر مثقال نقره = <b class="${S.rate>1?'up':'dn'}">${S.rate.toFixed(2).replace('.','٫')}</b> دریک (با ۲٪ کارمزد). موجود: ${f(S.silver)} مثقال</div><button class="o" onclick="buySilver(500)">خرید با ۵۰۰</button><button class="o" onclick="sellSilver(500)" ${S.silver?'':'disabled'}>فروش ۵۰۰ مثقال</button><button class="o" onclick="sellSilver(1e9)" ${S.silver?'':'disabled'}>فروش همه</button>`;
  const nx=90-S.day%90;h+=`<h2 style="margin-top:10px">خراج ساتراپی</h2><div class="m">هر ۹۰ روز ۱٫۵٪ ثروت بالای ۵٬۰۰۰ دریک به خزانه می‌رود؛ ${f(nx)} روز دیگر.</div>`;
  const o=S.order;h+=`<h2 style="margin-top:10px">فرمان شاه</h2>`+(o?`<div class="car">${f(o.q)} بار ${G[o.g][0]} به انبار ${C[S.home].n} تا ${f(o.due-S.day)} روز دیگر. قیمت خرید دربار: <b>${f(o.price)}</b> برای هر بار.<br>در انبار دارید: ${f(S.wh[o.g]?S.wh[o.g].q:0)} <button onclick="deliver()" ${S.wh[o.g]&&S.wh[o.g].q>=o.q?'':'disabled'}>تحویل</button></div>`:'<p class="m">فعلاً فرمانی نیست.</p>');
- return h+'<p class="m">اعداد نمونه‌اند و در بازی‌آزمایی تنظیم می‌شوند.</p>'}
-function shopHTML(){return adCard()+`<h2>خزانه شاهی: خرید دریک</h2><p class="m">نمونه آزمایشی: پرداخت واقعی هنوز وصل نیست و دکمه‌ها چیزی اضافه نمی‌کنند. در نسخه نهایی دریک خریداری‌شده به کیف‌پول مشترک بزرگمهر می‌رود.</p>`+[['کیسه کوچک',500],['صندوق بازرگان',2500],['خزانه ساتراپ',12000]].map(([n,a])=>`<div class="car"><b>${n}</b> · ${f(a)} دریک <button class="o" onclick="S.note='پرداخت واقعی در نسخه نهایی وصل می‌شود.';render()">خرید</button></div>`).join('')}
+ return h+''}
+function shopHTML(){return adCard()+`<h2>خزانه شاهی: خرید دریک</h2><p class="m">پرداخت واقعی هنوز وصل نیست.</p>`+[['کیسه کوچک',500],['صندوق بازرگان',2500],['خزانه ساتراپ',12000]].map(([n,a])=>`<div class="car"><b>${n}</b> · ${f(a)} دریک <button class="o" onclick="S.note='پرداخت واقعی در نسخه نهایی وصل می‌شود.';render()">خرید</button></div>`).join('')}
 function cityHTML(){const c=S.selCity,P=propsOf(c),z=Z[C[c].z];
- let h=`<h2>${C[c].n} <span class="m">${z.n}</span></h2><div class="m">${C[c].note}</div><div class="m" style="margin:4px 0">روی هر ساختمان نقشه بزنید تا کارهایش را ببینید. زمین‌های خط‌چین برای ساخت‌اند.</div>`;
+ let h=`<h2>${C[c].n} <span class="m">${z.n}</span></h2><div class="m">${C[c].note}</div>`;
  if(!P)h+=`<div class="car">شما این‌جا خانه ندارید. با خانه (۲۰۰۰ دریک) انبار ۲۰۰ باری می‌گیرید، بدون کاروان خرید و فروش می‌کنید و می‌توانید کارگاه و مزرعه بسازید. ${carAt(c).length?`<button onclick="buyHouse('${c}')" ${S.gold<houseCost(c)?'disabled':''}>خرید خانه (۲۰۰۰)</button>`:'<span class="m">برای خرید باید کاروانتان این‌جا باشد.</span>'}</div>`;
  else{h+=`<div class="car"><b>دارایی شما در ${C[c].n}</b><div class="m">انبار ${f(load(P.wh))}/${f(whCap(c))} · سهم ${BIZ[c][0]}: ${f(P.shares)}</div>`+(P.plots.map((pl,i)=>pl?`<div>${PT[pl.t].ic} ${PT[pl.t].n} <button class="o" onclick="plotClick(${i})">جزئیات</button></div>`:'').join('')||'<div class="m">هنوز زمینی نساخته‌اید.</div>')+'</div>';}
- h+='<div class="m">قاعده‌های این منطقه: '+(C[c].z=='gov'?'ساخت هر زمین ۳۰۰ دریک پروانه دیوان دارد؛ عوارض فروش ۶٪؛ راه‌ها امن.':C[c].z=='temple'?'یک‌چهارم تولید کارگاه‌ها و مزرعه سهم معبد است؛ در عوض وام و سپرده آسان‌تر.':'بدون پروانه و با عوارض ۲٪، ولی راه‌ها پرخطر و بازار پرنوسان.')+'</div>';
+ h+='';
  return h}
 
 function orderCard(np){const o=S.order;if(!o)return'<div class="m">فرمانی از شاه نیست.</div>';
@@ -711,7 +712,7 @@ function bossHTML(c){const z=C[c].z,o=S.order,evs=S.ev.filter(e=>e.c==c),other=S
  return`<div style="display:flex;gap:8px;align-items:center"><img src="assets/ui/people/${c=='susa'?'scribe':'satrap'}.webp" style="width:64px;height:64px"><div><h2 style="margin:0">دیوان ساتراپ ${C[c].n}</h2><span class="m">نمایندگان شاه: خراج، پروانه و فرمان‌های دربار.</span></div></div>`
   +`<h2 style="margin-top:10px">فرمان‌های دربار</h2>`+orderCard()+(evs.length?'<h2 style="margin-top:10px">درخواست‌های این شهر</h2>'+evs.map(evHTML).join(''):'')
   +`<h2 style="margin-top:10px">پروانه معافیت</h2><p class="m">با پرداخت ۴۰۰ دریک، ۳۰ روز عوارض فروش در ${C[c].n} نمی‌پردازید.</p><button onclick="buyPermit('${c}')" ${S.gold<400||pk?'disabled':''}>${pk?'پروانه فعال ('+f(S.perk[c].tax-S.day)+' روز)':'خرید پروانه (۴۰۰)'}</button>`+tr
-  +(c=='sardis'?councilHTML(c):'')+`<div class="m" style="margin-top:6px">چشم‌وگوش شاه گاهی کاروان‌ها را بازرسی می‌کند.</div>`}
+  +(c=='sardis'?councilHTML(c):'')+``}
 const SHIP=900;
 function shipBuy(){S.ship=S.ship||{n:0};if(S.ship.n>=8||S.gold<SHIP||!canTrade('sur'))return;S.gold-=SHIP;S.led.invest+=SHIP;S.ship.n++;log('یک سهم کشتیرانی بندر صور خریدید.');render()}
 function shipSell(){if(!S.ship||!S.ship.n)return;S.ship.n--;S.gold+=Math.round(SHIP*.9);log('یک سهم کشتیرانی فروختید.');render()}
@@ -838,8 +839,8 @@ const VW={};
 const vk=()=>S.home&&S.view=='city'?'city:'+S.selCity:'world';
 const vdim=()=>S.home&&S.view=='city'?[600,(ART[S.selCity]&&ARTOK[S.selCity]&&ART[S.selCity].h)||380]:DIM.world;
 function vpS(){const e=document.getElementById('vp');return[e.clientWidth||1,e.clientHeight||1]}
-function getV(){const k=vk(),[W,H]=vdim(),[pw,ph]=vpS(),asp=pw/ph,cov=Math.min(W,H*asp),maxW=k=='world'?cov:W;let v=VW[k];
- if(!v){const w=Math.min(maxW,k=='world'?470*asp:cov*1.7),ct=k=='world'?[C[S.home||'susa'].x,C[S.home||'susa'].y]:[300,185];v=VW[k]={w,x:ct[0]-w/2,y:ct[1]-w/asp/2}}
+function getV(){const k=vk(),[W,H]=vdim(),[pw,ph]=vpS(),asp=pw/ph,cov=Math.min(W,H*asp),maxW=cov;let v=VW[k];
+ if(!v){const w=Math.min(maxW,k=='world'?470*asp:cov),ct=k=='world'?[C[S.home||'susa'].x,C[S.home||'susa'].y]:[300,185];v=VW[k]={w,x:ct[0]-w/2,y:ct[1]-w/asp/2}}
  v.w=Math.min(maxW,Math.max(90,v.w));const h=v.w/asp;v.x=v.w>=W?(W-v.w)/2:Math.min(W-v.w,Math.max(0,v.x));v.y=h>=H?(H-h)/2:Math.min(H-h,Math.max(0,v.y));return{x:v.x,y:v.y,w:v.w,h}}
 const TX=[0,256,512,768],TY=[0,256,512],TWD=[256,256,256,132],THT=[256,256,88];
 function updateTiles(){const g=document.getElementById('tl');if(WV3||!g||vk()!='world')return;const v=getV();if(v.w>640)return;const mx=v.w*.15,my=v.h*.15;
@@ -896,7 +897,7 @@ function cityInfoHTML(c){const o=C[c],z=Z[o.z],P=S.props[c],ev=S.ev.filter(e=>e.
  const here=carAt(c),sn=S.seen[c];
  h+=`<div class="m">${c==S.home?'شهر خانگی شماست ★':'فاصله از '+C[S.home].n+': '+f(dist(S.home,c))+' روز راه'}${P?' · خانه دارید 🏠':''}${here.length?' · کاروان حاضر: '+here.map(k=>k.name).join('، '):''}</div>`;
  h+=`<div class="m" style="margin-top:4px">قیمت‌ها (${age(c)}): `+GN.map(g=>{const p=sn.p[g],b=G[g][1];return`<span class="${p>b*1.15?'up':p<b*.85?'dn':''}">${G[g][0]} ${f(p)}</span>`}).join(' · ')+'</div>';
- if(special(c)){const lk=locked(c);return h+(lk?'<div class="m up" style="margin:6px 0">برای ورود به شهرهای بیرون از شاهنشاهی باید به رتبه‌ی «تاجر بین‌المللی» برسید.</div>':`<div style="margin:8px 0"><button onclick="S.selCity='${c}';bld('market')">🏺 بازار</button>${o.k?`<button class="o" onclick="S.selCity='${c}';tab('bourse')">🤝 بورس تاجران</button>`:''}</div>${here.length?'':'<div class="m">برای خرید و فروش، کاروانتان باید این‌جا باشد.</div>'}${here.filter(k=>k.hold&&k.rest&&k.rest.length).map(k=>`<button onclick="resume(S.cars.find(x=>x.id==${k.id}))">ادامه‌ی مسیر ${k.name} به ${C[k.fin].n}</button>`).join('')}`)}
+ if(special(c)){const lk=locked(c);return h+(lk?'<div class="m up" style="margin:6px 0">برای ورود به شهرهای بیرون از شاهنشاهی باید به رتبه‌ی «تاجر بین‌المللی» برسید.</div>':`<div style="margin:8px 0">${o.k?`<button class="o" onclick="S.selCity='${c}';tab('bourse')">🤝 بورس تاجران</button>`:''}</div>${here.length?'':'<div class="m">برای خرید و فروش، کاروانتان باید این‌جا باشد.</div>'}${here.filter(k=>k.hold&&k.rest&&k.rest.length).map(k=>`<button onclick="resume(S.cars.find(x=>x.id==${k.id}))">ادامه‌ی مسیر ${k.name} به ${C[k.fin].n}</button>`).join('')}`)}
  h+=`<div style="margin:8px 0"><button onclick="enter('${c}')">ورود به شهر ←</button>`+(!P&&here.length?`<button class="o" onclick="buyHouse('${c}')" ${S.gold<houseCost(c)?'disabled':''}>خرید خانه (${f(houseCost(c))})</button>`:'')+'</div>';
  return h+powHTML(c)+ev.map(evHTML).join('')}
 const ROYAL=['داریوش بزرگ، شاه شاهان: ساتراپی‌ها خراج سالانه می‌پردازند و راه شاهی از سارد تا شوش پیک و کاروان را امن نگه می‌دارد.','دریک زرین به فرمان داریوش ضرب می‌شود و در سراسر شاهنشاهی پذیرفته است.','کتیبهٔ بیستون: داریوش شورشیان را شکست داده و فرمانش را به چند زبان نوشته است.','مغان در آتشکده‌ها آتش را روشن نگه می‌دارند و برای شاه دعا می‌کنند.','کاهنان اساگیلا در بابل بر خزانهٔ معبد و تقویم جشن‌ها نظارت می‌کنند.','معماران و کارگران در شوش و تخت‌جمشید مشغول ساخت کاخ‌اند و مصالح از سراسر شاهنشاهی می‌آید.','چشم‌وگوش شاه، بازرسان ساتراپی، گاهی کاروان‌ها و حساب‌ها را وارسی می‌کنند.','پیک‌های شاهی در ایستگاه‌های راه شاهی اسب عوض می‌کنند و پیام را به سرعت می‌رسانند.'];
@@ -910,7 +911,7 @@ function helpHTML(){return`<ol style="padding-inline-start:18px;margin:4px 0"><l
 function updateToast(){const t=document.getElementById('toast');const msg=!S.home?'شهر خانگی را انتخاب کنید: روی هر شهر بزنید. نقشه را بکشید و با دو انگشت بزرگ و کوچک کنید.':(S.nohint?'':hint());
  if(!msg||S.sheet||S.choice){t.innerHTML='';return}t.innerHTML=`<span>${msg}</span>${S.home?'<button onclick="S.nohint=1;render()">✕</button>':''}`}
 
-function boot(){try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.v==5){S=s;if(S.eqv!=2){S.eqv=2;ids.forEach(c=>{S.st[c]=S.st[c]||{};GN.forEach(g=>S.st[c][g]=eq(c,g)*(0.8+Math.random()*.4))});ids.forEach(c=>see(c))}S.ev=S.ev||[];S.out=S.out||[];S.perk=S.perk||{};S.nextEv=S.nextEv||1;(S.cars||[]).forEach(c=>{if(c.at&&!C[c.at])c.at=S.home;if(c.to&&!C[c.to]){c.at=S.home;delete c.to;delete c.from}});ids.forEach(c=>{if(!S.st[c]){S.st[c]={};GN.forEach(g=>S.st[c][g]=eq(c,g)*(0.7+Math.random()*.6))}if(!S.seen[c])see(c)});S.sheet=false;S.view='world';if(S.home)S.wh=S.props[S.home].wh}}catch(e){}if(!S)init();S.speed=0;S.view=S.view||'world';dailyGift();render();if(S.home)(window.requestIdleCallback||setTimeout)(()=>warmArt(S.home))}
+function boot(){try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.v==5){S=s;if(S.eqv!=2){S.eqv=2;ids.forEach(c=>{S.st[c]=S.st[c]||{};GN.forEach(g=>S.st[c][g]=eq(c,g)*(0.8+Math.random()*.4))});ids.forEach(c=>see(c))}S.ev=S.ev||[];S.out=S.out||[];S.perk=S.perk||{};S.nextEv=S.nextEv||1;(S.cars||[]).forEach(c=>{if(c.at&&!C[c.at])c.at=S.home;if(c.to&&!C[c.to]){c.at=S.home;delete c.to;delete c.from}});ids.forEach(c=>{if(!S.st[c]){S.st[c]={};GN.forEach(g=>S.st[c][g]=eq(c,g)*(0.7+Math.random()*.6))}if(!S.seen[c])see(c)});S.sheet=false;S.view='world';if(S.home)S.wh=S.props[S.home].wh}}catch(e){}if(!S)init();S.speed=1;S.view=S.view||'world';dailyGift();render();if(S.home)(window.requestIdleCallback||setTimeout)(()=>warmArt(S.home))}
 let last=performance.now();
 setInterval(()=>{const n=performance.now(),dt=(n-last)/1000;last=n;if(S.speed>0&&!document.hidden&&!S.choice){step(dt*.5*S.speed)}drawCars();if(S.speed>0)updateBar()},100);
 boot();
