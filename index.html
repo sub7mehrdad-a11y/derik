@@ -399,12 +399,12 @@ function dayTick(){S.day++;calTick();S.cars.forEach(c=>{if(c.at&&c.hold&&c.auto&
  ids.forEach(c=>GN.forEach(g=>{S.st[c][g]=Math.max(0,S.st[c][g]+(eq(c,g)-S.st[c][g])*.07+(Math.random()-.5)*2.4*SC[g]*(VOL[c]||1.4))}));
  Object.keys(S.mod).forEach(g=>{if(--S.mod[g].t<=0)delete S.mod[g]});
  ids.forEach(c=>{if(canTrade(c))see(c)});
- S.cars.forEach(c=>{if(!c.at){S.gold-=2;const L=load(c.cargo);if(L>0){S.led.freight+=2;Object.keys(c.cargo).forEach(g=>c.cargo[g].c+=2/L)}else S.led.idle+=2}});
+ const nf=K().nofee>S.day;S.cars.forEach(c=>{if(!c.at&&!nf){S.gold-=2;const L=load(c.cargo);if(L>0){S.led.freight+=2;Object.keys(c.cargo).forEach(g=>c.cargo[g].c+=2/L)}else S.led.idle+=2}});
  produce();
  evTick();
  loanTick();
  S.rate=Math.min(1.3,Math.max(.8,S.rate+(1-S.rate)*.04+(Math.random()-.5)*.04));
- if(S.day%30==0&&S.deposit>0){const fee=Math.round(S.deposit*.003);S.deposit-=fee;S.led.fee+=fee;log('کارمزد نگهداری سپرده معبد: '+f(fee)+' دریک.')}
+ if(S.day%30==0&&S.deposit>0&&!(K().nofee>S.day)){const fee=Math.round(S.deposit*.003);S.deposit-=fee;S.led.fee+=fee;log('کارمزد نگهداری سپرده معبد: '+f(fee)+' دریک.')}
  if(S.day%30==0){
   if(S.props.babel){const W=S.props.babel.wh,fr=Math.max(0,whCap('babel')-load(W)),a=Math.min(14,fr);if(a>0){add(W,'grain',a,0);const b=Math.min(8,Math.max(0,fr-a));if(b>0)add(W,'date',b,0);log('🛕 کاهنان اساگیلا سهم شما را از توزیع رایگان تولیدات بابل دادند: '+f(a)+' بار غلات'+(b>0?' و '+f(b)+' بار خرما':'')+' در انبارتان.')}}
   if(S.ship&&S.ship.n>0){const r=Math.random();if(r<.06){S.ship.n--;log('⚓ یکی از کشتی‌های شرکت صور غرق شد؛ یک سهم کشتیرانی را از دست دادید.')}else{const d=Math.round(S.ship.n*900*(.07+Math.random()*.1));S.gold+=d;S.led.inc=(S.led.inc||0)+d;log('⚓ سود سهام کشتیرانی صور: '+f(d)+' دریک.')}}
@@ -473,14 +473,14 @@ function enter(c){S.selCity=c;S.view='city';S.sheet=false;S.tgt=carAt(c).length&
 
 /* ===== تبلیغات (لایه‌ی قابل‌جایگزینی با شبکه‌ی واقعی) ===== */
 /* برای انتشار: ADS.show را با Adivery/Tapsell (بازار) یا AdMob (گوگل پلی) عوض کنید؛ cb(true) یعنی تبلیغ کامل دیده شد. */
-const ADS={cfg:{gap:600,firstGrace:300,rewardGold:200,rewardCool:600,dailyMax:5},t0:Date.now(),lastInter:0,
+const ADS={cfg:{gap:600,firstGrace:300,rewardDays:7,rewardCool:600,dailyMax:5},t0:Date.now(),lastInter:0,
  show(kind,cb){const ov=document.getElementById('adov');let n=5;ov.innerHTML=`<div class="adbox"><div class="m">تبلیغ آزمایشی (${kind=='reward'?'پاداش‌دار':'بین‌مرحله‌ای'})</div><div class="adscr">جای نمایش تبلیغ</div><div id="adt" class="m">${n} ثانیه</div><button id="adx" disabled>بستن</button></div>`;ov.classList.add('show');this._sp=S.speed||1;S.speed=0;
   const iv=setInterval(()=>{n--;const t=document.getElementById('adt');if(t)t.textContent=n>0?n+' ثانیه':'تمام شد';if(n<=0){clearInterval(iv);const b=document.getElementById('adx');if(b){b.disabled=false;b.onclick=()=>{ov.classList.remove('show');ov.innerHTML='';S.speed=ADS._sp||1;cb&&cb(true);render()}}}},1000)},
  inter(){const now=Date.now();if(now-this.t0<this.cfg.firstGrace*1000||now-this.lastInter<this.cfg.gap*1000)return false;this.lastInter=now;this.show('inter');return true}};
 function adLeft(){const k=K(),d=new Date().toDateString();if(k.adDay!=d){k.adDay=d;k.adN=0}return Math.max(0,ADS.cfg.dailyMax-(k.adN||0))}
 function adReady(){return (K().adNext||0)<=Date.now()&&adLeft()>0}
-function watchAd(){if(!adReady())return;ADS.show('reward',ok=>{if(!ok)return;const k=K();k.adN=(k.adN||0)+1;k.adNext=Date.now()+ADS.cfg.rewardCool*1000;S.gold+=ADS.cfg.rewardGold;log('پاداش تماشای تبلیغ: '+f(ADS.cfg.rewardGold)+' دریک.');pop('🎬 +'+f(ADS.cfg.rewardGold)+' دریک')})}
-function adCard(){const k=K(),w=Math.max(0,Math.ceil(((k.adNext||0)-Date.now())/60000));return`<div class="car"><b>🎬 دریک رایگان با تماشای تبلیغ</b><div class="m">هر تبلیغ ${f(ADS.cfg.rewardGold)} دریک. امروز ${f(adLeft())} بار دیگر ممکن است${w&&adLeft()?' · '+f(w)+' دقیقه‌ی دیگر':''}.</div><button onclick="watchAd()" ${adReady()?'':'disabled'}>تماشای تبلیغ</button></div>`}
+function watchAd(t){if(!adReady())return;ADS.show('reward',ok=>{if(!ok)return;const k=K();k.adN=(k.adN||0)+1;k.adNext=Date.now()+ADS.cfg.rewardCool*1000;const d=ADS.cfg.rewardDays;if(t=='fee'){k.nofee=Math.max(k.nofee||0,S.day)+d;log('پاداش تماشای تبلیغ: '+f(d)+' روز هزینه‌ی راه و کارمزرها صفر است.');pop('🎬 '+f(d)+' روز بدون هزینه‌ی راه و کارمزر')}else{k.free=Math.max(k.free||0,S.day)+d;log('پاداش تماشای تبلیغ: '+f(d)+' روز بخشودگی عوارض فروش در همه‌ی شهرها.');pop('🎬 '+f(d)+' روز بخشودگی عوارض')}})}
+function adCard(){const k=K(),w=Math.max(0,Math.ceil(((k.adNext||0)-Date.now())/60000)),d=ADS.cfg.rewardDays,on=adReady(),fl=Math.max(0,(k.free||0)-S.day),nl=Math.max(0,(k.nofee||0)-S.day);return`<div class="car"><b>🎬 با تماشای تبلیغ، بخشودگی شاه بگیرید</b><div class="m">هر تبلیغ ${f(d)} روز. امروز ${f(adLeft())} بار دیگر ممکن است${w&&adLeft()?' · '+f(w)+' دقیقه‌ی دیگر':''}.${fl?' · بخشودگی عوارض: '+f(fl)+' روز':''}${nl?' · بدون هزینه‌ی راه: '+f(nl)+' روز':''}</div><button onclick="watchAd('tax')" ${on?'':'disabled'}>معافیت از عوارض فروش</button> <button onclick="watchAd('fee')" ${on?'':'disabled'}>هزینه‌ی راه و کارمزر صفر</button></div>`}
 function leave(){ADS.inter();S.view='world';S.sheet=false;render()}
 function selCar(i){S.selCar=i;const k=selC();if(k&&k.at)S.selCity=k.at;tab('cars')}
 function setDest(c){if(locked(c)||C[c].k)return;const car=selC();if(car)car.dest=c;render()}
