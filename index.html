@@ -160,21 +160,21 @@ const SC={grain:1.7,date:1.4,wool:1.2,wine:1,cedar:1,cloth:.9,metal:.8,argh:.55,
 const GN=Object.keys(G);
 const Z={gov:{n:'دولتی',tax:.06,rob:.35,col:'var(--gov)'},free:{n:'آزاد/مرزی',tax:.02,rob:1.2,col:'var(--free)'},temple:{n:'معبدی',tax:.04,rob:.7,col:'var(--tem)'},far:{n:'برون‌مرزی',tax:0,rob:.9,col:'var(--free)'},stop:{n:'کاروانسرا',tax:0,rob:.25,col:'var(--free)'}};
 const C={
- susa:{n:'شوش',x:522,y:318,z:'gov',p:['grain','cloth'],d:['argh','lapis','wine'],note:'پایتخت اداری داریوش با کاخ آپادانا و آجرهای لعابدار؛ مرکز فرمان‌ها و عوارض.'},
- parsa:{n:'پارسه',x:585,y:420,z:'gov',p:['wine','wool'],d:['cedar','metal','lapis','grain'],note:'تخت‌جمشید در حال ساخت: ایوان بزرگ آپادانا و دروازه همه‌ملت‌ها.'},
- sardis:{n:'سارد',x:260,y:134,z:'gov',p:['metal','cloth'],d:['grain','date','argh'],note:'پایتخت ساتراپی لیدیه، با دیوارهای کوه‌پایه، معبد ایونی و زرگران رود پکتولوس.'},
- babel:{n:'بابل',x:423,y:275,z:'temple',p:['grain','date'],d:['metal','cedar','wine'],note:'دروازه ایشتار آبی لعابدار و زیگورات اتمنانکی؛ خزانه معبد و خاندان‌های بانکی.'},
- sur:{n:'صور',x:260,y:311,z:'free',p:['argh','cedar'],d:['grain','wool','date'],note:'بندر فنیقی روی جزیره، با ستون‌های ملقارت و کارگاه‌های ارغوان.'},
- khorasan:{n:'کاروانسرای خراسان',l:'کاروانسرای خراسان',k:1,x:615,y:241,z:'stop',p:[],d:['grain','wine'],note:'توقفگاه خیالی راه شرق میان شوش و باختر؛ تاجران کاروان‌ها این‌جا گرد می‌آیند و بورس کوچکی دارند.'},
- cappadocia:{n:'کاروانسرای کاپادوکیه',l:'کاروانسرای کاپادوکیه',k:1,x:315,y:190,z:'stop',p:[],d:['cloth','metal'],note:'توقفگاه راه شاهی میان سارد و بابل؛ جای استراحت کاروان و معامله‌ی کوچک با تاجران.'},
- issus:{n:'بندر کاروانسرای ایسوس',l:'بندرگاه ایسوس',k:1,x:223,y:269,z:'stop',p:[],d:['grain','date'],note:'بندرگاه کوچک میان سارد و صور؛ کشتی و کاروان این‌جا بار عوض می‌کنند.'},
- athens:{n:'آتن',f:1,x:88,y:200,z:'far',p:['wine','metal'],d:['argh','lapis','wool'],note:'شهر دریایی یونان، بیرون از شاهنشاهی: روغن، شراب و نقره می‌دهد و ارغوان و لاجورد می‌خواهد. بدون عوارض.'},
- carthage:{n:'کارتاژ',f:1,x:83,y:393,z:'far',p:['metal','cedar'],d:['argh','cloth','date'],note:'مستعمره‌ی فنیقی در دورترین غرب؛ قلع و فلز می‌دهد و پارچه و ارغوان می‌خواهد. بدون عوارض.'},
- panticapaeum:{n:'پانتیکاپایون',f:1,x:211,y:53,z:'far',p:['grain','wool'],d:['wine','cloth','metal'],note:'بندر شمال دریای سیاه و انبار غله‌ی سکاها؛ غله و پشم ارزان دارد. بدون عوارض.'},
- gerrha:{n:'گرها',f:1,x:390,y:550,z:'far',p:['argh','date'],d:['grain','cloth','wine'],note:'شهر بازرگانان عرب در خلیج فارس؛ بخور و مروارید و خرما. بدون عوارض.'},
- pataliputra:{n:'پاتالی‌پوترا',f:1,x:834,y:301,z:'far',p:['lapis','cloth'],d:['wool','metal','wine'],note:'پایتخت هند در دورترین شرق؛ ادویه و پنبه و گوهر. بدون عوارض.'},
- bakhtar:{n:'باختر',x:710,y:143,z:'free',p:['lapis','wool'],d:['cloth','wine','date'],note:'شهر باروبلند مرز شرقی در دامنه کوه‌های برفی، آغاز راه لاجورد.'}};
-const WV3=false,MW=900,MH=600,DV=24;
+ susa:{n:'شوش',x:524,y:272,z:'gov',p:['grain','cloth'],d:['argh','lapis','wine'],note:'پایتخت اداری داریوش با کاخ آپادانا و آجرهای لعابدار؛ مرکز فرمان‌ها و عوارض.'},
+ parsa:{n:'پارسه',x:603,y:334,z:'gov',p:['wine','wool'],d:['cedar','metal','lapis','grain'],note:'تخت‌جمشید در حال ساخت: ایوان بزرگ آپادانا و دروازه همه‌ملت‌ها.'},
+ sardis:{n:'سارد',x:267,y:126,z:'gov',p:['metal','cloth'],d:['grain','date','argh'],note:'پایتخت ساتراپی لیدیه، با دیوارهای کوه‌پایه، معبد ایونی و زرگران رود پکتولوس.'},
+ babel:{n:'بابل',x:431,y:237,z:'temple',p:['grain','date'],d:['metal','cedar','wine'],note:'دروازه ایشتار آبی لعابدار و زیگورات اتمنانکی؛ خزانه معبد و خاندان‌های بانکی.'},
+ sur:{n:'صور',x:261,y:258,z:'free',p:['argh','cedar'],d:['grain','wool','date'],note:'بندر فنیقی روی جزیره، با ستون‌های ملقارت و کارگاه‌های ارغوان.'},
+ khorasan:{n:'کاروانسرای خراسان',l:'کاروانسرای خراسان',k:1,x:615,y:217,z:'stop',p:[],d:['grain','wine'],note:'توقفگاه خیالی راه شرق میان شوش و باختر؛ تاجران کاروان‌ها این‌جا گرد می‌آیند و بورس کوچکی دارند.'},
+ cappadocia:{n:'کاروانسرای کاپادوکیه',l:'کاروانسرای کاپادوکیه',k:1,x:325,y:173,z:'stop',p:[],d:['cloth','metal'],note:'توقفگاه راه شاهی میان سارد و بابل؛ جای استراحت کاروان و معامله‌ی کوچک با تاجران.'},
+ issus:{n:'بندر کاروانسرای ایسوس',l:'بندرگاه ایسوس',k:1,x:205,y:220,z:'stop',p:[],d:['grain','date'],note:'بندرگاه کوچک میان سارد و صور؛ کشتی و کاروان این‌جا بار عوض می‌کنند.'},
+ athens:{n:'آتن',f:1,x:59,y:176,z:'far',p:['wine','metal'],d:['argh','lapis','wool'],note:'شهر دریایی یونان، بیرون از شاهنشاهی: روغن، شراب و نقره می‌دهد و ارغوان و لاجورد می‌خواهد. بدون عوارض.'},
+ carthage:{n:'کارتاژ',f:1,x:59,y:305,z:'far',p:['metal','cedar'],d:['argh','cloth','date'],note:'مستعمره‌ی فنیقی در دورترین غرب؛ قلع و فلز می‌دهد و پارچه و ارغوان می‌خواهد. بدون عوارض.'},
+ panticapaeum:{n:'پانتیکاپایون',f:1,x:293,y:47,z:'far',p:['grain','wool'],d:['wine','cloth','metal'],note:'بندر شمال دریای سیاه و انبار غله‌ی سکاها؛ غله و پشم ارزان دارد. بدون عوارض.'},
+ gerrha:{n:'گرها',f:1,x:457,y:486,z:'far',p:['argh','date'],d:['grain','cloth','wine'],note:'شهر بازرگانان عرب در خلیج فارس؛ بخور و مروارید و خرما. بدون عوارض.'},
+ pataliputra:{n:'پاتالی‌پوترا',f:1,x:826,y:281,z:'far',p:['lapis','cloth'],d:['wool','metal','wine'],note:'پایتخت هند در دورترین شرق؛ ادویه و پنبه و گوهر. بدون عوارض.'},
+ bakhtar:{n:'باختر',x:697,y:126,z:'free',p:['lapis','wool'],d:['cloth','wine','date'],note:'شهر باروبلند مرز شرقی در دامنه کوه‌های برفی، آغاز راه لاجورد.'}};
+const WV3=true,MW=900,MH=600,DV=24;
 const ids=Object.keys(C),homeIds=ids.filter(c=>!C[c].f&&!C[c].k),locked=c=>!!C[c].f&&(S.won||0)<3,special=c=>!!(C[c].f||C[c].k);
 const dist0=(a,b)=>Math.max(1,Math.round(Math.hypot(C[a].x-C[b].x,C[a].y-C[b].y)/DV));
 /* کاروانسراها مقصد نیستند؛ روی راه‌اند و کاروان باید در آن‌ها توقف کند */
@@ -514,7 +514,7 @@ const CFACE=[1,1,-1,1];
 function carFlip(c){if(!c.at&&c.from&&c.to)c.dir=C[c.to].x>=C[c.from].x?1:-1;return(c.dir||1)*CFACE[Math.min(3,c.lv||0)]}
 function drawCars(){S.cars.forEach(c=>{const el=document.getElementById('car'+c.id);if(!el)return;const[p,q]=carPos(c);el.setAttribute('transform',`translate(${p},${q})`);const im=document.getElementById('cvi'+c.id);if(im)im.setAttribute('transform','scale('+carFlip(c)+',1)')})}
 let MAPOK=true;
-function worldSVG(){let m=`<defs><linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe3c4"/><stop offset="1" stop-color="#dcc79a"/></linearGradient></defs><rect width="${MW}" height="${MH}" fill="url(#skyg)"/>`+(MAPOK?`<image href="${WV3?'assets/world-v3.webp':'assets/world-v5/base.webp'}" x="0" y="0" width="${MW}" height="${MH}" preserveAspectRatio="none" onerror="MAPOK=false;render()"/><g id="tl"></g>`:`
+function worldSVG(){let m=`<defs><linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe3c4"/><stop offset="1" stop-color="#dcc79a"/></linearGradient></defs><rect width="${MW}" height="${MH}" fill="url(#skyg)"/>`+(MAPOK?`<image href="assets/world-v6.webp" x="0" y="0" width="${MW}" height="${MH}" preserveAspectRatio="none" onerror="MAPOK=false;render()"/><g id="tl"></g>`:`
 <path d="M0,120 C30,150 50,180 45,230 C40,280 20,320 0,380 Z" fill="var(--sea)"/><path d="M0,120 C30,150 50,180 45,230 C40,280 20,320 0,380" fill="none" stroke="#7fa6b3" stroke-width="1.5"/>
 <path d="M330,380 C350,350 400,335 450,340 C500,345 560,320 600,290 L600,380 Z" fill="var(--sea)"/><path d="M330,380 C350,350 400,335 450,340 C500,345 560,320 600,290" fill="none" stroke="#7fa6b3" stroke-width="1.5"/>
 <path d="M470,0 C480,30 520,40 600,30 L600,0 Z" fill="var(--sea)" opacity=".8"/>
@@ -892,7 +892,7 @@ const vdim=()=>S.home&&S.view=='city'?[600,(ART[S.selCity]&&ARTOK[S.selCity]&&AR
 function vpS(){const e=document.getElementById('vp');return[e.clientWidth||1,e.clientHeight||1]}
 function getV(){const k=vk(),[W,H]=vdim(),[pw,ph]=vpS(),asp=pw/ph,cov=Math.min(W,H*asp),maxW=cov;let v=VW[k];
  if(!v){const w=Math.min(maxW,k=='world'?470*asp:cov),ct=k=='world'?[C[S.home||'susa'].x,C[S.home||'susa'].y]:[300,185];v=VW[k]={w,x:ct[0]-w/2,y:ct[1]-w/asp/2}}
- v.w=Math.min(maxW,Math.max(90,v.w));const h=v.w/asp;v.x=v.w>=W?(W-v.w)/2:Math.min(W-v.w,Math.max(0,v.x));v.y=h>=H?(H-h)/2:Math.min(H-h,Math.max(0,v.y));return{x:v.x,y:v.y,w:v.w,h}}
+ v.w=Math.min(maxW,Math.max(k=='world'?260:90,v.w));const h=v.w/asp;v.x=v.w>=W?(W-v.w)/2:Math.min(W-v.w,Math.max(0,v.x));v.y=h>=H?(H-h)/2:Math.min(H-h,Math.max(0,v.y));return{x:v.x,y:v.y,w:v.w,h}}
 const TX=[0,256,512,768],TY=[0,256,512],TWD=[256,256,256,132],THT=[256,256,88];
 function updateTiles(){const g=document.getElementById('tl');if(WV3||!g||vk()!='world')return;const v=getV();if(v.w>640)return;const mx=v.w*.15,my=v.h*.15;
  for(let r=0;r<3;r++)for(let c=0;c<4;c++){const x=TX[c],y=TY[r],w=TWD[c],h=THT[r];if(x>v.x+v.w+mx||x+w<v.x-mx||y>v.y+v.h+my||y+h<v.y-my)continue;const id='tl'+c+r;if(g.querySelector('#'+id))continue;
