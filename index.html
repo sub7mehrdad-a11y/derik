@@ -153,6 +153,7 @@ h2{font-size:15px;margin:0 0 6px}p{margin:4px 0 8px}
 <div id="toast"></div>
 <div id="sheet"><div id="shead"></div><div id="schips"></div><div id="sbody"></div><div id="sact"></div></div><div id="tip" class="off" onclick="tipOff()"></div>
 <div id="ov"></div><div id="pop" role="status" aria-live="polite"></div><div id="adov"></div>
+<script>var LANG=(function(){try{var l=localStorage.getItem('derik-lang');if(l)return l}catch(e){}var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}return /Tehran/.test(tz)||/^fa/i.test(navigator.language||'')?'fa':'en'})();if(LANG=='en'){document.documentElement.lang='en';document.documentElement.dir='ltr';document.write('<script src="lang-en.js"><\/script>')}</script>
 <script>
 const G={grain:['غلات',10],date:['خرما',13],wool:['پشم',17],wine:['شراب',22],cedar:['چوب سدر',26],cloth:['منسوجات',30],metal:['فلز',34],argh:['ارغوان',40],lapis:['لاجورد',44]};
 /* عمق بازار: کالای ارزان عمیق‌تر است و کالای گران کم‌عمق (فروش چند بار قیمتش را زود پایین می‌آورد) */
@@ -206,8 +207,17 @@ const newProps=(c,home)=>({house:true,wh:{},whCap:home?WHCAP:200,plots:[null,nul
 const propsOf=c=>S.props[c];
 const whOf=c=>S.props[c]?S.props[c].wh:null;
 const whCap=c=>S.props[c]?S.props[c].whCap+S.props[c].plots.filter(x=>x&&x.t=='store').length*300:0;
-const f=n=>(Math.round(n)||0).toLocaleString('fa');
-const f1=n=>(Math.round(n*10)/10).toLocaleString('fa');
+/* ===== زبان / Language ===== */
+let _re=null;
+function T(s){if(LANG!='en'||typeof s!='string'||!/[\u0600-\u06FF]/.test(s))return s;
+ if(!_re){const ks=Object.keys(window.EN||{}).sort((a,b)=>b.length-a.length).map(k=>{const e=k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return k.length<=4?'(?<![\\u0621-\\u06D3])'+e+'(?![\\u0621-\\u06D3])':e});_re=new RegExp(ks.join('|'),'g')}
+ return s.replace(/\u064B/g,'').replace(_re,m=>window.EN[m]).replace(/[\u06F0-\u06F9]/g,c=>c.charCodeAt(0)-1776).replace(/[\u0660-\u0669]/g,c=>c.charCodeAt(0)-1632).replace(/\u066C/g,',').replace(/\u066B/g,'.').replace(/\u066A/g,'%').replace(/[«»]/g,'"').replace(/\u060C/g,',').replace(/\u061F/g,'?').replace(/\u061B/g,';')}
+if(LANG=='en'){const d=Object.getOwnPropertyDescriptor(Element.prototype,'innerHTML');Object.defineProperty(Element.prototype,'innerHTML',{configurable:true,get:d.get,set(v){d.set.call(this,T(v))}});const d2=Object.getOwnPropertyDescriptor(Node.prototype,'textContent');Object.defineProperty(Node.prototype,'textContent',{configurable:true,get:d2.get,set(v){d2.set.call(this,T(v))}});document.title=T(document.title)}
+function setLang(l){try{localStorage.setItem('derik-lang',l)}catch(e){}location.reload()}
+const langRow=()=>`<div class="car" style="display:flex;gap:8px;align-items:center;justify-content:center"><button class="${LANG=='fa'?'':'o'}" onclick="setLang('fa')">فارسی</button><button class="${LANG=='en'?'':'o'}" onclick="setLang('en')">English</button></div>`;
+const NL=LANG=='en'?'en-US':'fa';
+const f=n=>(Math.round(n)||0).toLocaleString(NL);
+const f1=n=>(Math.round(n*10)/10).toLocaleString(NL);
 let S,IMG=false;
 /* ===== تقویم و فصل ===== */
 const MN=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'],ML=[31,31,31,31,31,31,30,30,30,30,30,29];
@@ -230,7 +240,7 @@ function price(c,g){const m=(S.mod[g]&&(S.mod[g].c==c||S.mod[g].c=='all')?S.mod[
 /* رژیم شهرها: ضریب قیمت زمین و خانه، نوسان بازار و ضریب قیمت‌ها. شهرهای مرکز دولتی و باثبات‌اند؛ شهرهای دور آزادتر، پرنوسان‌تر و گران‌ترند */
 const HK={babel:.7,parsa:1.15,susa:1,bakhtar:1.2,sardis:1.4,sur:1.6},VOL={babel:.7,parsa:.7,susa:.7,bakhtar:1.3,sardis:1.7,sur:2.2},PM={bakhtar:1.05,sardis:1.08,sur:1.12};
 const bp=(c,g)=>Math.max(1,Math.ceil(price(c,g)*1.07)),sp=(c,g)=>Math.max(1,Math.floor(price(c,g)*.93));
-function newCar(id){return{id,name:'کاروان شتر '+id.toLocaleString('fa'),at:S.home,cargo:{},route:[],ri:0,lv:0,up:S.day}}
+function newCar(id){return{id,name:'کاروان شتر '+id.toLocaleString(NL),at:S.home,cargo:{},route:[],ri:0,lv:0,up:S.day}}
 function init(home){
  S={v:5,eqv:2,ev:[],out:[],perk:{},nextEv:1,sheet:false,day:1,acc:0,speed:1,gold:1000,home:null,st:{},seen:{},mod:{},wh:{},props:{},selCity:'susa',selCar:1,view:'world',tab:'market',qty:10,tgt:'wh',
   cars:[],nextCar:2,guard:false,news:[],won:0,tut:1,loans:[],nextLoan:1,silver:0,rate:1,deposit:0,rep:0,order:null,
@@ -633,7 +643,7 @@ function citySVG(c){const p=PAL[c],h=c==S.home,P=propsOf(c),z=C[c].z;
  m+=box("bld('house')",LAY.house,P?'🏠':'🔑',P?(h?'خانه و دفتر شما':'خانه شما'):'خانه برای فروش',P?'انبار '+f(load(P.wh))+'/'+f(whCap(c)):'۲۰۰۰ دریک',P?'#f7d77a':'#ffffff88',!P);
  PLOTS.forEach((r,i)=>{const pl=P&&P.plots[i];
   m+=box(`plotClick(${i})`,r,pl?PT[pl.t].ic:'',pl?PT[pl.t].n:(P?'زمین خالی':'زمین'),pl?(pl.t=='farm'?(pl.mode=='share'?'سهم‌بری':'اجاره'):''):(P?'برای ساخت بزنید':''),pl?'#cfe3b8':'url(#fld)',!pl)});
- carAt(c).forEach((k,i)=>{m+=`<g class="bld" onclick="selCar(${k.id})"><text x="${455+i*24}" y="${265}" font-size="11">🐪</text><text x="${463+i*24}" y="${278}" class="cl" font-size="9" style="stroke:${p.wall}">${k.id.toLocaleString('fa')}</text></g>`});
+ carAt(c).forEach((k,i)=>{m+=`<g class="bld" onclick="selCar(${k.id})"><text x="${455+i*24}" y="${265}" font-size="11">🐪</text><text x="${463+i*24}" y="${278}" class="cl" font-size="9" style="stroke:${p.wall}">${k.id.toLocaleString(NL)}</text></g>`});
  m+=`<text x="300" y="16" text-anchor="middle" font-size="8.5" font-weight="700" fill="#2b2118" stroke="${p.gr}" stroke-width="3" paint-order="stroke">${C[c].n}${h?' ★ شهر خانگی':P?' · شما این‌جا خانه دارید':''}</text>`;
  return m}
 function sceneNote(){return S.note?`<div class="m" style="margin-top:6px">${S.note}</div>`:''}
@@ -931,7 +941,7 @@ document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(!S.choice&
 function closeSheet(){S.sheet=false;render()}
 function toggleCol(){S.col=!S.col;document.getElementById('sheet').classList.toggle('col',!!S.col)}
 const CSUB={parsa:'دیوان و تجارت درباری',susa:'پیوند راه‌های تجاری',babel:'تجارت رودخانه‌ای و معبد',sardis:'زرگری و بازار لیدیا',sur:'بندر و تجارت دریایی',bakhtar:'راه‌های شرقی و لاجورد'};
-function startHTML(){const sel=S.pickHome;return'<p class="m">شهر خانگی محل خانه و انبار شماست. بعداً می‌توانید در شهرهای دیگر هم خانه بخرید.</p>'+homeIds.map(c=>{const o=C[c],b=o.z=='gov'?'شروع با ۱۲۰۰ دریک':o.z=='free'?'۹۰۰ دریک + ۱۲ بار '+G[o.p[0]][0]:'۱۰۰۰ دریک + ۲ ستاره اعتبار';return`<div class="bzr${sel==c?' sel':''}"><img class="ga" style="width:56px;height:56px" src="assets/ui/v6/city-${c}.webp" alt="" onerror="this.style.visibility='hidden'"><div class="bzt"><b>${o.n}</b><div class="m">${CSUB[c]||''}</div><div class="m">${b}</div></div><button class="${sel==c?'':'o'}" onclick="S.pickHome='${c}';S.selCity='${c}';render()">${sel==c?'انتخاب شد':'انتخاب'}</button></div>`}).join('')}
+function startHTML(){const sel=S.pickHome;return langRow()+'<p class="m">شهر خانگی محل خانه و انبار شماست. بعداً می‌توانید در شهرهای دیگر هم خانه بخرید.</p>'+homeIds.map(c=>{const o=C[c],b=o.z=='gov'?'شروع با ۱۲۰۰ دریک':o.z=='free'?'۹۰۰ دریک + ۱۲ بار '+G[o.p[0]][0]:'۱۰۰۰ دریک + ۲ ستاره اعتبار';return`<div class="bzr${sel==c?' sel':''}"><img class="ga" style="width:56px;height:56px" src="assets/ui/v6/city-${c}.webp" alt="" onerror="this.style.visibility='hidden'"><div class="bzt"><b>${o.n}</b><div class="m">${CSUB[c]||''}</div><div class="m">${b}</div></div><button class="${sel==c?'':'o'}" onclick="S.pickHome='${c}';S.selCity='${c}';render()">${sel==c?'انتخاب شد':'انتخاب'}</button></div>`}).join('')}
 function startActions(){return`<button style="width:100%" ${S.pickHome?'':'disabled'} onclick="if(S.pickHome){const c=S.pickHome;setHome(c);enter(c)}">${S.pickHome?'آغاز تجارت در '+C[S.pickHome].n:'یک شهر انتخاب کنید'}</button>`}
 function sheetTitle(){if(!S.home&&S.tab!='cityinfo')return'انتخاب شهر خانگی';if(DTN[S.tab]&&!DT.includes(S.tab))return DTN[S.tab];const t=S.tab;if(DT.includes(t))return t=='ov'?'دکان من':DTN[t];if(t=='cityinfo')return C[S.ic].n;if(t=='cars'&&S.yc)return(S.yc=='sur'?'لنگرگاه ':'کاروانسرا ')+C[S.yc].n;if(t=='market')return'بازار '+C[S.selCity].n;if(t=='bourse')return'بورس '+C[S.selCity].n;if(t=='plot')return'زمین';if(t=='bld')return S.bk=='biz'?BIZ[S.selCity][1]+' '+BIZ[S.selCity][0]:BT[S.bk]||'';return C[S.selCity].n}
 function sheetBody(){const t=S.tab;if(!S.home&&t!='cityinfo')return startHTML();return t=='bourse'?bourseHTML():t=='market'?marketHTML():t=='bld'?bldHTML():t=='plot'?plotHTML():t=='cityinfo'?cityInfoHTML(S.ic):t=='ov'?dashOv():t=='cars'?carsHTML():t=='wh'?whHTML():t=='stats'?statsHTML():t=='fin'?finHTML():t=='shop'?shopHTML():t=='news'?newsHTML():t=='help'?helpHTML():cityHTML()}
@@ -965,7 +975,7 @@ function dashOv(){const nw=netWorth(),whV=Math.round(Object.values(S.props).redu
 function newsHTML(){const A={'👑':'darius','⚔️':'darius','📜':'scribe','🐪':'caravan','🕌':'priest','⚓':'ship','🪵':'cedar','🎉':'festival-scene','💰':'metal','🌾':'grain'};
  return S.news.length?S.news.map(x=>{const k=Object.keys(A).find(e=>x.includes(e));return`<div class="bzr"><img class="ga" style="width:48px;height:48px" src="assets/ui/v6/${k?A[k]:'satrap'}.webp" alt="" onerror="this.style.visibility='hidden'"><div class="bzt">${x}</div></div>`}).join(''):'<p class="m">هنوز خبری نیست.</p>'}
 function helpHTML(){const T=[['شروع تجارت','scribe','روی هر شهر بزنید تا خلاصه‌اش را ببینید؛ «ورود به شهر» شما را به نقشه شهر می‌برد. شهر خانگی را انتخاب کنید و اولین کالا را بخرید.'],['قیمت و سود','metal','قیمت با هر معامله تغییر می‌کند. خرید و فروش هم‌زمان در یک شهر سود ندارد؛ کالا را به شهری ببرید که گران‌تر می‌خرد. عوارض و هزینه‌ی راه از سود کم می‌شود.'],['کاروان‌ها','caravan','هر کاروان ظرفیت و سرعت دارد. مقصد را انتخاب و حرکت را تأیید کنید. کاروانسرا بازار ندارد و فقط بورس تاجران در آن هست؛ در توقف باید مسیر را خودتان ادامه دهید.'],['املاک و تولید','farm','با خرید خانه انبار و اجازه‌ی ساخت دارید. روی زمین‌های خط‌چین مزرعه یا کارگاه بسازید؛ کارگاه‌ها دستمزد روزانه دارند.'],['وام و سپرده','priest','وام و سپرده در معبد است. پرداخت به‌موقع اعتبار را بالا می‌برد و تأخیر آن را کم می‌کند.'],['رویدادها','festival-scene','جشن، مناقصه، اجاره و درخواست‌های دیوان مهلت دارند. شرایط و پاداش پیش از پذیرش در کارت دیده می‌شود.'],['نقشه','satrap','نقشه را بکشید و با دو انگشت یا دکمه‌های ＋ و － بزرگ و کوچک کنید. بازی وقتی در آن هستید پیش می‌رود و با خروج متوقف می‌شود.']];
- return T.map(t=>`<details class="hlp"><summary><img class="ga" style="width:48px;height:48px" src="assets/ui/v6/${t[1]}.webp" alt="" onerror="this.style.visibility='hidden'"><b>${t[0]}</b></summary><p>${t[2]}</p></details>`).join('')+``+(S.nohint?'<button class="o" onclick="S.nohint=0;render()">نمایش دوباره راهنمای کوتاه</button> ':'')+(S.askReset?'<button onclick="reset()">بله، از اول شروع شود</button><button class="o" onclick="S.askReset=0;render()">نه</button>':'<button class="o" onclick="S.askReset=1;render()">⟲ شروع دوباره بازی</button>')}
+ return langRow()+T.map(t=>`<details class="hlp"><summary><img class="ga" style="width:48px;height:48px" src="assets/ui/v6/${t[1]}.webp" alt="" onerror="this.style.visibility='hidden'"><b>${t[0]}</b></summary><p>${t[2]}</p></details>`).join('')+``+(S.nohint?'<button class="o" onclick="S.nohint=0;render()">نمایش دوباره راهنمای کوتاه</button> ':'')+(S.askReset?'<button onclick="reset()">بله، از اول شروع شود</button><button class="o" onclick="S.askReset=0;render()">نه</button>':'<button class="o" onclick="S.askReset=1;render()">⟲ شروع دوباره بازی</button>')}
 function updateToast(){const t=document.getElementById('toast');const msg=!S.home?'شهر خانگی را انتخاب کنید: روی هر شهر بزنید. نقشه را بکشید و با دو انگشت بزرگ و کوچک کنید.':(S.nohint?'':hint());
  if(!msg||S.sheet||S.choice){t.innerHTML='';return}t.innerHTML=`<span>${msg}</span>${S.home?'<button onclick="S.nohint=1;render()">✕</button>':''}`}
 

@@ -1,4 +1,4 @@
-const V='derik-v12';
+const V='derik-v13';
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(V).then(c=>c.addAll(['./manifest.json','./icon.svg',...['wool','cloth','wine','grain','date','purple','cedar','lapis','metal','farm','scribe','priest','satrap','darius','caravan','ship','emblem'].map(n=>'./assets/ui/v6/'+n+'.webp')])).catch(()=>{}))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!=V).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 /* صفحه و داده‌ها: اول شبکه (همیشه نسخهٔ تازه)، اگر آفلاین بود از کش. تصاویر: اول کش. */
